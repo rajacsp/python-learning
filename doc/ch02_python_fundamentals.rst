@@ -348,3 +348,136 @@ Custom classes can define how they convert to built-in types by implementing spe
 
     print(str(player_score))  # Output: Score: 95
     print(int(player_score))  # Output: 95
+
+
+Python Basic Input and Output
+++++++++++++++++++++++++++++++
+
+1. Using print() for Standard Output
+====================================
+
+The print() function displays text and values to the standard output (console):
+
+.. code-block:: python
+
+    print("Hello, Python!")
+    print(100)
+    print(3.14)
+
+
+2. Printing Multiple Values
+============================
+
+Multiple values can be printed in a single call, separated by spaces by default:
+
+.. code-block:: python
+
+    name = "Alice"
+    age = 30
+
+    print(name, age)  
+    # Output: Alice 30
+
+
+3. Customizing Output with sep and end
+=======================================
+
+sep defines the separator between values. end defines what is printed at the end (default is newline):
+
+.. code-block:: python
+
+    print("Python", "is", "powerful", sep=" - ", end="!")
+    # Output: Python - is - powerful!
+
+
+4. Formatted Output using f-strings
+====================================
+
+f-strings provide a readable and efficient way to format strings:
+
+.. code-block:: python
+
+    name = "Bob"
+    score = 88
+
+    print(f"Student {name} scored {score} marks.")
+    # Output: Student Bob scored 88 marks.
+
+
+5. Using str.format() Method
+=============================
+
+An alternative formatting approach, useful for older Python versions:
+
+.. code-block:: python
+
+    product = "Laptop"
+    price = 1200
+
+    print("The price of {} is ${}".format(product, price))
+    # Output: The price of Laptop is $1200
+
+
+6. String Formatting with Old-Style % Operator
+===============================================
+
+Legacy formatting style, still seen in legacy codebases:
+
+.. code-block:: python
+
+    item = "Book"
+    quantity = 5
+
+    print("You bought %d %s(s)." % (quantity, item))
+    # Output: You bought 5 Book(s).
+
+
+7. Using input() to Receive User Input
+=======================================
+
+input() always returns data as a string:
+
+.. code-block:: python
+
+    name = input("Enter your name: ")
+    print("Hello,", name)
+
+
+8. Converting Input to Required Data Type
+==========================================
+
+Explicit conversion is required when numeric operations are needed:
+
+.. code-block:: python
+
+    age = int(input("Enter your age: "))
+
+    print(f"You will be {age + 1} next year.")
+
+
+9. Reading Multiple Inputs in One Line
+=======================================
+
+Useful for command-line programs requiring space-separated values:
+
+.. code-block:: python
+
+    numbers = input("Enter two numbers: ").split()
+
+    num1 = int(numbers[0])
+    num2 = int(numbers[1])
+
+    print(num1 + num2)
+
+
+10. Redirecting Output to a File
+=================================
+
+The print() function can send output to files using the file parameter:
+
+.. code-block:: python
+
+    with open("output.txt", "w") as file:
+        print("This text goes into the file.", file=file)
+
+    print("Data successfully written to output.txt")
