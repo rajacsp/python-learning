@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6. Python if…else Statement &mdash; Python Learning 1.00 documentation</title>
+  <title>6. Chapter 3: Python Flow Control &mdash; Python Learning 1.00 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. Python Numbers and Mathematics" href="ch04_python_data_types.html" />
+    <link rel="next" title="7. Chapter 4: Python Data Types" href="ch04_python_data_types.html" />
     <link rel="prev" title="2. Python Variables and Literals" href="ch02_python_fundamentals.html" /> 
 </head>
 
@@ -48,77 +48,75 @@
 <li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-type-conversion">3. Python Type Conversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-basic-input-and-output">4. Python Basic Input and Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-operators">5. Python Operators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Python if…else Statement</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-if-statement">6.1. 1. Basic if Statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-if-else-statement">6.2. 2. Using if…else Statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-if-elif-else-chains">6.3. 3. Using if…elif…else Chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nested-if-statements">6.4. 4. Nested if Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-logical-operators-in-conditions">6.5. 5. Using Logical Operators in Conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#short-hand-if-statement-single-line">6.6. 6. Short-Hand if Statement (Single Line)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#short-hand-if-else-ternary-expression">6.7. 7. Short-Hand if…else (Ternary Expression)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#checking-multiple-values-with-in">6.8. 8. Checking Multiple Values with in</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#comparing-strings-in-conditions">6.9. 9. Comparing Strings in Conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-if-statement">6.10. 10. Using pass in if Statement</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Chapter 3: Python Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-if-else-statement">6.1. Python if…else Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-if-statement">6.1.1. 1. Basic if Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-if-else-statement">6.1.2. 2. Using if…else Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-if-elif-else-chains">6.1.3. 3. Using if…elif…else Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-if-statements">6.1.4. 4. Nested if Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-logical-operators-in-conditions">6.1.5. 5. Using Logical Operators in Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-hand-if-statement-single-line">6.1.6. 6. Short-Hand if Statement (Single Line)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-hand-if-else-ternary-expression">6.1.7. 7. Short-Hand if…else (Ternary Expression)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-multiple-values-with-in">6.1.8. 8. Checking Multiple Values with in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-strings-in-conditions">6.1.9. 9. Comparing Strings in Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-if-statement">6.1.10. 10. Using pass in if Statement</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#python-for-loop">7. Python for Loop</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-for-loop-with-a-sequence">7.1. 1. Basic for Loop with a Sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-range-in-for-loop">7.2. 2. Using range() in for Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#custom-start-and-step-with-range">7.3. 3. Custom Start and Step with range()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iterating-through-a-string">7.4. 4. Iterating Through a String</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-for-with-index-via-enumerate">7.5. 5. Using for with Index via enumerate()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nested-for-loops">7.6. 6. Nested for Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-break-in-for-loop">7.7. 7. Using break in for Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-continue-in-for-loop">7.8. 8. Using continue in for Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#for-loop-with-else-clause">7.9. 9. for Loop with else Clause</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#iterating-over-dictionaries">7.10. 10. Iterating Over Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-for-loop">6.2. Python for Loop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-for-loop-with-a-sequence">6.2.1. 1. Basic for Loop with a Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-range-in-for-loop">6.2.2. 2. Using range() in for Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-start-and-step-with-range">6.2.3. 3. Custom Start and Step with range()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-string">6.2.4. 4. Iterating Through a String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-for-with-index-via-enumerate">6.2.5. 5. Using for with Index via enumerate()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-for-loops">6.2.6. 6. Nested for Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-break-in-for-loop">6.2.7. 7. Using break in for Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-continue-in-for-loop">6.2.8. 8. Using continue in for Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-loop-with-else-clause">6.2.9. 9. for Loop with else Clause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-over-dictionaries">6.2.10. 10. Iterating Over Dictionaries</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#python-while-loop">8. Python while Loop</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-while-loop">8.1. 1. Basic while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#decrementing-counter-in-while-loop">8.2. 2. Decrementing Counter in while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-while-with-user-input">8.3. 3. Using while with User Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#infinite-while-loop">8.4. 4. Infinite while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#breaking-a-while-loop">8.5. 5. Breaking a while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-continue-in-while-loop">8.6. 6. Using continue in while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#while-loop-with-else-clause">8.7. 7. while Loop with else Clause</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simulating-do-while-loop-behavior">8.8. 8. Simulating do-while Loop Behavior</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nested-while-loops">8.9. 9. Nested while Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-while-for-input-validation">8.10. 10. Using while for Input Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-while-loop">6.3. Python while Loop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-while-loop">6.3.1. 1. Basic while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decrementing-counter-in-while-loop">6.3.2. 2. Decrementing Counter in while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-while-with-user-input">6.3.3. 3. Using while with User Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#infinite-while-loop">6.3.4. 4. Infinite while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breaking-a-while-loop">6.3.5. 5. Breaking a while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-continue-in-while-loop">6.3.6. 6. Using continue in while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while-loop-with-else-clause">6.3.7. 7. while Loop with else Clause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulating-do-while-loop-behavior">6.3.8. 8. Simulating do-while Loop Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-while-loops">6.3.9. 9. Nested while Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-while-for-input-validation">6.3.10. 10. Using while for Input Validation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#python-break-and-continue">9. Python break and continue</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#using-break-to-exit-a-loop-early">9.1. 1. Using break to Exit a Loop Early</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-continue-to-skip-an-iteration">9.2. 2. Using continue to Skip an Iteration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#break-in-a-while-loop">9.3. 3. break in a while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#continue-in-a-while-loop">9.4. 4. continue in a while Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-break-in-nested-loops">9.5. 5. Using break in Nested Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-flag-with-break-for-controlled-exit">9.6. 6. Using Flag with break for Controlled Exit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#break-else-interaction">9.7. 7. break + else Interaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#continue-for-input-filtering">9.8. 8. continue for Input Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#breaking-based-on-user-input">9.9. 9. Breaking Based on User Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#performance-use-case-with-continue">9.10. 10. Performance Use Case with continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-break-and-continue">6.4. Python break and continue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-break-to-exit-a-loop-early">6.4.1. 1. Using break to Exit a Loop Early</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-continue-to-skip-an-iteration">6.4.2. 2. Using continue to Skip an Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#break-in-a-while-loop">6.4.3. 3. break in a while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continue-in-a-while-loop">6.4.4. 4. continue in a while Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-break-in-nested-loops">6.4.5. 5. Using break in Nested Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-flag-with-break-for-controlled-exit">6.4.6. 6. Using Flag with break for Controlled Exit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#break-else-interaction">6.4.7. 7. break + else Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continue-for-input-filtering">6.4.8. 8. continue for Input Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breaking-based-on-user-input">6.4.9. 9. Breaking Based on User Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-use-case-with-continue">6.4.10. 10. Performance Use Case with continue</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#python-pass-statement">10. Python pass Statement</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-usage-of-pass">10.1. 1. Basic Usage of pass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-an-empty-function">10.2. 2. Using pass in an Empty Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-a-class-definition">10.3. 3. Using pass in a Class Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-a-loop">10.4. 4. Using pass in a Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-conditional-blocks">10.5. 5. Using pass in Conditional Blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pass-vs-continue-vs-break">10.6. 6. pass vs continue vs break</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-as-placeholder-in-exception-handling">10.7. 7. Using pass as Placeholder in Exception Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pass-in-abstract-method-design">10.8. 8. Using pass in Abstract Method Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pass-in-function-control-flow-planning">10.9. 9. pass in Function Control Flow Planning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#real-world-use-case-iterative-development">10.10. 10. Real-World Use Case: Iterative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-pass-statement">6.5. Python pass Statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-usage-of-pass">6.5.1. 1. Basic Usage of pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-an-empty-function">6.5.2. 2. Using pass in an Empty Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-a-class-definition">6.5.3. 3. Using pass in a Class Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-a-loop">6.5.4. 4. Using pass in a Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-conditional-blocks">6.5.5. 5. Using pass in Conditional Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pass-vs-continue-vs-break">6.5.6. 6. pass vs continue vs break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-as-placeholder-in-exception-handling">6.5.7. 7. Using pass as Placeholder in Exception Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pass-in-abstract-method-design">6.5.8. 8. Using pass in Abstract Method Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pass-in-function-control-flow-planning">6.5.9. 9. pass in Function Control Flow Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-use-case-iterative-development">6.5.10. 10. Real-World Use Case: Iterative Development</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">11. Python Numbers and Mathematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-string">12. Python String</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-list">13. Python List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-tuple">14. Python Tuple</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-set">15. Python Set</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-dictionary">16. Python Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">7. Chapter 4: Python Data Types</a></li>
 </ul>
 
         </div>
@@ -135,7 +133,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">6. </span>Python if…else Statement</li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Chapter 3: Python Flow Control</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch03_python_flow_control.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -145,10 +143,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="python-if-else-statement">
-<span id="ch03"></span><h1><span class="section-number">6. </span>Python if…else Statement<a class="headerlink" href="#python-if-else-statement" title="Link to this heading">¶</a></h1>
+  <section id="chapter-3-python-flow-control">
+<span id="ch03"></span><h1><span class="section-number">6. </span>Chapter 3: Python Flow Control<a class="headerlink" href="#chapter-3-python-flow-control" title="Link to this heading">¶</a></h1>
+<section id="python-if-else-statement">
+<h2><span class="section-number">6.1. </span>Python if…else Statement<a class="headerlink" href="#python-if-else-statement" title="Link to this heading">¶</a></h2>
 <section id="basic-if-statement">
-<h2><span class="section-number">6.1. </span>1. Basic if Statement<a class="headerlink" href="#basic-if-statement" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.1. </span>1. Basic if Statement<a class="headerlink" href="#basic-if-statement" title="Link to this heading">¶</a></h3>
 <p>Executes the block only when the condition evaluates to True:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
 
@@ -158,7 +158,7 @@
 </div>
 </section>
 <section id="using-if-else-statement">
-<h2><span class="section-number">6.2. </span>2. Using if…else Statement<a class="headerlink" href="#using-if-else-statement" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.2. </span>2. Using if…else Statement<a class="headerlink" href="#using-if-else-statement" title="Link to this heading">¶</a></h3>
 <p>Provides an alternative execution path when the condition is False:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">15</span>
 
@@ -170,7 +170,7 @@
 </div>
 </section>
 <section id="using-if-elif-else-chains">
-<h2><span class="section-number">6.3. </span>3. Using if…elif…else Chains<a class="headerlink" href="#using-if-elif-else-chains" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.3. </span>3. Using if…elif…else Chains<a class="headerlink" href="#using-if-elif-else-chains" title="Link to this heading">¶</a></h3>
 <p>Allows testing multiple conditions in sequence:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
 
@@ -186,7 +186,7 @@
 </div>
 </section>
 <section id="nested-if-statements">
-<h2><span class="section-number">6.4. </span>4. Nested if Statements<a class="headerlink" href="#nested-if-statements" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.4. </span>4. Nested if Statements<a class="headerlink" href="#nested-if-statements" title="Link to this heading">¶</a></h3>
 <p>An if block can exist inside another for complex logic:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span>
@@ -200,7 +200,7 @@
 </div>
 </section>
 <section id="using-logical-operators-in-conditions">
-<h2><span class="section-number">6.5. </span>5. Using Logical Operators in Conditions<a class="headerlink" href="#using-logical-operators-in-conditions" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.5. </span>5. Using Logical Operators in Conditions<a class="headerlink" href="#using-logical-operators-in-conditions" title="Link to this heading">¶</a></h3>
 <p>Combine multiple conditions using and, or, and not:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">is_verified</span> <span class="o">=</span> <span class="kc">True</span>
@@ -211,7 +211,7 @@
 </div>
 </section>
 <section id="short-hand-if-statement-single-line">
-<h2><span class="section-number">6.6. </span>6. Short-Hand if Statement (Single Line)<a class="headerlink" href="#short-hand-if-statement-single-line" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.6. </span>6. Short-Hand if Statement (Single Line)<a class="headerlink" href="#short-hand-if-statement-single-line" title="Link to this heading">¶</a></h3>
 <p>Useful for minimal conditional checks:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 
@@ -220,7 +220,7 @@
 </div>
 </section>
 <section id="short-hand-if-else-ternary-expression">
-<h2><span class="section-number">6.7. </span>7. Short-Hand if…else (Ternary Expression)<a class="headerlink" href="#short-hand-if-else-ternary-expression" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.7. </span>7. Short-Hand if…else (Ternary Expression)<a class="headerlink" href="#short-hand-if-else-ternary-expression" title="Link to this heading">¶</a></h3>
 <p>Compact inline conditional assignment:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
 
@@ -230,7 +230,7 @@
 </div>
 </section>
 <section id="checking-multiple-values-with-in">
-<h2><span class="section-number">6.8. </span>8. Checking Multiple Values with in<a class="headerlink" href="#checking-multiple-values-with-in" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.8. </span>8. Checking Multiple Values with in<a class="headerlink" href="#checking-multiple-values-with-in" title="Link to this heading">¶</a></h3>
 <p>Efficient alternative to chained OR conditions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="s2">&quot;Sunday&quot;</span>
 
@@ -242,7 +242,7 @@
 </div>
 </section>
 <section id="comparing-strings-in-conditions">
-<h2><span class="section-number">6.9. </span>9. Comparing Strings in Conditions<a class="headerlink" href="#comparing-strings-in-conditions" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.9. </span>9. Comparing Strings in Conditions<a class="headerlink" href="#comparing-strings-in-conditions" title="Link to this heading">¶</a></h3>
 <p>Common technique to handle case-insensitive comparisons:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
 
@@ -252,7 +252,7 @@
 </div>
 </section>
 <section id="using-pass-in-if-statement">
-<h2><span class="section-number">6.10. </span>10. Using pass in if Statement<a class="headerlink" href="#using-pass-in-if-statement" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.1.10. </span>10. Using pass in if Statement<a class="headerlink" href="#using-pass-in-if-statement" title="Link to this heading">¶</a></h3>
 <p>pass acts as a syntactic placeholder to avoid errors for empty blocks:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -265,9 +265,9 @@
 </section>
 </section>
 <section id="python-for-loop">
-<h1><span class="section-number">7. </span>Python for Loop<a class="headerlink" href="#python-for-loop" title="Link to this heading">¶</a></h1>
+<h2><span class="section-number">6.2. </span>Python for Loop<a class="headerlink" href="#python-for-loop" title="Link to this heading">¶</a></h2>
 <section id="basic-for-loop-with-a-sequence">
-<h2><span class="section-number">7.1. </span>1. Basic for Loop with a Sequence<a class="headerlink" href="#basic-for-loop-with-a-sequence" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.1. </span>1. Basic for Loop with a Sequence<a class="headerlink" href="#basic-for-loop-with-a-sequence" title="Link to this heading">¶</a></h3>
 <p>Iterates over each element in a sequence:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
 
@@ -277,7 +277,7 @@
 </div>
 </section>
 <section id="using-range-in-for-loop">
-<h2><span class="section-number">7.2. </span>2. Using range() in for Loop<a class="headerlink" href="#using-range-in-for-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.2. </span>2. Using range() in for Loop<a class="headerlink" href="#using-range-in-for-loop" title="Link to this heading">¶</a></h3>
 <p>Generates numbers from 0 to 4 by default:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -285,7 +285,7 @@
 </div>
 </section>
 <section id="custom-start-and-step-with-range">
-<h2><span class="section-number">7.3. </span>3. Custom Start and Step with range()<a class="headerlink" href="#custom-start-and-step-with-range" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.3. </span>3. Custom Start and Step with range()<a class="headerlink" href="#custom-start-and-step-with-range" title="Link to this heading">¶</a></h3>
 <p>Format: range(start, stop, step)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -294,7 +294,7 @@
 </div>
 </section>
 <section id="iterating-through-a-string">
-<h2><span class="section-number">7.4. </span>4. Iterating Through a String<a class="headerlink" href="#iterating-through-a-string" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.4. </span>4. Iterating Through a String<a class="headerlink" href="#iterating-through-a-string" title="Link to this heading">¶</a></h3>
 <p>Processes each character individually:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
 
@@ -304,7 +304,7 @@
 </div>
 </section>
 <section id="using-for-with-index-via-enumerate">
-<h2><span class="section-number">7.5. </span>5. Using for with Index via enumerate()<a class="headerlink" href="#using-for-with-index-via-enumerate" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.5. </span>5. Using for with Index via enumerate()<a class="headerlink" href="#using-for-with-index-via-enumerate" title="Link to this heading">¶</a></h3>
 <p>Provides both index and value during iteration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">]</span>
 
@@ -314,7 +314,7 @@
 </div>
 </section>
 <section id="nested-for-loops">
-<h2><span class="section-number">7.6. </span>6. Nested for Loops<a class="headerlink" href="#nested-for-loops" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.6. </span>6. Nested for Loops<a class="headerlink" href="#nested-for-loops" title="Link to this heading">¶</a></h3>
 <p>A loop inside another loop, commonly used for matrices and grids:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
@@ -323,7 +323,7 @@
 </div>
 </section>
 <section id="using-break-in-for-loop">
-<h2><span class="section-number">7.7. </span>7. Using break in for Loop<a class="headerlink" href="#using-break-in-for-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.7. </span>7. Using break in for Loop<a class="headerlink" href="#using-break-in-for-loop" title="Link to this heading">¶</a></h3>
 <p>Terminates the loop when the condition is met:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
@@ -333,7 +333,7 @@
 </div>
 </section>
 <section id="using-continue-in-for-loop">
-<h2><span class="section-number">7.8. </span>8. Using continue in for Loop<a class="headerlink" href="#using-continue-in-for-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.8. </span>8. Using continue in for Loop<a class="headerlink" href="#using-continue-in-for-loop" title="Link to this heading">¶</a></h3>
 <p>Skips the current iteration without stopping the loop:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -343,7 +343,7 @@
 </div>
 </section>
 <section id="for-loop-with-else-clause">
-<h2><span class="section-number">7.9. </span>9. for Loop with else Clause<a class="headerlink" href="#for-loop-with-else-clause" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.9. </span>9. for Loop with else Clause<a class="headerlink" href="#for-loop-with-else-clause" title="Link to this heading">¶</a></h3>
 <p>The else block executes when the loop finishes normally (not broken):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -353,7 +353,7 @@
 </div>
 </section>
 <section id="iterating-over-dictionaries">
-<h2><span class="section-number">7.10. </span>10. Iterating Over Dictionaries<a class="headerlink" href="#iterating-over-dictionaries" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.2.10. </span>10. Iterating Over Dictionaries<a class="headerlink" href="#iterating-over-dictionaries" title="Link to this heading">¶</a></h3>
 <p>Allows iteration over keys, values, or key–value pairs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
 
@@ -364,9 +364,9 @@
 </section>
 </section>
 <section id="python-while-loop">
-<h1><span class="section-number">8. </span>Python while Loop<a class="headerlink" href="#python-while-loop" title="Link to this heading">¶</a></h1>
+<h2><span class="section-number">6.3. </span>Python while Loop<a class="headerlink" href="#python-while-loop" title="Link to this heading">¶</a></h2>
 <section id="basic-while-loop">
-<h2><span class="section-number">8.1. </span>1. Basic while Loop<a class="headerlink" href="#basic-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.1. </span>1. Basic while Loop<a class="headerlink" href="#basic-while-loop" title="Link to this heading">¶</a></h3>
 <p>Executes repeatedly as long as the condition evaluates to True:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -377,7 +377,7 @@
 </div>
 </section>
 <section id="decrementing-counter-in-while-loop">
-<h2><span class="section-number">8.2. </span>2. Decrementing Counter in while Loop<a class="headerlink" href="#decrementing-counter-in-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.2. </span>2. Decrementing Counter in while Loop<a class="headerlink" href="#decrementing-counter-in-while-loop" title="Link to this heading">¶</a></h3>
 <p>Commonly used for countdown logic:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -388,7 +388,7 @@
 </div>
 </section>
 <section id="using-while-with-user-input">
-<h2><span class="section-number">8.3. </span>3. Using while with User Input<a class="headerlink" href="#using-while-with-user-input" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.3. </span>3. Using while with User Input<a class="headerlink" href="#using-while-with-user-input" title="Link to this heading">¶</a></h3>
 <p>Loop continues until a specific input condition is met:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
@@ -398,7 +398,7 @@
 </div>
 </section>
 <section id="infinite-while-loop">
-<h2><span class="section-number">8.4. </span>4. Infinite while Loop<a class="headerlink" href="#infinite-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.4. </span>4. Infinite while Loop<a class="headerlink" href="#infinite-while-loop" title="Link to this heading">¶</a></h3>
 <p>Creates an endless loop unless interrupted with break:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running...&quot;</span><span class="p">)</span>
@@ -406,7 +406,7 @@
 </div>
 </section>
 <section id="breaking-a-while-loop">
-<h2><span class="section-number">8.5. </span>5. Breaking a while Loop<a class="headerlink" href="#breaking-a-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.5. </span>5. Breaking a while Loop<a class="headerlink" href="#breaking-a-while-loop" title="Link to this heading">¶</a></h3>
 <p>break terminates the loop immediately:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -419,7 +419,7 @@
 </div>
 </section>
 <section id="using-continue-in-while-loop">
-<h2><span class="section-number">8.6. </span>6. Using continue in while Loop<a class="headerlink" href="#using-continue-in-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.6. </span>6. Using continue in while Loop<a class="headerlink" href="#using-continue-in-while-loop" title="Link to this heading">¶</a></h3>
 <p>Skips the current iteration and proceeds to the next cycle:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -432,7 +432,7 @@
 </div>
 </section>
 <section id="while-loop-with-else-clause">
-<h2><span class="section-number">8.7. </span>7. while Loop with else Clause<a class="headerlink" href="#while-loop-with-else-clause" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.7. </span>7. while Loop with else Clause<a class="headerlink" href="#while-loop-with-else-clause" title="Link to this heading">¶</a></h3>
 <p>The else block runs if the loop ends without encountering break:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -445,7 +445,7 @@
 </div>
 </section>
 <section id="simulating-do-while-loop-behavior">
-<h2><span class="section-number">8.8. </span>8. Simulating do-while Loop Behavior<a class="headerlink" href="#simulating-do-while-loop-behavior" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.8. </span>8. Simulating do-while Loop Behavior<a class="headerlink" href="#simulating-do-while-loop-behavior" title="Link to this heading">¶</a></h3>
 <p>Python does not have a native do-while, but this pattern replicates it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -458,7 +458,7 @@
 </div>
 </section>
 <section id="nested-while-loops">
-<h2><span class="section-number">8.9. </span>9. Nested while Loops<a class="headerlink" href="#nested-while-loops" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.9. </span>9. Nested while Loops<a class="headerlink" href="#nested-while-loops" title="Link to this heading">¶</a></h3>
 <p>A while loop inside another while loop:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -472,7 +472,7 @@
 </div>
 </section>
 <section id="using-while-for-input-validation">
-<h2><span class="section-number">8.10. </span>10. Using while for Input Validation<a class="headerlink" href="#using-while-for-input-validation" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.3.10. </span>10. Using while for Input Validation<a class="headerlink" href="#using-while-for-input-validation" title="Link to this heading">¶</a></h3>
 <p>Ensures user input meets required constraints before proceeding:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
@@ -485,9 +485,9 @@
 </section>
 </section>
 <section id="python-break-and-continue">
-<h1><span class="section-number">9. </span>Python break and continue<a class="headerlink" href="#python-break-and-continue" title="Link to this heading">¶</a></h1>
+<h2><span class="section-number">6.4. </span>Python break and continue<a class="headerlink" href="#python-break-and-continue" title="Link to this heading">¶</a></h2>
 <section id="using-break-to-exit-a-loop-early">
-<h2><span class="section-number">9.1. </span>1. Using break to Exit a Loop Early<a class="headerlink" href="#using-break-to-exit-a-loop-early" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.1. </span>1. Using break to Exit a Loop Early<a class="headerlink" href="#using-break-to-exit-a-loop-early" title="Link to this heading">¶</a></h3>
 <p>The loop stops immediately when the break statement is encountered:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
@@ -497,7 +497,7 @@
 </div>
 </section>
 <section id="using-continue-to-skip-an-iteration">
-<h2><span class="section-number">9.2. </span>2. Using continue to Skip an Iteration<a class="headerlink" href="#using-continue-to-skip-an-iteration" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.2. </span>2. Using continue to Skip an Iteration<a class="headerlink" href="#using-continue-to-skip-an-iteration" title="Link to this heading">¶</a></h3>
 <p>The current iteration is skipped, and the loop proceeds with the next cycle:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -507,7 +507,7 @@
 </div>
 </section>
 <section id="break-in-a-while-loop">
-<h2><span class="section-number">9.3. </span>3. break in a while Loop<a class="headerlink" href="#break-in-a-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.3. </span>3. break in a while Loop<a class="headerlink" href="#break-in-a-while-loop" title="Link to this heading">¶</a></h3>
 <p>Demonstrates breaking out of an infinite loop:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -520,7 +520,7 @@
 </div>
 </section>
 <section id="continue-in-a-while-loop">
-<h2><span class="section-number">9.4. </span>4. continue in a while Loop<a class="headerlink" href="#continue-in-a-while-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.4. </span>4. continue in a while Loop<a class="headerlink" href="#continue-in-a-while-loop" title="Link to this heading">¶</a></h3>
 <p>Illustrates bypassing specific values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -533,7 +533,7 @@
 </div>
 </section>
 <section id="using-break-in-nested-loops">
-<h2><span class="section-number">9.5. </span>5. Using break in Nested Loops<a class="headerlink" href="#using-break-in-nested-loops" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.5. </span>5. Using break in Nested Loops<a class="headerlink" href="#using-break-in-nested-loops" title="Link to this heading">¶</a></h3>
 <p>break exits only the inner loop:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -544,7 +544,7 @@
 </div>
 </section>
 <section id="using-flag-with-break-for-controlled-exit">
-<h2><span class="section-number">9.6. </span>6. Using Flag with break for Controlled Exit<a class="headerlink" href="#using-flag-with-break-for-controlled-exit" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.6. </span>6. Using Flag with break for Controlled Exit<a class="headerlink" href="#using-flag-with-break-for-controlled-exit" title="Link to this heading">¶</a></h3>
 <p>Flag variables help manage complex exit logic:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -558,7 +558,7 @@
 </div>
 </section>
 <section id="break-else-interaction">
-<h2><span class="section-number">9.7. </span>7. break + else Interaction<a class="headerlink" href="#break-else-interaction" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.7. </span>7. break + else Interaction<a class="headerlink" href="#break-else-interaction" title="Link to this heading">¶</a></h3>
 <p>The else executes only if the loop does not terminate via break:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
@@ -569,7 +569,7 @@
 </div>
 </section>
 <section id="continue-for-input-filtering">
-<h2><span class="section-number">9.8. </span>8. continue for Input Filtering<a class="headerlink" href="#continue-for-input-filtering" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.8. </span>8. continue for Input Filtering<a class="headerlink" href="#continue-for-input-filtering" title="Link to this heading">¶</a></h3>
 <p>Useful for skipping unwanted values during iteration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;python123&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
@@ -579,7 +579,7 @@
 </div>
 </section>
 <section id="breaking-based-on-user-input">
-<h2><span class="section-number">9.9. </span>9. Breaking Based on User Input<a class="headerlink" href="#breaking-based-on-user-input" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.9. </span>9. Breaking Based on User Input<a class="headerlink" href="#breaking-based-on-user-input" title="Link to this heading">¶</a></h3>
 <p>Common pattern for controlled loop termination:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter &#39;q&#39; to quit: &quot;</span><span class="p">)</span>
@@ -589,7 +589,7 @@
 </div>
 </section>
 <section id="performance-use-case-with-continue">
-<h2><span class="section-number">9.10. </span>10. Performance Use Case with continue<a class="headerlink" href="#performance-use-case-with-continue" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.4.10. </span>10. Performance Use Case with continue<a class="headerlink" href="#performance-use-case-with-continue" title="Link to this heading">¶</a></h3>
 <p>Prevents unnecessary processing for invalid data, improving loop efficiency:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
@@ -602,9 +602,9 @@
 </section>
 </section>
 <section id="python-pass-statement">
-<h1><span class="section-number">10. </span>Python pass Statement<a class="headerlink" href="#python-pass-statement" title="Link to this heading">¶</a></h1>
+<h2><span class="section-number">6.5. </span>Python pass Statement<a class="headerlink" href="#python-pass-statement" title="Link to this heading">¶</a></h2>
 <section id="basic-usage-of-pass">
-<h2><span class="section-number">10.1. </span>1. Basic Usage of pass<a class="headerlink" href="#basic-usage-of-pass" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.1. </span>1. Basic Usage of pass<a class="headerlink" href="#basic-usage-of-pass" title="Link to this heading">¶</a></h3>
 <p>The pass statement acts as a placeholder where a statement is syntactically required but no action is needed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -614,7 +614,7 @@
 </div>
 </section>
 <section id="using-pass-in-an-empty-function">
-<h2><span class="section-number">10.2. </span>2. Using pass in an Empty Function<a class="headerlink" href="#using-pass-in-an-empty-function" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.2. </span>2. Using pass in an Empty Function<a class="headerlink" href="#using-pass-in-an-empty-function" title="Link to this heading">¶</a></h3>
 <p>Commonly used when defining function stubs during development:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">future_feature</span><span class="p">():</span>
     <span class="k">pass</span>
@@ -622,7 +622,7 @@
 </div>
 </section>
 <section id="using-pass-in-a-class-definition">
-<h2><span class="section-number">10.3. </span>3. Using pass in a Class Definition<a class="headerlink" href="#using-pass-in-a-class-definition" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.3. </span>3. Using pass in a Class Definition<a class="headerlink" href="#using-pass-in-a-class-definition" title="Link to this heading">¶</a></h3>
 <p>Allows declaration of a class structure without immediate implementation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -630,7 +630,7 @@
 </div>
 </section>
 <section id="using-pass-in-a-loop">
-<h2><span class="section-number">10.4. </span>4. Using pass in a Loop<a class="headerlink" href="#using-pass-in-a-loop" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.4. </span>4. Using pass in a Loop<a class="headerlink" href="#using-pass-in-a-loop" title="Link to this heading">¶</a></h3>
 <p>Maintains structural correctness without altering control flow:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -641,7 +641,7 @@
 </div>
 </section>
 <section id="using-pass-in-conditional-blocks">
-<h2><span class="section-number">10.5. </span>5. Using pass in Conditional Blocks<a class="headerlink" href="#using-pass-in-conditional-blocks" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.5. </span>5. Using pass in Conditional Blocks<a class="headerlink" href="#using-pass-in-conditional-blocks" title="Link to this heading">¶</a></h3>
 <p>Useful when logic for a condition will be implemented later:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
 
@@ -655,7 +655,7 @@
 </div>
 </section>
 <section id="pass-vs-continue-vs-break">
-<h2><span class="section-number">10.6. </span>6. pass vs continue vs break<a class="headerlink" href="#pass-vs-continue-vs-break" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.6. </span>6. pass vs continue vs break<a class="headerlink" href="#pass-vs-continue-vs-break" title="Link to this heading">¶</a></h3>
 <p>Key differences:</p>
 <ul class="simple">
 <li><p>pass → Does nothing</p></li>
@@ -670,7 +670,7 @@
 </div>
 </section>
 <section id="using-pass-as-placeholder-in-exception-handling">
-<h2><span class="section-number">10.7. </span>7. Using pass as Placeholder in Exception Handling<a class="headerlink" href="#using-pass-as-placeholder-in-exception-handling" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.7. </span>7. Using pass as Placeholder in Exception Handling<a class="headerlink" href="#using-pass-as-placeholder-in-exception-handling" title="Link to this heading">¶</a></h3>
 <p>Temporarily suppresses exception handling during development (use cautiously in production):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">risky_operation</span><span class="p">()</span>
@@ -680,7 +680,7 @@
 </div>
 </section>
 <section id="using-pass-in-abstract-method-design">
-<h2><span class="section-number">10.8. </span>8. Using pass in Abstract Method Design<a class="headerlink" href="#using-pass-in-abstract-method-design" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.8. </span>8. Using pass in Abstract Method Design<a class="headerlink" href="#using-pass-in-abstract-method-design" title="Link to this heading">¶</a></h3>
 <p>Used when defining interface-like structures before concrete implementations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -689,7 +689,7 @@
 </div>
 </section>
 <section id="pass-in-function-control-flow-planning">
-<h2><span class="section-number">10.9. </span>9. pass in Function Control Flow Planning<a class="headerlink" href="#pass-in-function-control-flow-planning" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.9. </span>9. pass in Function Control Flow Planning<a class="headerlink" href="#pass-in-function-control-flow-planning" title="Link to this heading">¶</a></h3>
 <p>Helps structure logic flow before final code integration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_user</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
@@ -700,7 +700,7 @@
 </div>
 </section>
 <section id="real-world-use-case-iterative-development">
-<h2><span class="section-number">10.10. </span>10. Real-World Use Case: Iterative Development<a class="headerlink" href="#real-world-use-case-iterative-development" title="Link to this heading">¶</a></h2>
+<h3><span class="section-number">6.5.10. </span>10. Real-World Use Case: Iterative Development<a class="headerlink" href="#real-world-use-case-iterative-development" title="Link to this heading">¶</a></h3>
 <p>Facilitates staged development in agile environments without breaking code execution:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">api_handler</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="c1"># Feature under construction</span>
@@ -709,13 +709,14 @@
 </div>
 </section>
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ch02_python_fundamentals.html" class="btn btn-neutral float-left" title="2. Python Variables and Literals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ch04_python_data_types.html" class="btn btn-neutral float-right" title="11. Python Numbers and Mathematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ch04_python_data_types.html" class="btn btn-neutral float-right" title="7. Chapter 4: Python Data Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
