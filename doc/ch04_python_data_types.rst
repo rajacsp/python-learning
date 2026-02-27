@@ -1,9 +1,5 @@
 .. _ch04:
 
-==========================
-Chapter 4: Python Data Types
-==========================
-
 Python Numbers and Mathematics
 +++++++++++++++++++++++++++++++
 

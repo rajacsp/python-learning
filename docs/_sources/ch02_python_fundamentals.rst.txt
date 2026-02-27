@@ -1,9 +1,5 @@
 .. _ch02:
 
-=======================
-Chapter 2: Python Fundamentals
-=======================
-
 Python Variables and Literals
 ++++++++++++++++++++++++++++++
 

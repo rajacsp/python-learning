@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. Chapter 2: Python Fundamentals &mdash; Python Learning 1.00 documentation</title>
+  <title>2. Python Variables and Literals &mdash; Python Learning 1.00 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Chapter 3: Python Flow Control" href="ch03_python_flow_control.html" />
+    <link rel="next" title="6. Python if…else Statement" href="ch03_python_flow_control.html" />
     <link rel="prev" title="1. Preface" href="preface.html" /> 
 </head>
 
@@ -44,63 +44,69 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Chapter 2: Python Fundamentals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#python-variables-and-literals">2.1. Python Variables and Literals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#declaring-and-assigning-variables">2.1.1. 1. Declaring and Assigning Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multiple-variable-assignment">2.1.2. 2. Multiple Variable Assignment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reassigning-variables">2.1.3. 3. Reassigning Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#numeric-literals">2.1.4. 4. Numeric Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-literals">2.1.5. 5. String Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#boolean-literals">2.1.6. 6. Boolean Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#special-literal-none">2.1.7. 7. Special Literal: None</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#collection-literals">2.1.8. 8. Collection Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#binary-octal-and-hexadecimal-literals">2.1.9. 9. Binary, Octal, and Hexadecimal Literals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-variables-in-expressions">2.1.10. 10. Using Variables in Expressions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Python Variables and Literals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#declaring-and-assigning-variables">2.1. 1. Declaring and Assigning Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-variable-assignment">2.2. 2. Multiple Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reassigning-variables">2.3. 3. Reassigning Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numeric-literals">2.4. 4. Numeric Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-literals">2.5. 5. String Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean-literals">2.6. 6. Boolean Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-literal-none">2.7. 7. Special Literal: None</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collection-literals">2.8. 8. Collection Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary-octal-and-hexadecimal-literals">2.9. 9. Binary, Octal, and Hexadecimal Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-variables-in-expressions">2.10. 10. Using Variables in Expressions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-type-conversion">2.2. Python Type Conversion</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#implicit-type-conversion-type-coercion">2.2.1. 1. Implicit Type Conversion (Type Coercion)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#explicit-type-conversion-to-integer-int">2.2.2. 2. Explicit Type Conversion to Integer (int())</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#explicit-type-conversion-to-float-float">2.2.3. 3. Explicit Type Conversion to Float (float())</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#explicit-type-conversion-to-string-str">2.2.4. 4. Explicit Type Conversion to String (str())</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-to-boolean-bool">2.2.5. 5. Converting to Boolean (bool())</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-between-strings-and-lists">2.2.6. 6. Converting Between Strings and Lists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-between-tuples-lists-and-sets">2.2.7. 7. Converting Between Tuples, Lists, and Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-to-dictionary-dict">2.2.8. 8. Converting to Dictionary (dict())</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#handling-conversion-errors-with-try-except">2.2.9. 9. Handling Conversion Errors with try / except</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#custom-type-conversion-via-str-and-int">2.2.10. 10. Custom Type Conversion via __str__ and __int__</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#python-type-conversion">3. Python Type Conversion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implicit-type-conversion-type-coercion">3.1. 1. Implicit Type Conversion (Type Coercion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-type-conversion-to-integer-int">3.2. 2. Explicit Type Conversion to Integer (int())</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-type-conversion-to-float-float">3.3. 3. Explicit Type Conversion to Float (float())</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-type-conversion-to-string-str">3.4. 4. Explicit Type Conversion to String (str())</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-to-boolean-bool">3.5. 5. Converting to Boolean (bool())</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-between-strings-and-lists">3.6. 6. Converting Between Strings and Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-between-tuples-lists-and-sets">3.7. 7. Converting Between Tuples, Lists, and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-to-dictionary-dict">3.8. 8. Converting to Dictionary (dict())</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-conversion-errors-with-try-except">3.9. 9. Handling Conversion Errors with try / except</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-type-conversion-via-str-and-int">3.10. 10. Custom Type Conversion via __str__ and __int__</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-basic-input-and-output">2.3. Python Basic Input and Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-print-for-standard-output">2.3.1. 1. Using print() for Standard Output</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#printing-multiple-values">2.3.2. 2. Printing Multiple Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#customizing-output-with-sep-and-end">2.3.3. 3. Customizing Output with sep and end</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#formatted-output-using-f-strings">2.3.4. 4. Formatted Output using f-strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-str-format-method">2.3.5. 5. Using str.format() Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-formatting-with-old-style-operator">2.3.6. 6. String Formatting with Old-Style % Operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-input-to-receive-user-input">2.3.7. 7. Using input() to Receive User Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-input-to-required-data-type">2.3.8. 8. Converting Input to Required Data Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-multiple-inputs-in-one-line">2.3.9. 9. Reading Multiple Inputs in One Line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#redirecting-output-to-a-file">2.3.10. 10. Redirecting Output to a File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#python-basic-input-and-output">4. Python Basic Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-print-for-standard-output">4.1. 1. Using print() for Standard Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-multiple-values">4.2. 2. Printing Multiple Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-output-with-sep-and-end">4.3. 3. Customizing Output with sep and end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formatted-output-using-f-strings">4.4. 4. Formatted Output using f-strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-str-format-method">4.5. 5. Using str.format() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-formatting-with-old-style-operator">4.6. 6. String Formatting with Old-Style % Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-input-to-receive-user-input">4.7. 7. Using input() to Receive User Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-input-to-required-data-type">4.8. 8. Converting Input to Required Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-multiple-inputs-in-one-line">4.9. 9. Reading Multiple Inputs in One Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirecting-output-to-a-file">4.10. 10. Redirecting Output to a File</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-operators">2.4. Python Operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#arithmetic-operators">2.4.1. 1. Arithmetic Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-operators">2.4.2. 2. Assignment Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comparison-relational-operators">2.4.3. 3. Comparison (Relational) Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#logical-operators">2.4.4. 4. Logical Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bitwise-operators">2.4.5. 5. Bitwise Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#membership-operators">2.4.6. 6. Membership Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#identity-operators">2.4.7. 7. Identity Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unary-operators">2.4.8. 8. Unary Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ternary-conditional-operator">2.4.9. 9. Ternary (Conditional) Operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operator-precedence">2.4.10. 10. Operator Precedence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#python-operators">5. Python Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#arithmetic-operators">5.1. 1. Arithmetic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assignment-operators">5.2. 2. Assignment Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparison-relational-operators">5.3. 3. Comparison (Relational) Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logical-operators">5.4. 4. Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bitwise-operators">5.5. 5. Bitwise Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#membership-operators">5.6. 6. Membership Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identity-operators">5.7. 7. Identity Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unary-operators">5.8. 8. Unary Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ternary-conditional-operator">5.9. 9. Ternary (Conditional) Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operator-precedence">5.10. 10. Operator Precedence</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">6. Python if…else Statement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html#python-for-loop">7. Python for Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html#python-while-loop">8. Python while Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html#python-break-and-continue">9. Python break and continue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html#python-pass-statement">10. Python pass Statement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">11. Python Numbers and Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-string">12. Python String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-list">13. Python List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-tuple">14. Python Tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-set">15. Python Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html#python-dictionary">16. Python Dictionary</a></li>
 </ul>
 
         </div>
@@ -117,7 +123,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>Chapter 2: Python Fundamentals</li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Python Variables and Literals</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch02_python_fundamentals.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -127,12 +133,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="chapter-2-python-fundamentals">
-<span id="ch02"></span><h1><span class="section-number">2. </span>Chapter 2: Python Fundamentals<a class="headerlink" href="#chapter-2-python-fundamentals" title="Link to this heading">¶</a></h1>
-<section id="python-variables-and-literals">
-<h2><span class="section-number">2.1. </span>Python Variables and Literals<a class="headerlink" href="#python-variables-and-literals" title="Link to this heading">¶</a></h2>
+  <section id="python-variables-and-literals">
+<span id="ch02"></span><h1><span class="section-number">2. </span>Python Variables and Literals<a class="headerlink" href="#python-variables-and-literals" title="Link to this heading">¶</a></h1>
 <section id="declaring-and-assigning-variables">
-<h3><span class="section-number">2.1.1. </span>1. Declaring and Assigning Variables<a class="headerlink" href="#declaring-and-assigning-variables" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.1. </span>1. Declaring and Assigning Variables<a class="headerlink" href="#declaring-and-assigning-variables" title="Link to this heading">¶</a></h2>
 <p>Variable assignment in Python is straightforward. Variables are dynamically typed and do not require explicit type declaration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable assignment</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">10</span>
@@ -146,7 +150,7 @@
 </div>
 </section>
 <section id="multiple-variable-assignment">
-<h3><span class="section-number">2.1.2. </span>2. Multiple Variable Assignment<a class="headerlink" href="#multiple-variable-assignment" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.2. </span>2. Multiple Variable Assignment<a class="headerlink" href="#multiple-variable-assignment" title="Link to this heading">¶</a></h2>
 <p>You can assign multiple variables in a single statement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
 
@@ -158,7 +162,7 @@
 <p>This allows simultaneous assignment in a single statement.</p>
 </section>
 <section id="reassigning-variables">
-<h3><span class="section-number">2.1.3. </span>3. Reassigning Variables<a class="headerlink" href="#reassigning-variables" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.3. </span>3. Reassigning Variables<a class="headerlink" href="#reassigning-variables" title="Link to this heading">¶</a></h2>
 <p>Python variables can reference different data types at different times:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Output: 100</span>
@@ -169,7 +173,7 @@
 </div>
 </section>
 <section id="numeric-literals">
-<h3><span class="section-number">2.1.4. </span>4. Numeric Literals<a class="headerlink" href="#numeric-literals" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.4. </span>4. Numeric Literals<a class="headerlink" href="#numeric-literals" title="Link to this heading">¶</a></h2>
 <p>Python supports integer, floating-point, and complex number literals:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integer_literal</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">float_literal</span> <span class="o">=</span> <span class="mf">3.14</span>
@@ -182,7 +186,7 @@
 </div>
 </section>
 <section id="string-literals">
-<h3><span class="section-number">2.1.5. </span>5. String Literals<a class="headerlink" href="#string-literals" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.5. </span>5. String Literals<a class="headerlink" href="#string-literals" title="Link to this heading">¶</a></h2>
 <p>String literals can be defined using single, double, or triple quotes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_quote</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="n">double_quote</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
@@ -197,7 +201,7 @@
 </div>
 </section>
 <section id="boolean-literals">
-<h3><span class="section-number">2.1.6. </span>6. Boolean Literals<a class="headerlink" href="#boolean-literals" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.6. </span>6. Boolean Literals<a class="headerlink" href="#boolean-literals" title="Link to this heading">¶</a></h2>
 <p>Boolean literals are True and False (case-sensitive):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">is_logged_in</span> <span class="o">=</span> <span class="kc">False</span>
@@ -208,7 +212,7 @@
 </div>
 </section>
 <section id="special-literal-none">
-<h3><span class="section-number">2.1.7. </span>7. Special Literal: None<a class="headerlink" href="#special-literal-none" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.7. </span>7. Special Literal: None<a class="headerlink" href="#special-literal-none" title="Link to this heading">¶</a></h2>
 <p>None represents the absence of a value:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -218,7 +222,7 @@
 </div>
 </section>
 <section id="collection-literals">
-<h3><span class="section-number">2.1.8. </span>8. Collection Literals<a class="headerlink" href="#collection-literals" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.8. </span>8. Collection Literals<a class="headerlink" href="#collection-literals" title="Link to this heading">¶</a></h2>
 <p>Python supports literal syntax for all major built-in collections:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_literal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">tuple_literal</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -233,7 +237,7 @@
 </div>
 </section>
 <section id="binary-octal-and-hexadecimal-literals">
-<h3><span class="section-number">2.1.9. </span>9. Binary, Octal, and Hexadecimal Literals<a class="headerlink" href="#binary-octal-and-hexadecimal-literals" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.9. </span>9. Binary, Octal, and Hexadecimal Literals<a class="headerlink" href="#binary-octal-and-hexadecimal-literals" title="Link to this heading">¶</a></h2>
 <p>Numeric literals can be expressed in different number systems:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">binary</span> <span class="o">=</span> <span class="mb">0b1010</span>
 <span class="n">octal</span> <span class="o">=</span> <span class="mo">0o12</span>
@@ -246,7 +250,7 @@
 </div>
 </section>
 <section id="using-variables-in-expressions">
-<h3><span class="section-number">2.1.10. </span>10. Using Variables in Expressions<a class="headerlink" href="#using-variables-in-expressions" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">2.10. </span>10. Using Variables in Expressions<a class="headerlink" href="#using-variables-in-expressions" title="Link to this heading">¶</a></h2>
 <p>Variables participate directly in arithmetic and logical expressions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
@@ -261,9 +265,9 @@
 </section>
 </section>
 <section id="python-type-conversion">
-<h2><span class="section-number">2.2. </span>Python Type Conversion<a class="headerlink" href="#python-type-conversion" title="Link to this heading">¶</a></h2>
+<h1><span class="section-number">3. </span>Python Type Conversion<a class="headerlink" href="#python-type-conversion" title="Link to this heading">¶</a></h1>
 <section id="implicit-type-conversion-type-coercion">
-<h3><span class="section-number">2.2.1. </span>1. Implicit Type Conversion (Type Coercion)<a class="headerlink" href="#implicit-type-conversion-type-coercion" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.1. </span>1. Implicit Type Conversion (Type Coercion)<a class="headerlink" href="#implicit-type-conversion-type-coercion" title="Link to this heading">¶</a></h2>
 <p>Python automatically converts types in certain situations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integer_value</span> <span class="o">=</span> <span class="mi">10</span>       <span class="c1"># int</span>
 <span class="n">float_value</span> <span class="o">=</span> <span class="mf">3.5</span>       <span class="c1"># float</span>
@@ -277,7 +281,7 @@
 <p>Python automatically promotes int to float in mixed numeric expressions.</p>
 </section>
 <section id="explicit-type-conversion-to-integer-int">
-<h3><span class="section-number">2.2.2. </span>2. Explicit Type Conversion to Integer (int())<a class="headerlink" href="#explicit-type-conversion-to-integer-int" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.2. </span>2. Explicit Type Conversion to Integer (int())<a class="headerlink" href="#explicit-type-conversion-to-integer-int" title="Link to this heading">¶</a></h2>
 <p>Use int() to convert compatible values to integers. Fractions are truncated, not rounded:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">float_value</span> <span class="o">=</span> <span class="mf">9.99</span>
 <span class="n">string_value</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
@@ -291,7 +295,7 @@
 </div>
 </section>
 <section id="explicit-type-conversion-to-float-float">
-<h3><span class="section-number">2.2.3. </span>3. Explicit Type Conversion to Float (float())<a class="headerlink" href="#explicit-type-conversion-to-float-float" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.3. </span>3. Explicit Type Conversion to Float (float())<a class="headerlink" href="#explicit-type-conversion-to-float-float" title="Link to this heading">¶</a></h2>
 <p>float() converts integers and numeric strings to floating-point numbers:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int_value</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">string_value</span> <span class="o">=</span> <span class="s2">&quot;3.14&quot;</span>
@@ -305,7 +309,7 @@
 </div>
 </section>
 <section id="explicit-type-conversion-to-string-str">
-<h3><span class="section-number">2.2.4. </span>4. Explicit Type Conversion to String (str())<a class="headerlink" href="#explicit-type-conversion-to-string-str" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.4. </span>4. Explicit Type Conversion to String (str())<a class="headerlink" href="#explicit-type-conversion-to-string-str" title="Link to this heading">¶</a></h2>
 <p>str() provides a readable string representation of most Python objects:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int_value</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">float_value</span> <span class="o">=</span> <span class="mf">25.5</span>
@@ -322,7 +326,7 @@
 </div>
 </section>
 <section id="converting-to-boolean-bool">
-<h3><span class="section-number">2.2.5. </span>5. Converting to Boolean (bool())<a class="headerlink" href="#converting-to-boolean-bool" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.5. </span>5. Converting to Boolean (bool())<a class="headerlink" href="#converting-to-boolean-bool" title="Link to this heading">¶</a></h2>
 <p>By convention, “empty” values are False and non-empty values are True:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        <span class="c1"># Output: False</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>        <span class="c1"># Output: True</span>
@@ -334,7 +338,7 @@
 </div>
 </section>
 <section id="converting-between-strings-and-lists">
-<h3><span class="section-number">2.2.6. </span>6. Converting Between Strings and Lists<a class="headerlink" href="#converting-between-strings-and-lists" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.6. </span>6. Converting Between Strings and Lists<a class="headerlink" href="#converting-between-strings-and-lists" title="Link to this heading">¶</a></h2>
 <p>list() splits a string into characters; “separator”.join() combines a list of strings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
 
@@ -350,7 +354,7 @@
 </div>
 </section>
 <section id="converting-between-tuples-lists-and-sets">
-<h3><span class="section-number">2.2.7. </span>7. Converting Between Tuples, Lists, and Sets<a class="headerlink" href="#converting-between-tuples-lists-and-sets" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.7. </span>7. Converting Between Tuples, Lists, and Sets<a class="headerlink" href="#converting-between-tuples-lists-and-sets" title="Link to this heading">¶</a></h2>
 <p>Collection types can be converted between each other as long as the elements are compatible:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
@@ -363,7 +367,7 @@
 </div>
 </section>
 <section id="converting-to-dictionary-dict">
-<h3><span class="section-number">2.2.8. </span>8. Converting to Dictionary (dict())<a class="headerlink" href="#converting-to-dictionary-dict" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.8. </span>8. Converting to Dictionary (dict())<a class="headerlink" href="#converting-to-dictionary-dict" title="Link to this heading">¶</a></h2>
 <p>dict() can convert an iterable of key–value pairs into a dictionary:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pairs_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
 <span class="n">pairs_tuple</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -377,7 +381,7 @@
 </div>
 </section>
 <section id="handling-conversion-errors-with-try-except">
-<h3><span class="section-number">2.2.9. </span>9. Handling Conversion Errors with try / except<a class="headerlink" href="#handling-conversion-errors-with-try-except" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.9. </span>9. Handling Conversion Errors with try / except<a class="headerlink" href="#handling-conversion-errors-with-try-except" title="Link to this heading">¶</a></h2>
 <p>Invalid conversions raise exceptions (e.g., ValueError) that can be handled gracefully:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_int_convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
@@ -393,7 +397,7 @@
 </div>
 </section>
 <section id="custom-type-conversion-via-str-and-int">
-<h3><span class="section-number">2.2.10. </span>10. Custom Type Conversion via __str__ and __int__<a class="headerlink" href="#custom-type-conversion-via-str-and-int" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">3.10. </span>10. Custom Type Conversion via __str__ and __int__<a class="headerlink" href="#custom-type-conversion-via-str-and-int" title="Link to this heading">¶</a></h2>
 <p>Custom classes can define how they convert to built-in types by implementing special methods like __str__ and __int__:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Score</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -414,9 +418,9 @@
 </section>
 </section>
 <section id="python-basic-input-and-output">
-<h2><span class="section-number">2.3. </span>Python Basic Input and Output<a class="headerlink" href="#python-basic-input-and-output" title="Link to this heading">¶</a></h2>
+<h1><span class="section-number">4. </span>Python Basic Input and Output<a class="headerlink" href="#python-basic-input-and-output" title="Link to this heading">¶</a></h1>
 <section id="using-print-for-standard-output">
-<h3><span class="section-number">2.3.1. </span>1. Using print() for Standard Output<a class="headerlink" href="#using-print-for-standard-output" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.1. </span>1. Using print() for Standard Output<a class="headerlink" href="#using-print-for-standard-output" title="Link to this heading">¶</a></h2>
 <p>The print() function displays text and values to the standard output (console):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, Python!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -425,7 +429,7 @@
 </div>
 </section>
 <section id="printing-multiple-values">
-<h3><span class="section-number">2.3.2. </span>2. Printing Multiple Values<a class="headerlink" href="#printing-multiple-values" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.2. </span>2. Printing Multiple Values<a class="headerlink" href="#printing-multiple-values" title="Link to this heading">¶</a></h2>
 <p>Multiple values can be printed in a single call, separated by spaces by default:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
@@ -436,7 +440,7 @@
 </div>
 </section>
 <section id="customizing-output-with-sep-and-end">
-<h3><span class="section-number">2.3.3. </span>3. Customizing Output with sep and end<a class="headerlink" href="#customizing-output-with-sep-and-end" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.3. </span>3. Customizing Output with sep and end<a class="headerlink" href="#customizing-output-with-sep-and-end" title="Link to this heading">¶</a></h2>
 <p>sep defines the separator between values. end defines what is printed at the end (default is newline):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;powerful&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; - &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
 <span class="c1"># Output: Python - is - powerful!</span>
@@ -444,7 +448,7 @@
 </div>
 </section>
 <section id="formatted-output-using-f-strings">
-<h3><span class="section-number">2.3.4. </span>4. Formatted Output using f-strings<a class="headerlink" href="#formatted-output-using-f-strings" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.4. </span>4. Formatted Output using f-strings<a class="headerlink" href="#formatted-output-using-f-strings" title="Link to this heading">¶</a></h2>
 <p>f-strings provide a readable and efficient way to format strings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span>
 <span class="n">score</span> <span class="o">=</span> <span class="mi">88</span>
@@ -455,7 +459,7 @@
 </div>
 </section>
 <section id="using-str-format-method">
-<h3><span class="section-number">2.3.5. </span>5. Using str.format() Method<a class="headerlink" href="#using-str-format-method" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.5. </span>5. Using str.format() Method<a class="headerlink" href="#using-str-format-method" title="Link to this heading">¶</a></h2>
 <p>An alternative formatting approach, useful for older Python versions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product</span> <span class="o">=</span> <span class="s2">&quot;Laptop&quot;</span>
 <span class="n">price</span> <span class="o">=</span> <span class="mi">1200</span>
@@ -466,7 +470,7 @@
 </div>
 </section>
 <section id="string-formatting-with-old-style-operator">
-<h3><span class="section-number">2.3.6. </span>6. String Formatting with Old-Style % Operator<a class="headerlink" href="#string-formatting-with-old-style-operator" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.6. </span>6. String Formatting with Old-Style % Operator<a class="headerlink" href="#string-formatting-with-old-style-operator" title="Link to this heading">¶</a></h2>
 <p>Legacy formatting style, still seen in legacy codebases:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Book&quot;</span>
 <span class="n">quantity</span> <span class="o">=</span> <span class="mi">5</span>
@@ -477,7 +481,7 @@
 </div>
 </section>
 <section id="using-input-to-receive-user-input">
-<h3><span class="section-number">2.3.7. </span>7. Using input() to Receive User Input<a class="headerlink" href="#using-input-to-receive-user-input" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.7. </span>7. Using input() to Receive User Input<a class="headerlink" href="#using-input-to-receive-user-input" title="Link to this heading">¶</a></h2>
 <p>input() always returns data as a string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -485,7 +489,7 @@
 </div>
 </section>
 <section id="converting-input-to-required-data-type">
-<h3><span class="section-number">2.3.8. </span>8. Converting Input to Required Data Type<a class="headerlink" href="#converting-input-to-required-data-type" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.8. </span>8. Converting Input to Required Data Type<a class="headerlink" href="#converting-input-to-required-data-type" title="Link to this heading">¶</a></h2>
 <p>Explicit conversion is required when numeric operations are needed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your age: &quot;</span><span class="p">))</span>
 
@@ -494,7 +498,7 @@
 </div>
 </section>
 <section id="reading-multiple-inputs-in-one-line">
-<h3><span class="section-number">2.3.9. </span>9. Reading Multiple Inputs in One Line<a class="headerlink" href="#reading-multiple-inputs-in-one-line" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.9. </span>9. Reading Multiple Inputs in One Line<a class="headerlink" href="#reading-multiple-inputs-in-one-line" title="Link to this heading">¶</a></h2>
 <p>Useful for command-line programs requiring space-separated values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter two numbers: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
@@ -506,7 +510,7 @@
 </div>
 </section>
 <section id="redirecting-output-to-a-file">
-<h3><span class="section-number">2.3.10. </span>10. Redirecting Output to a File<a class="headerlink" href="#redirecting-output-to-a-file" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">4.10. </span>10. Redirecting Output to a File<a class="headerlink" href="#redirecting-output-to-a-file" title="Link to this heading">¶</a></h2>
 <p>The print() function can send output to files using the file parameter:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This text goes into the file.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
@@ -517,9 +521,9 @@
 </section>
 </section>
 <section id="python-operators">
-<h2><span class="section-number">2.4. </span>Python Operators<a class="headerlink" href="#python-operators" title="Link to this heading">¶</a></h2>
+<h1><span class="section-number">5. </span>Python Operators<a class="headerlink" href="#python-operators" title="Link to this heading">¶</a></h1>
 <section id="arithmetic-operators">
-<h3><span class="section-number">2.4.1. </span>1. Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.1. </span>1. Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">¶</a></h2>
 <p>Used for mathematical computations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
@@ -535,7 +539,7 @@
 </div>
 </section>
 <section id="assignment-operators">
-<h3><span class="section-number">2.4.2. </span>2. Assignment Operators<a class="headerlink" href="#assignment-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.2. </span>2. Assignment Operators<a class="headerlink" href="#assignment-operators" title="Link to this heading">¶</a></h2>
 <p>Short-hand syntax for updating variable values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>   <span class="c1"># x = x + 5</span>
@@ -548,7 +552,7 @@
 </div>
 </section>
 <section id="comparison-relational-operators">
-<h3><span class="section-number">2.4.3. </span>3. Comparison (Relational) Operators<a class="headerlink" href="#comparison-relational-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.3. </span>3. Comparison (Relational) Operators<a class="headerlink" href="#comparison-relational-operators" title="Link to this heading">¶</a></h2>
 <p>Return boolean results (True / False):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
@@ -563,7 +567,7 @@
 </div>
 </section>
 <section id="logical-operators">
-<h3><span class="section-number">2.4.4. </span>4. Logical Operators<a class="headerlink" href="#logical-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.4. </span>4. Logical Operators<a class="headerlink" href="#logical-operators" title="Link to this heading">¶</a></h2>
 <p>Combine conditional expressions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
@@ -575,7 +579,7 @@
 </div>
 </section>
 <section id="bitwise-operators">
-<h3><span class="section-number">2.4.5. </span>5. Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.5. </span>5. Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Link to this heading">¶</a></h2>
 <p>Operate at the binary level:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 1010 in binary</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># 0100 in binary</span>
@@ -590,7 +594,7 @@
 </div>
 </section>
 <section id="membership-operators">
-<h3><span class="section-number">2.4.6. </span>6. Membership Operators<a class="headerlink" href="#membership-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.6. </span>6. Membership Operators<a class="headerlink" href="#membership-operators" title="Link to this heading">¶</a></h2>
 <p>Test whether a value exists in a sequence:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
 
@@ -600,7 +604,7 @@
 </div>
 </section>
 <section id="identity-operators">
-<h3><span class="section-number">2.4.7. </span>7. Identity Operators<a class="headerlink" href="#identity-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.7. </span>7. Identity Operators<a class="headerlink" href="#identity-operators" title="Link to this heading">¶</a></h2>
 <p>Check memory identity, not equality:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
@@ -613,7 +617,7 @@
 </div>
 </section>
 <section id="unary-operators">
-<h3><span class="section-number">2.4.8. </span>8. Unary Operators<a class="headerlink" href="#unary-operators" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.8. </span>8. Unary Operators<a class="headerlink" href="#unary-operators" title="Link to this heading">¶</a></h2>
 <p>Operate on a single operand:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -623,7 +627,7 @@
 </div>
 </section>
 <section id="ternary-conditional-operator">
-<h3><span class="section-number">2.4.9. </span>9. Ternary (Conditional) Operator<a class="headerlink" href="#ternary-conditional-operator" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.9. </span>9. Ternary (Conditional) Operator<a class="headerlink" href="#ternary-conditional-operator" title="Link to this heading">¶</a></h2>
 <p>Compact conditional assignment syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
 
@@ -633,7 +637,7 @@
 </div>
 </section>
 <section id="operator-precedence">
-<h3><span class="section-number">2.4.10. </span>10. Operator Precedence<a class="headerlink" href="#operator-precedence" title="Link to this heading">¶</a></h3>
+<h2><span class="section-number">5.10. </span>10. Operator Precedence<a class="headerlink" href="#operator-precedence" title="Link to this heading">¶</a></h2>
 <p>Understanding precedence prevents logical bugs:</p>
 <p><strong>Precedence Order:</strong></p>
 <ol class="arabic simple">
@@ -649,14 +653,13 @@
 </div>
 </section>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="preface.html" class="btn btn-neutral float-left" title="1. Preface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ch03_python_flow_control.html" class="btn btn-neutral float-right" title="3. Chapter 3: Python Flow Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ch03_python_flow_control.html" class="btn btn-neutral float-right" title="6. Python if…else Statement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
