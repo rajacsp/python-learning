@@ -5,23 +5,19 @@ ALLPDF = $(addsuffix .pdf,$(ALLDOCS))
 ALLDVI = $(addsuffix .dvi,$(ALLDOCS))
 ALLXDV =
 ALLPS  = $(addsuffix .ps,$(ALLDOCS))
-ALLIMGS = $(wildcard *.png *.gif *.jpg *.jpeg)
 
 # Prefix for archive names
 ARCHIVEPREFIX =
 # Additional LaTeX options (passed via variables in latexmkrc/latexmkjarc file)
-export LATEXOPTS =
+export LATEXOPTS ?=
 # Additional latexmk options
-LATEXMKOPTS =
+LATEXMKOPTS ?=
 # format: pdf or dvi (used only by archive targets)
 FMT = pdf
 
 LATEX = latexmk -dvi
 PDFLATEX = latexmk -pdf -dvi- -ps-
 
-
-%.png %.gif %.jpg %.jpeg: FORCE_MAKE
-	extractbb '$@'
 
 %.dvi: %.tex FORCE_MAKE
 	$(LATEX) $(LATEXMKOPTS) '$<'
@@ -53,7 +49,8 @@ tar: all-$(FMT)
 	rm -r $(ARCHIVEPREFIX)docs-$(FMT)
 
 gz: tar
-	gzip -9 < $(ARCHIVEPREFIX)docs-$(FMT).tar > $(ARCHIVEPREFIX)docs-$(FMT).tar.gz
+	# -n to omit mtime from gzip headers
+	gzip -n -9 < $(ARCHIVEPREFIX)docs-$(FMT).tar > $(ARCHIVEPREFIX)docs-$(FMT).tar.gz
 
 bz2: tar
 	bzip2 -9 -k $(ARCHIVEPREFIX)docs-$(FMT).tar

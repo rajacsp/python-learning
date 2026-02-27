@@ -16,12 +16,4 @@ Contents
    :numbered:
 
    preface
-   intro
-   pkgs
-   sphinx
-   rtxt
-   api
-   github
-   reference
-   appx
 

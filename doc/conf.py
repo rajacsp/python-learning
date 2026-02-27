@@ -49,8 +49,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
               'sphinx.ext.linkcode',
               'sphinx.ext.intersphinx',
-              'hidden_code_block',
-              'sphinxcontrib.contentui' 
+              'hidden_code_block'
               ]
 
 todo_include_todos = True
@@ -159,17 +158,10 @@ html_context = {
 # html_theme = 'sphinxdoc'
 
 # Read the docs style:
-if os.environ.get('READTHEDOCS') != 'True':
-    try:
-        import sphinx_rtd_theme
-    except ImportError:
-        pass  # assume we have sphinx >= 1.3
-    else:
-        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-    html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 
 def setup(app):
-    app.add_stylesheet("fix_rtd.css")
+    app.add_css_file("fix_rtd.css")
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
