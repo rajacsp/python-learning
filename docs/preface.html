@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Chapter 2: Python Fundamentals" href="ch02_python_fundamentals.html" />
     <link rel="prev" title="Contents" href="index.html" /> 
 </head>
 
@@ -43,15 +44,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Preface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#about">1.1. About</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#about-this-tutorial">1.1.1. About this tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#about-the-authors">1.1.2. About the authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#about-python-learning">1.1. About Python Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">1.2. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feedback-and-contributions">1.3. Feedback and Contributions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#motivation-for-this-tutorial">1.2. Motivation for this tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feedback-and-suggestions">1.3. Feedback and suggestions</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
 </ul>
 
         </div>
@@ -80,63 +78,57 @@
              
   <section id="preface">
 <span id="id1"></span><h1><span class="section-number">1. </span>Preface<a class="headerlink" href="#preface" title="Link to this heading">¶</a></h1>
-<div class="admonition-chinese-proverb admonition">
-<p class="admonition-title">Chinese proverb</p>
-<p>Good tools are prerequisite to the successful execution of a job. – old Chinese proverb</p>
+<div class="admonition-welcome admonition">
+<p class="admonition-title">Welcome</p>
+<p>Python Learning is a comprehensive guide to mastering Python programming from fundamentals to advanced concepts.</p>
 </div>
-<section id="about">
-<h2><span class="section-number">1.1. </span>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
-<section id="about-this-tutorial">
-<h3><span class="section-number">1.1.1. </span>About this tutorial<a class="headerlink" href="#about-this-tutorial" title="Link to this heading">¶</a></h3>
-<p>This document is a summary of my valueable experiences in using Python decumentation <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> with <code class="docutils literal notranslate"><span class="pre">Github</span></code> webpage. The PDF version can be downloaded from <a class="reference external" href="sphinxgithub.pdf">HERE</a>. <strong>You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.</strong></p>
-<p>In this repository, I try to use the detailed demo code and
-examples to show how to use <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> to generate the <code class="docutils literal notranslate"><span class="pre">.html</span></code> and <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> documents and how to hookup them automatically on <code class="docutils literal notranslate"><span class="pre">Github</span></code>. If you find your work wasn’t cited in this note, please feel free to let me know.</p>
-<p>Although I am by no means a python programming and Sphinx expert,
-I decided that it would be useful for me to share what I learned
-about Sphinx in the form of easy tutorials with detailed example.
-I hope those tutorials will be a valuable tool for your studies.</p>
-<p>The tutorials assume that the reader has a preliminary knowledge of <code class="docutils literal notranslate"><span class="pre">python</span></code> programing, <code class="docutils literal notranslate"><span class="pre">LaTex</span></code> and <code class="docutils literal notranslate"><span class="pre">Linux</span></code>. And this document is generated automatically by using <a class="reference external" href="http://sphinx.pocoo.org">sphinx</a>.</p>
-</section>
-<section id="about-the-authors">
-<h3><span class="section-number">1.1.2. </span>About the authors<a class="headerlink" href="#about-the-authors" title="Link to this heading">¶</a></h3>
-<ul>
-<li><p><strong>Wenqiang Feng</strong></p>
+<section id="about-python-learning">
+<h2><span class="section-number">1.1. </span>About Python Learning<a class="headerlink" href="#about-python-learning" title="Link to this heading">¶</a></h2>
+<p>Python Learning is an educational resource designed to help beginners and intermediate programmers develop strong Python skills. This documentation covers essential programming concepts, best practices, and practical examples to accelerate your learning journey.</p>
+<p>Whether you’re just starting your programming career or looking to deepen your Python expertise, this guide provides structured lessons with clear explanations and hands-on code examples.</p>
+<p><strong>What You’ll Learn</strong></p>
 <ul class="simple">
-<li><p>Data Scientist and PhD in Mathematics</p></li>
-<li><p>University of Tennessee at Knoxville</p></li>
-<li><p>Webpage: <a class="reference external" href="http://web.utk.edu/~wfeng1/">http://web.utk.edu/~wfeng1/</a></p></li>
-<li><p>Email: <a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+<li><p>Core Python fundamentals and syntax</p></li>
+<li><p>Data types, variables, and type conversion</p></li>
+<li><p>Control flow and functions</p></li>
+<li><p>Object-oriented programming concepts</p></li>
+<li><p>Working with libraries and modules</p></li>
+<li><p>Best practices for writing clean, maintainable code</p></li>
 </ul>
-</li>
-<li><p><strong>Biography</strong></p>
-<p>Wenqiang Feng is Data Scientist within DST’s Applied Analytics Group. Dr. Feng’s responsibilities include providing DST clients with access to cutting-edge skills and technologies, including Big Data analytic solutions, advanced analytic and data enhancement techniques and modeling.</p>
-<p>Dr. Feng has deep analytic expertise in data mining, analytic systems, machine learning algorithms, business intelligence, and applying Big Data tools to strategically solve industry problems in a cross-functional business. Before joining DST, Dr. Feng was an IMA Data Science Fellow at The Institute for Mathematics and its Applications (IMA) at the University of Minnesota. While there, he helped startup companies make marketing decisions based on deep predictive analytics.</p>
-<p>Dr. Feng graduated from University of Tennessee, Knoxville, with Ph.D. in Computational Mathematics and Master’s degree in Statistics. He also holds Master’s degree in Computational Mathematics from Missouri University of Science and Technology (MST) and Master’s degree in Applied Mathematics from the University of Science and Technology of China (USTC).</p>
-</li>
-<li><p><strong>Declaration</strong></p>
-<p>The work of Wenqiang Feng was supported by the IMA, while working at IMA. However, any opinion, finding, and conclusions or recommendations expressed in this material are those of the author and do not necessarily reflect the views of the IMA, UTK and DST.</p>
-</li>
-</ul>
-</section>
-</section>
-<section id="motivation-for-this-tutorial">
-<h2><span class="section-number">1.2. </span>Motivation for this tutorial<a class="headerlink" href="#motivation-for-this-tutorial" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> is an awesome Python documentation package, and it has excellent facilities for the documentation of software projects in a range of languages. I have been using <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> for almost 4 years. I was impressed and attracted by Sphinx in the first using. And I foud that:</p>
+<p><strong>Who This Is For</strong></p>
+<p>This guide is intended for:</p>
 <ul class="simple">
-<li><p>It supports <strong>several popular output formats</strong>: <code class="docutils literal notranslate"><span class="pre">HTML</span></code> (including Windows HTML Help), <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> (for printable PDF versions), ePub, Texinfo, manual pages, plain text.</p></li>
-<li><p>It has <strong>easy publishing routes</strong>: Github.</p></li>
-<li><p>Is has <strong>extensive cross-references</strong>: semantic markup and automatic links for functions, classes, citations, glossary terms and similar pieces of information</p></li>
-<li><p>It has <strong>hierarchical structure</strong>: easy definition of a document tree, with automatic links to siblings, parents and children.</p></li>
-<li><p>It has <strong>automatic indices</strong>: general index as well as a language-specific module indices</p></li>
-<li><p>It has awesome <strong>code handling</strong>: automatic highlighting using the Pygments highlighter</p></li>
-<li><p>Is has abundant <strong>extensions</strong>: automatic testing of code snippets, inclusion of docstrings from Python modules (API docs), and more</p></li>
-<li><p>It has abundant <strong>contributed extensions</strong>: more than 50 extensions contributed by users in a second repository; most of them installable from PyPI</p></li>
+<li><p>Beginners with little to no programming experience</p></li>
+<li><p>Students learning Python as their first language</p></li>
+<li><p>Developers transitioning to Python from other languages</p></li>
+<li><p>Anyone seeking to strengthen their Python fundamentals</p></li>
 </ul>
+<p><strong>How to Use This Guide</strong></p>
+<p>Each chapter builds upon previous concepts, so it’s recommended to follow them sequentially. Code examples are provided throughout to illustrate key concepts. Try running the examples yourself and experimenting with variations to deepen your understanding.</p>
 </section>
-<section id="feedback-and-suggestions">
-<h2><span class="section-number">1.3. </span>Feedback and suggestions<a class="headerlink" href="#feedback-and-suggestions" title="Link to this heading">¶</a></h2>
-<p>Your comments and suggestions are highly appreciated. I am more than happy to receive
-corrections, suggestions or feedbacks through email (Wenqiang Feng: <a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a>) for improvements.</p>
+<section id="getting-started">
+<h2><span class="section-number">1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<p>To get the most out of Python Learning:</p>
+<ol class="arabic simple">
+<li><p><strong>Install Python</strong> - Download the latest version from <a class="reference external" href="https://www.python.org">python.org</a></p></li>
+<li><p><strong>Set up an editor</strong> - Use VS Code, PyCharm, or any text editor you prefer</p></li>
+<li><p><strong>Practice regularly</strong> - Write code daily to reinforce concepts</p></li>
+<li><p><strong>Experiment</strong> - Modify examples and try new approaches</p></li>
+</ol>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p>Basic computer literacy</p></li>
+<li><p>Familiarity with your operating system’s terminal/command prompt</p></li>
+<li><p>A text editor or IDE installed</p></li>
+<li><p>Python 3.8 or higher</p></li>
+</ul>
+<p><strong>About the Author</strong></p>
+<p>Raja CSP Raman is passionate about making programming education accessible and practical. This guide reflects years of experience in teaching and mentoring Python developers.</p>
+</section>
+<section id="feedback-and-contributions">
+<h2><span class="section-number">1.3. </span>Feedback and Contributions<a class="headerlink" href="#feedback-and-contributions" title="Link to this heading">¶</a></h2>
+<p>Your feedback helps improve this guide. If you have suggestions, corrections, or would like to contribute, please reach out through the project repository on GitHub.</p>
+<p>Happy learning!</p>
 </section>
 </section>
 
@@ -145,12 +137,13 @@ corrections, suggestions or feedbacks through email (Wenqiang Feng: <a class="re
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch02_python_fundamentals.html" class="btn btn-neutral float-right" title="2. Chapter 2: Python Fundamentals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Raja CSP Raman.
+    <p>&#169; Copyright 2026, Raja CSP Raman.
       <span class="lastupdated">Last updated on Feb 26, 2026.
       </span></p>
   </div>

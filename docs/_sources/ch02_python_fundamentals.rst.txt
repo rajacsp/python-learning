@@ -1,0 +1,105 @@
+.. _ch02:
+
+=======================
+Chapter 2: Python Fundamentals
+=======================
+
+Python Variables and Literals
+++++++++++++++++++++++++++++++
+
+Variables are containers for storing data values. In Python, you don't need to declare the type of a variable; it's inferred from the value assigned to it.
+
+**Creating Variables**
+
+.. code-block:: python
+
+    # Simple variable assignment
+    name = "Alice"
+    age = 25
+    height = 5.8
+    is_student = True
+
+**Variable Naming Rules**
+
+- Must start with a letter or underscore (_)
+- Can contain letters, numbers, and underscores
+- Are case-sensitive (name and Name are different)
+- Should use snake_case for readability
+
+**Literals**
+
+Literals are raw data values written directly in code:
+
+.. code-block:: python
+
+    # String literals
+    message = "Hello, World!"
+    single_quote = 'Python'
+    
+    # Numeric literals
+    integer = 42
+    floating_point = 3.14
+    
+    # Boolean literals
+    is_valid = True
+    is_empty = False
+    
+    # Special literal
+    nothing = None
+
+
+Python Type Conversion
+++++++++++++++++++++++
+
+Type conversion (also called type casting) is the process of converting a value from one data type to another.
+
+**Implicit Type Conversion**
+
+Python automatically converts types in certain situations:
+
+.. code-block:: python
+
+    # Integer to float
+    result = 10 + 3.5  # result is 13.5 (float)
+    
+    # String concatenation with numbers (requires explicit conversion)
+    # This would cause an error:
+    # print("Age: " + 25)
+
+**Explicit Type Conversion**
+
+Use built-in functions to convert types:
+
+.. code-block:: python
+
+    # Convert to integer
+    int_value = int("42")  # 42
+    int_value = int(3.14)  # 3 (truncates decimal)
+    
+    # Convert to float
+    float_value = float("3.14")  # 3.14
+    float_value = float(10)  # 10.0
+    
+    # Convert to string
+    str_value = str(42)  # "42"
+    str_value = str(3.14)  # "3.14"
+    
+    # Convert to boolean
+    bool_value = bool(1)  # True
+    bool_value = bool(0)  # False
+    bool_value = bool("")  # False (empty string)
+    bool_value = bool("text")  # True (non-empty string)
+
+**Common Conversion Patterns**
+
+.. code-block:: python
+
+    # User input is always a string
+    age_input = input("Enter your age: ")
+    age = int(age_input)  # Convert to integer
+    
+    # Combining values for display
+    name = "Bob"
+    score = 95
+    message = name + " scored " + str(score)  # Convert int to string
+    print(message)  # Output: Bob scored 95

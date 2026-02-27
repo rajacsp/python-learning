@@ -16,4 +16,5 @@ Contents
    :numbered:
 
    preface
+   ch02_python_fundamentals
 
