@@ -1,8 +1,49 @@
-# Sphinx Github Webpages Tutorial	
+# Python Learning
 
- Website:  https://runawayhorse001.github.io/SphinxGithub
+A comprehensive guide to mastering Python programming from fundamentals to advanced concepts.
 
+## Website
 
- This is a shared repository for my Sphinx Github page notes. In this repository, I will share some of my valueable experiences in using Python decumentation ``Sphinx`` with ``Github`` webpage.   
+https://rajacsp.github.io/python-learning/
 
-The tutorials assume that the reader has a preliminary knowledge of ``programing``, ``LaTex`` and ``Linux``. And this document is generated automatically by using sphinx.# python-learning
+## About
+
+Python Learning is an educational resource designed to help beginners and intermediate programmers develop strong Python skills. This documentation covers essential programming concepts, best practices, and practical examples to accelerate your learning journey.
+
+## Contents
+
+- **Preface** - Introduction and getting started guide
+- **Chapter 2: Python Fundamentals**
+  - Python Variables and Literals
+  - Python Type Conversion
+  - Python Basic Input and Output
+
+## Getting Started
+
+1. Clone this repository
+2. Install dependencies: `pip install sphinx sphinx_rtd_theme`
+3. Build the documentation: `cd doc && python scripts/docgen.py --nopdf`
+4. Open `docs/index.html` in your browser
+
+## Building Documentation
+
+To rebuild the documentation:
+
+```bash
+cd doc
+python scripts/docgen.py --nopdf
+```
+
+The HTML files will be generated in the `docs/` folder.
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests to improve the content.
+
+## Author
+
+Raja CSP Raman
+
+## License
+
+See LICENSE file for details.
