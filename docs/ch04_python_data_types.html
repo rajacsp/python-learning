@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7. Chapter 4: Python Data Types &mdash; Python Learning 1.00 documentation</title>
+  <title>4. Chapter 4: Python Data Types &mdash; Python Learning 1.00 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6. Chapter 3: Python Flow Control" href="ch03_python_flow_control.html" /> 
+    <link rel="prev" title="3. Chapter 3: Python Flow Control" href="ch03_python_flow_control.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,88 +43,85 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Python Variables and Literals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-type-conversion">3. Python Type Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-basic-input-and-output">4. Python Basic Input and Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html#python-operators">5. Python Operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">6. Chapter 3: Python Flow Control</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Chapter 4: Python Data Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#python-numbers-and-mathematics">7.1. Python Numbers and Mathematics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#numeric-data-types-in-python">7.1.1. 1. Numeric Data Types in Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basic-mathematical-operations">7.1.2. 2. Basic Mathematical Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#floor-division-and-modulus">7.1.3. 3. Floor Division and Modulus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#power-and-exponentiation">7.1.4. 4. Power and Exponentiation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#math-module-basics">7.1.5. 5. Math Module Basics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trigonometric-functions">7.1.6. 6. Trigonometric Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rounding-numbers">7.1.7. 7. Rounding Numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#absolute-and-sign-functions">7.1.8. 8. Absolute and Sign Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#random-number-generation">7.1.9. 9. Random Number Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#statistical-operations">7.1.10. 10. Statistical Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Chapter 4: Python Data Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-numbers-and-mathematics">4.1. Python Numbers and Mathematics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#numeric-data-types-in-python">4.1.1. 1. Numeric Data Types in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-mathematical-operations">4.1.2. 2. Basic Mathematical Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floor-division-and-modulus">4.1.3. 3. Floor Division and Modulus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-and-exponentiation">4.1.4. 4. Power and Exponentiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#math-module-basics">4.1.5. 5. Math Module Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trigonometric-functions">4.1.6. 6. Trigonometric Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rounding-numbers">4.1.7. 7. Rounding Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#absolute-and-sign-functions">4.1.8. 8. Absolute and Sign Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-number-generation">4.1.9. 9. Random Number Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statistical-operations">4.1.10. 10. Statistical Operations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-string">7.2. Python String</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-strings">7.2.1. 1. Creating Strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-string-characters-indexing">7.2.2. 2. Accessing String Characters (Indexing)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-slicing">7.2.3. 3. String Slicing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-immutability">7.2.4. 4. String Immutability</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-concatenation-and-repetition">7.2.5. 5. String Concatenation and Repetition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-length-and-membership">7.2.6. 6. String Length and Membership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#common-string-methods">7.2.7. 7. Common String Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#splitting-and-joining-strings">7.2.8. 8. Splitting and Joining Strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-formatting">7.2.9. 9. String Formatting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-string">7.2.10. 10. Iterating Through a String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-string">4.2. Python String</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-strings">4.2.1. 1. Creating Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-string-characters-indexing">4.2.2. 2. Accessing String Characters (Indexing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-slicing">4.2.3. 3. String Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-immutability">4.2.4. 4. String Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-concatenation-and-repetition">4.2.5. 5. String Concatenation and Repetition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-length-and-membership">4.2.6. 6. String Length and Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-string-methods">4.2.7. 7. Common String Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splitting-and-joining-strings">4.2.8. 8. Splitting and Joining Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-formatting">4.2.9. 9. String Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-string">4.2.10. 10. Iterating Through a String</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-list">7.3. Python List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-list">7.3.1. 1. Creating a List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-list-elements-indexing">7.3.2. 2. Accessing List Elements (Indexing)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#slicing-lists">7.3.3. 3. Slicing Lists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modifying-list-elements">7.3.4. 4. Modifying List Elements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-elements-to-a-list">7.3.5. 5. Adding Elements to a List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-elements-from-a-list">7.3.6. 6. Removing Elements from a List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-length-and-membership">7.3.7. 7. List Length and Membership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-iteration">7.3.8. 8. List Iteration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-comprehension">7.3.9. 9. List Comprehension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sorting-and-reversing-lists">7.3.10. 10. Sorting and Reversing Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-list">4.3. Python List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-list">4.3.1. 1. Creating a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-list-elements-indexing">4.3.2. 2. Accessing List Elements (Indexing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-lists">4.3.3. 3. Slicing Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-list-elements">4.3.4. 4. Modifying List Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-elements-to-a-list">4.3.5. 5. Adding Elements to a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-elements-from-a-list">4.3.6. 6. Removing Elements from a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-length-and-membership">4.3.7. 7. List Length and Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-iteration">4.3.8. 8. List Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-comprehension">4.3.9. 9. List Comprehension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-and-reversing-lists">4.3.10. 10. Sorting and Reversing Lists</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-tuple">7.4. Python Tuple</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-tuple">7.4.1. 1. Creating a Tuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-tuple-elements">7.4.2. 2. Accessing Tuple Elements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#slicing-tuples">7.4.3. 3. Slicing Tuples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-immutability">7.4.4. 4. Tuple Immutability</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-packing-and-unpacking">7.4.5. 5. Tuple Packing and Unpacking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nested-tuples">7.4.6. 6. Nested Tuples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-length-and-membership">7.4.7. 7. Tuple Length and Membership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-tuple">7.4.8. 8. Iterating Through a Tuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-between-tuples-and-lists">7.4.9. 9. Converting Between Tuples and Lists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-as-a-return-value">7.4.10. 10. Tuple as a Return Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-tuple">4.4. Python Tuple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-tuple">4.4.1. 1. Creating a Tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-tuple-elements">4.4.2. 2. Accessing Tuple Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-tuples">4.4.3. 3. Slicing Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple-immutability">4.4.4. 4. Tuple Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple-packing-and-unpacking">4.4.5. 5. Tuple Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-tuples">4.4.6. 6. Nested Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple-length-and-membership">4.4.7. 7. Tuple Length and Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-tuple">4.4.8. 8. Iterating Through a Tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-between-tuples-and-lists">4.4.9. 9. Converting Between Tuples and Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple-as-a-return-value">4.4.10. 10. Tuple as a Return Value</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-set">7.5. Python Set</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-set">7.5.1. 1. Creating a Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#automatic-removal-of-duplicates">7.5.2. 2. Automatic Removal of Duplicates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-elements-to-a-set">7.5.3. 3. Adding Elements to a Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-multiple-elements-with-update">7.5.4. 4. Adding Multiple Elements with update()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-elements-from-a-set">7.5.5. 5. Removing Elements from a Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-length-and-membership">7.5.6. 6. Set Length and Membership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-set">7.5.7. 7. Iterating Through a Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mathematical-set-operations">7.5.8. 8. Mathematical Set Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#subset-and-superset-checks">7.5.9. 9. Subset and Superset Checks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#converting-sets-to-other-types">7.5.10. 10. Converting Sets to Other Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-set">4.5. Python Set</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-set">4.5.1. 1. Creating a Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automatic-removal-of-duplicates">4.5.2. 2. Automatic Removal of Duplicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-elements-to-a-set">4.5.3. 3. Adding Elements to a Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-multiple-elements-with-update">4.5.4. 4. Adding Multiple Elements with update()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-elements-from-a-set">4.5.5. 5. Removing Elements from a Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-length-and-membership">4.5.6. 6. Set Length and Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-through-a-set">4.5.7. 7. Iterating Through a Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-set-operations">4.5.8. 8. Mathematical Set Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subset-and-superset-checks">4.5.9. 9. Subset and Superset Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-sets-to-other-types">4.5.10. 10. Converting Sets to Other Types</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#python-dictionary">7.6. Python Dictionary</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-dictionary">7.6.1. 1. Creating a Dictionary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-dictionary-values">7.6.2. 2. Accessing Dictionary Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-and-updating-dictionary-entries">7.6.3. 3. Adding and Updating Dictionary Entries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-items-from-a-dictionary">7.6.4. 4. Removing Items from a Dictionary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dictionary-length-and-membership">7.6.5. 5. Dictionary Length and Membership</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#iterating-through-dictionaries">7.6.6. 6. Iterating Through Dictionaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dictionary-methods">7.6.7. 7. Dictionary Methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#merging-dictionaries">7.6.8. 8. Merging Dictionaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nested-dictionaries">7.6.9. 9. Nested Dictionaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dictionary-comprehension">7.6.10. 10. Dictionary Comprehension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-dictionary">4.6. Python Dictionary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-dictionary">4.6.1. 1. Creating a Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-dictionary-values">4.6.2. 2. Accessing Dictionary Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-and-updating-dictionary-entries">4.6.3. 3. Adding and Updating Dictionary Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-items-from-a-dictionary">4.6.4. 4. Removing Items from a Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionary-length-and-membership">4.6.5. 5. Dictionary Length and Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-through-dictionaries">4.6.6. 6. Iterating Through Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionary-methods">4.6.7. 7. Dictionary Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-dictionaries">4.6.8. 8. Merging Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-dictionaries">4.6.9. 9. Nested Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionary-comprehension">4.6.10. 10. Dictionary Comprehension</a></li>
 </ul>
 </li>
 </ul>
@@ -145,7 +142,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">7. </span>Chapter 4: Python Data Types</li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Chapter 4: Python Data Types</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch04_python_data_types.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -156,11 +153,11 @@
            <div itemprop="articleBody">
              
   <section id="chapter-4-python-data-types">
-<span id="ch04"></span><h1><span class="section-number">7. </span>Chapter 4: Python Data Types<a class="headerlink" href="#chapter-4-python-data-types" title="Link to this heading">¶</a></h1>
+<span id="ch04"></span><h1><span class="section-number">4. </span>Chapter 4: Python Data Types<a class="headerlink" href="#chapter-4-python-data-types" title="Link to this heading">¶</a></h1>
 <section id="python-numbers-and-mathematics">
-<h2><span class="section-number">7.1. </span>Python Numbers and Mathematics<a class="headerlink" href="#python-numbers-and-mathematics" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Python Numbers and Mathematics<a class="headerlink" href="#python-numbers-and-mathematics" title="Link to this heading">¶</a></h2>
 <section id="numeric-data-types-in-python">
-<h3><span class="section-number">7.1.1. </span>1. Numeric Data Types in Python<a class="headerlink" href="#numeric-data-types-in-python" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span>1. Numeric Data Types in Python<a class="headerlink" href="#numeric-data-types-in-python" title="Link to this heading">¶</a></h3>
 <p>Python supports three primary numeric types: int, float, and complex:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integer_num</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">float_num</span> <span class="o">=</span> <span class="mf">3.14</span>
@@ -173,7 +170,7 @@
 </div>
 </section>
 <section id="basic-mathematical-operations">
-<h3><span class="section-number">7.1.2. </span>2. Basic Mathematical Operations<a class="headerlink" href="#basic-mathematical-operations" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.2. </span>2. Basic Mathematical Operations<a class="headerlink" href="#basic-mathematical-operations" title="Link to this heading">¶</a></h3>
 <p>Core arithmetic forms the foundation of all numeric computation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
@@ -186,7 +183,7 @@
 </div>
 </section>
 <section id="floor-division-and-modulus">
-<h3><span class="section-number">7.1.3. </span>3. Floor Division and Modulus<a class="headerlink" href="#floor-division-and-modulus" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.3. </span>3. Floor Division and Modulus<a class="headerlink" href="#floor-division-and-modulus" title="Link to this heading">¶</a></h3>
 <p>Used in quotient-remainder calculations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">17</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
@@ -197,7 +194,7 @@
 </div>
 </section>
 <section id="power-and-exponentiation">
-<h3><span class="section-number">7.1.4. </span>4. Power and Exponentiation<a class="headerlink" href="#power-and-exponentiation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.4. </span>4. Power and Exponentiation<a class="headerlink" href="#power-and-exponentiation" title="Link to this heading">¶</a></h3>
 <p>The ** operator raises a number to a specified power:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">exponent</span> <span class="o">=</span> <span class="mi">4</span>
@@ -208,7 +205,7 @@
 </div>
 </section>
 <section id="math-module-basics">
-<h3><span class="section-number">7.1.5. </span>5. Math Module Basics<a class="headerlink" href="#math-module-basics" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.5. </span>5. Math Module Basics<a class="headerlink" href="#math-module-basics" title="Link to this heading">¶</a></h3>
 <p>The math module provides advanced mathematical functions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
@@ -219,7 +216,7 @@
 </div>
 </section>
 <section id="trigonometric-functions">
-<h3><span class="section-number">7.1.6. </span>6. Trigonometric Functions<a class="headerlink" href="#trigonometric-functions" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.6. </span>6. Trigonometric Functions<a class="headerlink" href="#trigonometric-functions" title="Link to this heading">¶</a></h3>
 <p>Used extensively in scientific and engineering calculations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
@@ -232,7 +229,7 @@
 </div>
 </section>
 <section id="rounding-numbers">
-<h3><span class="section-number">7.1.7. </span>7. Rounding Numbers<a class="headerlink" href="#rounding-numbers" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.7. </span>7. Rounding Numbers<a class="headerlink" href="#rounding-numbers" title="Link to this heading">¶</a></h3>
 <p>round() limits decimal precision for display and computation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mf">3.5678</span>
 
@@ -242,7 +239,7 @@
 </div>
 </section>
 <section id="absolute-and-sign-functions">
-<h3><span class="section-number">7.1.8. </span>8. Absolute and Sign Functions<a class="headerlink" href="#absolute-and-sign-functions" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.8. </span>8. Absolute and Sign Functions<a class="headerlink" href="#absolute-and-sign-functions" title="Link to this heading">¶</a></h3>
 <p>Used for magnitude and sign manipulation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
@@ -254,7 +251,7 @@
 </div>
 </section>
 <section id="random-number-generation">
-<h3><span class="section-number">7.1.9. </span>9. Random Number Generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.9. </span>9. Random Number Generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">¶</a></h3>
 <p>Facilitates simulation, sampling, and stochastic processes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
@@ -264,7 +261,7 @@
 </div>
 </section>
 <section id="statistical-operations">
-<h3><span class="section-number">7.1.10. </span>10. Statistical Operations<a class="headerlink" href="#statistical-operations" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.10. </span>10. Statistical Operations<a class="headerlink" href="#statistical-operations" title="Link to this heading">¶</a></h3>
 <p>The statistics module enables descriptive data analysis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
 
@@ -278,9 +275,9 @@
 </section>
 </section>
 <section id="python-string">
-<h2><span class="section-number">7.2. </span>Python String<a class="headerlink" href="#python-string" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Python String<a class="headerlink" href="#python-string" title="Link to this heading">¶</a></h2>
 <section id="creating-strings">
-<h3><span class="section-number">7.2.1. </span>1. Creating Strings<a class="headerlink" href="#creating-strings" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>1. Creating Strings<a class="headerlink" href="#creating-strings" title="Link to this heading">¶</a></h3>
 <p>Strings can be defined using single, double, or triple quotes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_quote</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="n">double_quote</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
@@ -295,7 +292,7 @@
 </div>
 </section>
 <section id="accessing-string-characters-indexing">
-<h3><span class="section-number">7.2.2. </span>2. Accessing String Characters (Indexing)<a class="headerlink" href="#accessing-string-characters-indexing" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>2. Accessing String Characters (Indexing)<a class="headerlink" href="#accessing-string-characters-indexing" title="Link to this heading">¶</a></h3>
 <p>Strings support positive and negative indexing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
 
@@ -305,7 +302,7 @@
 </div>
 </section>
 <section id="string-slicing">
-<h3><span class="section-number">7.2.3. </span>3. String Slicing<a class="headerlink" href="#string-slicing" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span>3. String Slicing<a class="headerlink" href="#string-slicing" title="Link to this heading">¶</a></h3>
 <p>Extracts substrings without modifying the original string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;Programming&quot;</span>
 
@@ -316,7 +313,7 @@
 </div>
 </section>
 <section id="string-immutability">
-<h3><span class="section-number">7.2.4. </span>4. String Immutability<a class="headerlink" href="#string-immutability" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.4. </span>4. String Immutability<a class="headerlink" href="#string-immutability" title="Link to this heading">¶</a></h3>
 <p>Strings cannot be changed once created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
 
@@ -326,7 +323,7 @@
 </div>
 </section>
 <section id="string-concatenation-and-repetition">
-<h3><span class="section-number">7.2.5. </span>5. String Concatenation and Repetition<a class="headerlink" href="#string-concatenation-and-repetition" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.5. </span>5. String Concatenation and Repetition<a class="headerlink" href="#string-concatenation-and-repetition" title="Link to this heading">¶</a></h3>
 <p>Used to combine or duplicate strings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
 <span class="n">second</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
@@ -337,7 +334,7 @@
 </div>
 </section>
 <section id="string-length-and-membership">
-<h3><span class="section-number">7.2.6. </span>6. String Length and Membership<a class="headerlink" href="#string-length-and-membership" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.6. </span>6. String Length and Membership<a class="headerlink" href="#string-length-and-membership" title="Link to this heading">¶</a></h3>
 <p>Performs validation and search checks:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Data Science&quot;</span>
 
@@ -348,7 +345,7 @@
 </div>
 </section>
 <section id="common-string-methods">
-<h3><span class="section-number">7.2.7. </span>7. Common String Methods<a class="headerlink" href="#common-string-methods" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.7. </span>7. Common String Methods<a class="headerlink" href="#common-string-methods" title="Link to this heading">¶</a></h3>
 <p>Used for formatting and transformation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;  python programming  &quot;</span>
 
@@ -360,7 +357,7 @@
 </div>
 </section>
 <section id="splitting-and-joining-strings">
-<h3><span class="section-number">7.2.8. </span>8. Splitting and Joining Strings<a class="headerlink" href="#splitting-and-joining-strings" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.8. </span>8. Splitting and Joining Strings<a class="headerlink" href="#splitting-and-joining-strings" title="Link to this heading">¶</a></h3>
 <p>Essential for text processing and parsing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Python is powerful&quot;</span>
 
@@ -373,7 +370,7 @@
 </div>
 </section>
 <section id="string-formatting">
-<h3><span class="section-number">7.2.9. </span>9. String Formatting<a class="headerlink" href="#string-formatting" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.9. </span>9. String Formatting<a class="headerlink" href="#string-formatting" title="Link to this heading">¶</a></h3>
 <p>Dynamic and readable string construction techniques:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
 <span class="n">score</span> <span class="o">=</span> <span class="mi">95</span>
@@ -384,7 +381,7 @@
 </div>
 </section>
 <section id="iterating-through-a-string">
-<h3><span class="section-number">7.2.10. </span>10. Iterating Through a String<a class="headerlink" href="#iterating-through-a-string" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.10. </span>10. Iterating Through a String<a class="headerlink" href="#iterating-through-a-string" title="Link to this heading">¶</a></h3>
 <p>Strings are iterable character by character:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;Code&quot;</span>
 
@@ -395,9 +392,9 @@
 </section>
 </section>
 <section id="python-list">
-<h2><span class="section-number">7.3. </span>Python List<a class="headerlink" href="#python-list" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Python List<a class="headerlink" href="#python-list" title="Link to this heading">¶</a></h2>
 <section id="creating-a-list">
-<h3><span class="section-number">7.3.1. </span>1. Creating a List<a class="headerlink" href="#creating-a-list" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>1. Creating a List<a class="headerlink" href="#creating-a-list" title="Link to this heading">¶</a></h3>
 <p>Lists are ordered, mutable collections that can store heterogeneous data:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -410,7 +407,7 @@
 </div>
 </section>
 <section id="accessing-list-elements-indexing">
-<h3><span class="section-number">7.3.2. </span>2. Accessing List Elements (Indexing)<a class="headerlink" href="#accessing-list-elements-indexing" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>2. Accessing List Elements (Indexing)<a class="headerlink" href="#accessing-list-elements-indexing" title="Link to this heading">¶</a></h3>
 <p>Lists support both positive and negative indexing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
 
@@ -420,7 +417,7 @@
 </div>
 </section>
 <section id="slicing-lists">
-<h3><span class="section-number">7.3.3. </span>3. Slicing Lists<a class="headerlink" href="#slicing-lists" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.3. </span>3. Slicing Lists<a class="headerlink" href="#slicing-lists" title="Link to this heading">¶</a></h3>
 <p>Extracts a sublist using slice notation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
@@ -431,7 +428,7 @@
 </div>
 </section>
 <section id="modifying-list-elements">
-<h3><span class="section-number">7.3.4. </span>4. Modifying List Elements<a class="headerlink" href="#modifying-list-elements" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.4. </span>4. Modifying List Elements<a class="headerlink" href="#modifying-list-elements" title="Link to this heading">¶</a></h3>
 <p>Lists are mutable and allow in-place updates:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pen&quot;</span><span class="p">,</span> <span class="s2">&quot;pencil&quot;</span><span class="p">,</span> <span class="s2">&quot;eraser&quot;</span><span class="p">]</span>
 <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;marker&quot;</span>
@@ -441,7 +438,7 @@
 </div>
 </section>
 <section id="adding-elements-to-a-list">
-<h3><span class="section-number">7.3.5. </span>5. Adding Elements to a List<a class="headerlink" href="#adding-elements-to-a-list" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.5. </span>5. Adding Elements to a List<a class="headerlink" href="#adding-elements-to-a-list" title="Link to this heading">¶</a></h3>
 <p>append() adds at the end, insert() adds at a specific index:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
@@ -453,7 +450,7 @@
 </div>
 </section>
 <section id="removing-elements-from-a-list">
-<h3><span class="section-number">7.3.6. </span>6. Removing Elements from a List<a class="headerlink" href="#removing-elements-from-a-list" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.6. </span>6. Removing Elements from a List<a class="headerlink" href="#removing-elements-from-a-list" title="Link to this heading">¶</a></h3>
 <p>remove() deletes by value, pop() deletes by index (default last):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 
@@ -466,7 +463,7 @@
 </div>
 </section>
 <section id="list-length-and-membership">
-<h3><span class="section-number">7.3.7. </span>7. List Length and Membership<a class="headerlink" href="#list-length-and-membership" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.7. </span>7. List Length and Membership<a class="headerlink" href="#list-length-and-membership" title="Link to this heading">¶</a></h3>
 <p>Used for validation and condition checks:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 
@@ -477,7 +474,7 @@
 </div>
 </section>
 <section id="list-iteration">
-<h3><span class="section-number">7.3.8. </span>8. List Iteration<a class="headerlink" href="#list-iteration" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.8. </span>8. List Iteration<a class="headerlink" href="#list-iteration" title="Link to this heading">¶</a></h3>
 <p>Lists are iterable and commonly used with loops:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">]</span>
 
@@ -487,7 +484,7 @@
 </div>
 </section>
 <section id="list-comprehension">
-<h3><span class="section-number">7.3.9. </span>9. List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.9. </span>9. List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">¶</a></h3>
 <p>Concise way to generate lists using expressions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1"># Output: [0, 1, 4, 9, 16]</span>
@@ -495,7 +492,7 @@
 </div>
 </section>
 <section id="sorting-and-reversing-lists">
-<h3><span class="section-number">7.3.10. </span>10. Sorting and Reversing Lists<a class="headerlink" href="#sorting-and-reversing-lists" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.3.10. </span>10. Sorting and Reversing Lists<a class="headerlink" href="#sorting-and-reversing-lists" title="Link to this heading">¶</a></h3>
 <p>Used to reorder list elements in-place:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
@@ -509,9 +506,9 @@
 </section>
 </section>
 <section id="python-tuple">
-<h2><span class="section-number">7.4. </span>Python Tuple<a class="headerlink" href="#python-tuple" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Python Tuple<a class="headerlink" href="#python-tuple" title="Link to this heading">¶</a></h2>
 <section id="creating-a-tuple">
-<h3><span class="section-number">7.4.1. </span>1. Creating a Tuple<a class="headerlink" href="#creating-a-tuple" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.1. </span>1. Creating a Tuple<a class="headerlink" href="#creating-a-tuple" title="Link to this heading">¶</a></h3>
 <p>Tuples are ordered, immutable collections used to store fixed data:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_tuple</span> <span class="o">=</span> <span class="p">()</span>
 <span class="n">single_element</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,)</span>   <span class="c1"># Comma required for single-element tuple</span>
@@ -526,7 +523,7 @@
 </div>
 </section>
 <section id="accessing-tuple-elements">
-<h3><span class="section-number">7.4.2. </span>2. Accessing Tuple Elements<a class="headerlink" href="#accessing-tuple-elements" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.2. </span>2. Accessing Tuple Elements<a class="headerlink" href="#accessing-tuple-elements" title="Link to this heading">¶</a></h3>
 <p>Like lists, tuples support indexing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 
@@ -536,7 +533,7 @@
 </div>
 </section>
 <section id="slicing-tuples">
-<h3><span class="section-number">7.4.3. </span>3. Slicing Tuples<a class="headerlink" href="#slicing-tuples" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.3. </span>3. Slicing Tuples<a class="headerlink" href="#slicing-tuples" title="Link to this heading">¶</a></h3>
 <p>Tuple slicing returns a new tuple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
@@ -546,7 +543,7 @@
 </div>
 </section>
 <section id="tuple-immutability">
-<h3><span class="section-number">7.4.4. </span>4. Tuple Immutability<a class="headerlink" href="#tuple-immutability" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.4. </span>4. Tuple Immutability<a class="headerlink" href="#tuple-immutability" title="Link to this heading">¶</a></h3>
 <p>Tuple elements cannot be modified after creation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
@@ -556,7 +553,7 @@
 </div>
 </section>
 <section id="tuple-packing-and-unpacking">
-<h3><span class="section-number">7.4.5. </span>5. Tuple Packing and Unpacking<a class="headerlink" href="#tuple-packing-and-unpacking" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.5. </span>5. Tuple Packing and Unpacking<a class="headerlink" href="#tuple-packing-and-unpacking" title="Link to this heading">¶</a></h3>
 <p>Convenient for multiple assignments:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">)</span>
 
@@ -569,7 +566,7 @@
 </div>
 </section>
 <section id="nested-tuples">
-<h3><span class="section-number">7.4.6. </span>6. Nested Tuples<a class="headerlink" href="#nested-tuples" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.6. </span>6. Nested Tuples<a class="headerlink" href="#nested-tuples" title="Link to this heading">¶</a></h3>
 <p>Tuples can contain other tuples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
@@ -579,7 +576,7 @@
 </div>
 </section>
 <section id="tuple-length-and-membership">
-<h3><span class="section-number">7.4.7. </span>7. Tuple Length and Membership<a class="headerlink" href="#tuple-length-and-membership" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.7. </span>7. Tuple Length and Membership<a class="headerlink" href="#tuple-length-and-membership" title="Link to this heading">¶</a></h3>
 <p>Supports standard sequence operations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
@@ -589,7 +586,7 @@
 </div>
 </section>
 <section id="iterating-through-a-tuple">
-<h3><span class="section-number">7.4.8. </span>8. Iterating Through a Tuple<a class="headerlink" href="#iterating-through-a-tuple" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.8. </span>8. Iterating Through a Tuple<a class="headerlink" href="#iterating-through-a-tuple" title="Link to this heading">¶</a></h3>
 <p>Tuples are iterable like lists:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;Go&quot;</span><span class="p">)</span>
 
@@ -599,7 +596,7 @@
 </div>
 </section>
 <section id="converting-between-tuples-and-lists">
-<h3><span class="section-number">7.4.9. </span>9. Converting Between Tuples and Lists<a class="headerlink" href="#converting-between-tuples-and-lists" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.9. </span>9. Converting Between Tuples and Lists<a class="headerlink" href="#converting-between-tuples-and-lists" title="Link to this heading">¶</a></h3>
 <p>Used when mutability is required temporarily:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
@@ -612,7 +609,7 @@
 </div>
 </section>
 <section id="tuple-as-a-return-value">
-<h3><span class="section-number">7.4.10. </span>10. Tuple as a Return Value<a class="headerlink" href="#tuple-as-a-return-value" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.4.10. </span>10. Tuple as a Return Value<a class="headerlink" href="#tuple-as-a-return-value" title="Link to this heading">¶</a></h3>
 <p>Functions can return multiple values as tuples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_coordinates</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">)</span>
@@ -626,9 +623,9 @@
 </section>
 </section>
 <section id="python-set">
-<h2><span class="section-number">7.5. </span>Python Set<a class="headerlink" href="#python-set" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Python Set<a class="headerlink" href="#python-set" title="Link to this heading">¶</a></h2>
 <section id="creating-a-set">
-<h3><span class="section-number">7.5.1. </span>1. Creating a Set<a class="headerlink" href="#creating-a-set" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.1. </span>1. Creating a Set<a class="headerlink" href="#creating-a-set" title="Link to this heading">¶</a></h3>
 <p>Sets are unordered collections of unique elements:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="n">unique_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
@@ -641,7 +638,7 @@
 </div>
 </section>
 <section id="automatic-removal-of-duplicates">
-<h3><span class="section-number">7.5.2. </span>2. Automatic Removal of Duplicates<a class="headerlink" href="#automatic-removal-of-duplicates" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.2. </span>2. Automatic Removal of Duplicates<a class="headerlink" href="#automatic-removal-of-duplicates" title="Link to this heading">¶</a></h3>
 <p>Duplicate values are automatically discarded:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># Output: {1, 2, 3, 4}</span>
@@ -649,7 +646,7 @@
 </div>
 </section>
 <section id="adding-elements-to-a-set">
-<h3><span class="section-number">7.5.3. </span>3. Adding Elements to a Set<a class="headerlink" href="#adding-elements-to-a-set" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.3. </span>3. Adding Elements to a Set<a class="headerlink" href="#adding-elements-to-a-set" title="Link to this heading">¶</a></h3>
 <p>Use add() to insert a single new element:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">}</span>
 
@@ -659,7 +656,7 @@
 </div>
 </section>
 <section id="adding-multiple-elements-with-update">
-<h3><span class="section-number">7.5.4. </span>4. Adding Multiple Elements with update()<a class="headerlink" href="#adding-multiple-elements-with-update" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.4. </span>4. Adding Multiple Elements with update()<a class="headerlink" href="#adding-multiple-elements-with-update" title="Link to this heading">¶</a></h3>
 <p>update() allows batch insertion from iterables:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">}</span>
 <span class="n">colors</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">])</span>
@@ -669,7 +666,7 @@
 </div>
 </section>
 <section id="removing-elements-from-a-set">
-<h3><span class="section-number">7.5.5. </span>5. Removing Elements from a Set<a class="headerlink" href="#removing-elements-from-a-set" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.5. </span>5. Removing Elements from a Set<a class="headerlink" href="#removing-elements-from-a-set" title="Link to this heading">¶</a></h3>
 <p>remove() raises an error if missing, discard() fails silently:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">}</span>
 
@@ -681,7 +678,7 @@
 </div>
 </section>
 <section id="set-length-and-membership">
-<h3><span class="section-number">7.5.6. </span>6. Set Length and Membership<a class="headerlink" href="#set-length-and-membership" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.6. </span>6. Set Length and Membership<a class="headerlink" href="#set-length-and-membership" title="Link to this heading">¶</a></h3>
 <p>Efficient for membership testing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">}</span>
 
@@ -692,7 +689,7 @@
 </div>
 </section>
 <section id="iterating-through-a-set">
-<h3><span class="section-number">7.5.7. </span>7. Iterating Through a Set<a class="headerlink" href="#iterating-through-a-set" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.7. </span>7. Iterating Through a Set<a class="headerlink" href="#iterating-through-a-set" title="Link to this heading">¶</a></h3>
 <p>Iteration order is not guaranteed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;Go&quot;</span><span class="p">}</span>
 
@@ -702,7 +699,7 @@
 </div>
 </section>
 <section id="mathematical-set-operations">
-<h3><span class="section-number">7.5.8. </span>8. Mathematical Set Operations<a class="headerlink" href="#mathematical-set-operations" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.8. </span>8. Mathematical Set Operations<a class="headerlink" href="#mathematical-set-operations" title="Link to this heading">¶</a></h3>
 <p>Supports standard mathematical set logic:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
@@ -715,7 +712,7 @@
 </div>
 </section>
 <section id="subset-and-superset-checks">
-<h3><span class="section-number">7.5.9. </span>9. Subset and Superset Checks<a class="headerlink" href="#subset-and-superset-checks" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.9. </span>9. Subset and Superset Checks<a class="headerlink" href="#subset-and-superset-checks" title="Link to this heading">¶</a></h3>
 <p>Used for hierarchical relationship validation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
@@ -726,7 +723,7 @@
 </div>
 </section>
 <section id="converting-sets-to-other-types">
-<h3><span class="section-number">7.5.10. </span>10. Converting Sets to Other Types<a class="headerlink" href="#converting-sets-to-other-types" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.5.10. </span>10. Converting Sets to Other Types<a class="headerlink" href="#converting-sets-to-other-types" title="Link to this heading">¶</a></h3>
 <p>Conversion enables ordered or indexed operations when needed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 
@@ -740,9 +737,9 @@
 </section>
 </section>
 <section id="python-dictionary">
-<h2><span class="section-number">7.6. </span>Python Dictionary<a class="headerlink" href="#python-dictionary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.6. </span>Python Dictionary<a class="headerlink" href="#python-dictionary" title="Link to this heading">¶</a></h2>
 <section id="creating-a-dictionary">
-<h3><span class="section-number">7.6.1. </span>1. Creating a Dictionary<a class="headerlink" href="#creating-a-dictionary" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.1. </span>1. Creating a Dictionary<a class="headerlink" href="#creating-a-dictionary" title="Link to this heading">¶</a></h3>
 <p>Dictionaries store data as key–value pairs and are optimized for fast lookups:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
@@ -753,7 +750,7 @@
 </div>
 </section>
 <section id="accessing-dictionary-values">
-<h3><span class="section-number">7.6.2. </span>2. Accessing Dictionary Values<a class="headerlink" href="#accessing-dictionary-values" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.2. </span>2. Accessing Dictionary Values<a class="headerlink" href="#accessing-dictionary-values" title="Link to this heading">¶</a></h3>
 <p>[] raises KeyError if missing, get() safely returns None by default:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">employee</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">}</span>
 
@@ -763,7 +760,7 @@
 </div>
 </section>
 <section id="adding-and-updating-dictionary-entries">
-<h3><span class="section-number">7.6.3. </span>3. Adding and Updating Dictionary Entries<a class="headerlink" href="#adding-and-updating-dictionary-entries" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.3. </span>3. Adding and Updating Dictionary Entries<a class="headerlink" href="#adding-and-updating-dictionary-entries" title="Link to this heading">¶</a></h3>
 <p>Assigning a value to a key adds or updates it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">}</span>
 
@@ -775,7 +772,7 @@
 </div>
 </section>
 <section id="removing-items-from-a-dictionary">
-<h3><span class="section-number">7.6.4. </span>4. Removing Items from a Dictionary<a class="headerlink" href="#removing-items-from-a-dictionary" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.4. </span>4. Removing Items from a Dictionary<a class="headerlink" href="#removing-items-from-a-dictionary" title="Link to this heading">¶</a></h3>
 <p>Used to delete keys and retrieve values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 
@@ -788,7 +785,7 @@
 </div>
 </section>
 <section id="dictionary-length-and-membership">
-<h3><span class="section-number">7.6.5. </span>5. Dictionary Length and Membership<a class="headerlink" href="#dictionary-length-and-membership" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.5. </span>5. Dictionary Length and Membership<a class="headerlink" href="#dictionary-length-and-membership" title="Link to this heading">¶</a></h3>
 <p>Checks existence of keys only:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
 
@@ -798,7 +795,7 @@
 </div>
 </section>
 <section id="iterating-through-dictionaries">
-<h3><span class="section-number">7.6.6. </span>6. Iterating Through Dictionaries<a class="headerlink" href="#iterating-through-dictionaries" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.6. </span>6. Iterating Through Dictionaries<a class="headerlink" href="#iterating-through-dictionaries" title="Link to this heading">¶</a></h3>
 <p>Supports iteration over keys, values, or both:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;London&quot;</span><span class="p">}</span>
 
@@ -811,7 +808,7 @@
 </div>
 </section>
 <section id="dictionary-methods">
-<h3><span class="section-number">7.6.7. </span>7. Dictionary Methods<a class="headerlink" href="#dictionary-methods" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.7. </span>7. Dictionary Methods<a class="headerlink" href="#dictionary-methods" title="Link to this heading">¶</a></h3>
 <p>Useful for introspection and transformation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
 
@@ -822,7 +819,7 @@
 </div>
 </section>
 <section id="merging-dictionaries">
-<h3><span class="section-number">7.6.8. </span>8. Merging Dictionaries<a class="headerlink" href="#merging-dictionaries" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.8. </span>8. Merging Dictionaries<a class="headerlink" href="#merging-dictionaries" title="Link to this heading">¶</a></h3>
 <p>Introduced in Python 3.9 for clean dictionary merging:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
@@ -833,7 +830,7 @@
 </div>
 </section>
 <section id="nested-dictionaries">
-<h3><span class="section-number">7.6.9. </span>9. Nested Dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.9. </span>9. Nested Dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">¶</a></h3>
 <p>Allows structured data modeling:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">employee</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
@@ -848,7 +845,7 @@
 </div>
 </section>
 <section id="dictionary-comprehension">
-<h3><span class="section-number">7.6.10. </span>10. Dictionary Comprehension<a class="headerlink" href="#dictionary-comprehension" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.6.10. </span>10. Dictionary Comprehension<a class="headerlink" href="#dictionary-comprehension" title="Link to this heading">¶</a></h3>
 <p>Efficient way to generate dictionaries dynamically:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span>
@@ -862,7 +859,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ch03_python_flow_control.html" class="btn btn-neutral float-left" title="6. Chapter 3: Python Flow Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch03_python_flow_control.html" class="btn btn-neutral float-left" title="3. Chapter 3: Python Flow Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
