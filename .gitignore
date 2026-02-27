@@ -356,3 +356,7 @@ target/
 etc/keys/*.asc
 
 
+
+
+# custom
+working_files/*

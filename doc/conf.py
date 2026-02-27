@@ -80,8 +80,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General substitutions.
-project = 'Sphinx with Github Webpages'
-copyright = '2019, Wenqiang Feng'
+project = 'Python Learning'
+copyright = '2026, Raja CSP Raman'
 
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
@@ -158,7 +158,14 @@ html_context = {
 # html_theme = 'sphinxdoc'
 
 # Read the docs style:
-html_theme = 'alabaster'
+if os.environ.get('READTHEDOCS') != 'True':
+    try:
+        import sphinx_rtd_theme
+    except ImportError:
+        pass  # assume we have sphinx >= 1.3
+    else:
+        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+    html_theme = 'sphinx_rtd_theme'
 
 def setup(app):
     app.add_css_file("fix_rtd.css")
