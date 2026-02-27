@@ -12,4 +12,6 @@ Contents
 
    preface
    ch02_python_fundamentals
+   ch03_python_flow_control
+   ch04_python_data_types
 

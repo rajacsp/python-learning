@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Chapter 3: Python Flow Control" href="ch03_python_flow_control.html" />
     <link rel="prev" title="1. Preface" href="preface.html" /> 
 </head>
 
@@ -83,8 +84,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#redirecting-output-to-a-file">2.3.10. 10. Redirecting Output to a File</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#python-operators">2.4. Python Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic-operators">2.4.1. 1. Arithmetic Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-operators">2.4.2. 2. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-relational-operators">2.4.3. 3. Comparison (Relational) Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-operators">2.4.4. 4. Logical Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bitwise-operators">2.4.5. 5. Bitwise Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#membership-operators">2.4.6. 6. Membership Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identity-operators">2.4.7. 7. Identity Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unary-operators">2.4.8. 8. Unary Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ternary-conditional-operator">2.4.9. 9. Ternary (Conditional) Operator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operator-precedence">2.4.10. 10. Operator Precedence</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
 </ul>
 
         </div>
@@ -500,6 +516,139 @@
 </div>
 </section>
 </section>
+<section id="python-operators">
+<h2><span class="section-number">2.4. </span>Python Operators<a class="headerlink" href="#python-operators" title="Link to this heading">¶</a></h2>
+<section id="arithmetic-operators">
+<h3><span class="section-number">2.4.1. </span>1. Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">¶</a></h3>
+<p>Used for mathematical computations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Addition → 13</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Subtraction → 7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Multiplication → 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Division → 3.333...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Floor Division → 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Modulus → 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Exponentiation → 1000</span>
+</pre></div>
+</div>
+</section>
+<section id="assignment-operators">
+<h3><span class="section-number">2.4.2. </span>2. Assignment Operators<a class="headerlink" href="#assignment-operators" title="Link to this heading">¶</a></h3>
+<p>Short-hand syntax for updating variable values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>   <span class="c1"># x = x + 5</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span>   <span class="c1"># x = x - 2</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span>   <span class="c1"># x = x * 3</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="mi">2</span>   <span class="c1"># x = x / 2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output: 19.5</span>
+</pre></div>
+</div>
+</section>
+<section id="comparison-relational-operators">
+<h3><span class="section-number">2.4.3. </span>3. Comparison (Relational) Operators<a class="headerlink" href="#comparison-relational-operators" title="Link to this heading">¶</a></h3>
+<p>Return boolean results (True / False):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Equal to → False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Not equal → True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Greater than → False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Less than → True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Greater than or equal → False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Less than or equal → True</span>
+</pre></div>
+</div>
+</section>
+<section id="logical-operators">
+<h3><span class="section-number">2.4.4. </span>4. Logical Operators<a class="headerlink" href="#logical-operators" title="Link to this heading">¶</a></h3>
+<p>Combine conditional expressions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>   <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">8</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">))</span>        <span class="c1"># False</span>
+</pre></div>
+</div>
+</section>
+<section id="bitwise-operators">
+<h3><span class="section-number">2.4.5. </span>5. Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Link to this heading">¶</a></h3>
+<p>Operate at the binary level:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 1010 in binary</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># 0100 in binary</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># AND → 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># OR → 14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># XOR → 14</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">~</span><span class="n">a</span><span class="p">)</span>      <span class="c1"># NOT → -11</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Left shift → 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Right shift → 5</span>
+</pre></div>
+</div>
+</section>
+<section id="membership-operators">
+<h3><span class="section-number">2.4.6. </span>6. Membership Operators<a class="headerlink" href="#membership-operators" title="Link to this heading">¶</a></h3>
+<p>Test whether a value exists in a sequence:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">)</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;grape&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="identity-operators">
+<h3><span class="section-number">2.4.7. </span>7. Identity Operators<a class="headerlink" href="#identity-operators" title="Link to this heading">¶</a></h3>
+<p>Check memory identity, not equality:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>      <span class="c1"># True (same object)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">c</span><span class="p">)</span>      <span class="c1"># False (different objects)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>      <span class="c1"># True (values equal)</span>
+</pre></div>
+</div>
+</section>
+<section id="unary-operators">
+<h3><span class="section-number">2.4.8. </span>8. Unary Operators<a class="headerlink" href="#unary-operators" title="Link to this heading">¶</a></h3>
+<p>Operate on a single operand:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Unary plus → 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Unary minus → -5</span>
+</pre></div>
+</div>
+</section>
+<section id="ternary-conditional-operator">
+<h3><span class="section-number">2.4.9. </span>9. Ternary (Conditional) Operator<a class="headerlink" href="#ternary-conditional-operator" title="Link to this heading">¶</a></h3>
+<p>Compact conditional assignment syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;Adult&quot;</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">&quot;Minor&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>  <span class="c1"># Output: Adult</span>
+</pre></div>
+</div>
+</section>
+<section id="operator-precedence">
+<h3><span class="section-number">2.4.10. </span>10. Operator Precedence<a class="headerlink" href="#operator-precedence" title="Link to this heading">¶</a></h3>
+<p>Understanding precedence prevents logical bugs:</p>
+<p><strong>Precedence Order:</strong></p>
+<ol class="arabic simple">
+<li><p>** (Exponentiation)</p></li>
+<li><p>*, /, //, %</p></li>
+<li><p>+, -</p></li>
+<li><p>Comparison</p></li>
+<li><p>Logical (and, or, not)</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: 30</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -507,6 +656,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="preface.html" class="btn btn-neutral float-left" title="1. Preface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch03_python_flow_control.html" class="btn btn-neutral float-right" title="3. Chapter 3: Python Flow Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
