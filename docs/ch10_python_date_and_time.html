@@ -1,0 +1,1125 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. Chapter 10: Python Date and Time &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Chapter 11: Additional Topics" href="ch11_additional_topics.html" />
+    <link rel="prev" title="9. Chapter 9: Python Advanced Topics" href="ch09_python_advanced_topics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Chapter 10: Python Date and Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-datetime">10.1. Python datetime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-datetime-module">10.1.1. 1. Overview of the datetime Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-date-and-time">10.1.2. 2. Current Date and Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-date-components">10.1.3. 3. Extracting Date Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-date-and-time-objects">10.1.4. 4. Using date and time Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-with-strftime">10.1.5. 5. Formatting with strftime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-strings-with-strptime">10.1.6. 6. Parsing Strings with strptime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-difference-using-timedelta">10.1.7. 7. Time Difference using timedelta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezone-handling-with-zoneinfo">10.1.8. 8. Timezone Handling with zoneinfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iso-format-conversion">10.1.9. 9. ISO Format Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-example-scheduling-logic">10.1.10. 10. Practical Example: Scheduling Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-strftime">10.2. Python strftime()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-strftime">10.2.1. 1. What is strftime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-date-formatting">10.2.2. 2. Basic Date Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-formatting">10.2.3. 3. Time Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#including-day-and-month-names">10.2.4. 4. Including Day and Month Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-date-and-time">10.2.5. 5. Combining Date and Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-strftime-for-file-naming">10.2.6. 6. Using strftime() for File Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iso-8601-format-using-strftime">10.2.7. 7. ISO 8601 Format Using strftime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-human-readable-format">10.2.8. 8. Custom Human-Readable Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-specific-datetime-object">10.2.9. 9. Formatting Specific datetime Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-use-case-log-timestamp">10.2.10. 10. Enterprise Use Case: Log Timestamp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-strptime">10.3. Python strptime()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-strptime">10.3.1. 1. What is strptime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-basic-date-format">10.3.2. 2. Parsing Basic Date Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-date-and-time-together">10.3.3. 3. Parsing Date and Time Together</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-with-month-and-day-names">10.3.4. 4. Parsing with Month and Day Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-12-hour-clock-format">10.3.5. 5. Parsing 12-Hour Clock Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-strptime-for-file-data-processing">10.3.6. 6. Using strptime() for File Data Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-incorrect-format-errors">10.3.7. 7. Handling Incorrect Format Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-user-input-safely">10.3.8. 8. Converting User Input Safely</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-strptime-and-strftime">10.3.9. 9. Combining strptime() and strftime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-use-case-api-timestamp-parsing">10.3.10. 10. Enterprise Use Case: API Timestamp Parsing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-get-current-date-and-time-in-python">10.4. How to Get Current Date and Time in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-datetime-now-most-common-method">10.4.1. 1. Using datetime.now() (Most Common Method)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-only-current-date">10.4.2. 2. Get Only Current Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-only-current-time">10.4.3. 3. Get Only Current Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatted-current-date-and-time">10.4.4. 4. Formatted Current Date and Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-time-module">10.4.5. 5. Using time Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-unix-timestamp">10.4.6. 6. Using UNIX Timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-utc-date-and-time">10.4.7. 7. Current UTC Date and Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-date-and-time-with-timezone">10.4.8. 8. Current Date and Time with Timezone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#human-friendly-display">10.4.9. 9. Human-Friendly Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-logging-example">10.4.10. 10. Enterprise Logging Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-get-current-time">10.5. Python Get Current Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-datetime-now-time-standard-method">10.5.1. 1. Using datetime.now().time() (Standard Method)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-strftime-for-formatted-time">10.5.2. 2. Using strftime() for Formatted Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hour-format-with-am-pm">10.5.3. 3. 12-Hour Format with AM/PM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-time-module-system-clock">10.5.4. 4. Using the time Module (System Clock)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-only-hour-minute-second">10.5.5. 5. Get Only Hour, Minute, Second</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-current-utc-time">10.5.6. 6. Get Current UTC Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezone-aware-current-time">10.5.7. 7. Timezone-Aware Current Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-time-with-microseconds">10.5.8. 8. Current Time with Microseconds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unix-time-epoch-seconds">10.5.9. 9. UNIX Time (Epoch Seconds)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-logging-example-time-only-logger">10.5.10. 10. Enterprise Logging Example (Time-Only Logger)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-timestamp-to-datetime-and-vice-versa">10.6. Python Timestamp to datetime and Vice-Versa</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-timestamp">10.6.1. 1. What is a Timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-timestamp-datetime-local-time">10.6.2. 2. Convert Timestamp → datetime (Local Time)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-timestamp-utc-datetime">10.6.3. 3. Convert Timestamp → UTC datetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-datetime-timestamp">10.6.4. 4. Convert datetime → Timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timestamp-conversion-with-formatting">10.6.5. 5. Timestamp Conversion with Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-time-module-for-conversion">10.6.6. 6. Using time Module for Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-utc-timestamp-to-local-timezone">10.6.7. 7. Convert UTC Timestamp to Local Timezone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-datetime-string-timestamp">10.6.8. 8. Convert datetime String → Timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#millisecond-timestamp-handling">10.6.9. 9. Millisecond Timestamp Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-example-database-time-normalization">10.6.10. 10. Enterprise Example: Database Time Normalization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-time-module">10.7. Python time Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-the-time-module">10.7.1. 1. What is the time Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-current-time-as-readable-string">10.7.2. 2. Get Current Time as Readable String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-current-time-components">10.7.3. 3. Get Current Time Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-delay-execution">10.7.4. 4. Sleep / Delay Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#measure-execution-time-performance-timing">10.7.5. 5. Measure Execution Time (Performance Timing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-precision-timer-with-perf-counter">10.7.6. 6. High-Precision Timer with perf_counter()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-time-with-strftime">10.7.7. 7. Formatting Time with strftime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-time-with-strptime">10.7.8. 8. Parsing Time with strptime()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-timestamp-to-readable-time">10.7.9. 9. Convert Timestamp to Readable Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-use-case-rate-limiting-logic">10.7.10. 10. Enterprise Use Case: Rate Limiting Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sleep">10.8. Python sleep()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-sleep">10.8.1. 1. What is sleep()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-delay-in-seconds">10.8.2. 2. Basic Delay in Seconds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-with-float-values-sub-second-precision">10.8.3. 3. Sleep with Float Values (Sub-second Precision)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-sleep-in-loops">10.8.4. 4. Using sleep() in Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-for-countdown-timer">10.8.5. 5. Sleep for Countdown Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-in-retry-mechanism">10.8.6. 6. Sleep in Retry Mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-in-api-rate-limiting">10.8.7. 7. Sleep in API Rate Limiting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-for-background-task-simulation">10.8.8. 8. Sleep for Background Task Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-blocking-alternative-asyncio-sleep">10.8.9. 9. Non-blocking Alternative (asyncio.sleep)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-use-case-controlled-batch-processing">10.8.10. 10. Enterprise Use Case: Controlled Batch Processing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10. </span>Chapter 10: Python Date and Time</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch10_python_date_and_time.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-10-python-date-and-time">
+<span id="ch10"></span><h1><span class="section-number">10. </span>Chapter 10: Python Date and Time<a class="headerlink" href="#chapter-10-python-date-and-time" title="Link to this heading">¶</a></h1>
+<section id="python-datetime">
+<h2><span class="section-number">10.1. </span>Python datetime<a class="headerlink" href="#python-datetime" title="Link to this heading">¶</a></h2>
+<section id="overview-of-the-datetime-module">
+<h3><span class="section-number">10.1.1. </span>1. Overview of the datetime Module<a class="headerlink" href="#overview-of-the-datetime-module" title="Link to this heading">¶</a></h3>
+<p>The datetime module is used for handling date and time operations with high precision and reliability:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>It supports full timestamping, scheduling, comparisons, and formatting.</p>
+</section>
+<section id="current-date-and-time">
+<h3><span class="section-number">10.1.2. </span>2. Current Date and Time<a class="headerlink" href="#current-date-and-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the current system date and time including microseconds.</p>
+</section>
+<section id="extracting-date-components">
+<h3><span class="section-number">10.1.3. </span>3. Extracting Date Components<a class="headerlink" href="#extracting-date-components" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-date-and-time-objects">
+<h3><span class="section-number">10.1.4. </span>4. Using date and time Objects<a class="headerlink" href="#using-date-and-time-objects" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="formatting-with-strftime">
+<h3><span class="section-number">10.1.5. </span>5. Formatting with strftime()<a class="headerlink" href="#formatting-with-strftime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A, %B </span><span class="si">%d</span><span class="s2"> %Y&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-strings-with-strptime">
+<h3><span class="section-number">10.1.6. </span>6. Parsing Strings with strptime()<a class="headerlink" href="#parsing-strings-with-strptime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;15-06-2025&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="time-difference-using-timedelta">
+<h3><span class="section-number">10.1.7. </span>7. Time Difference using timedelta<a class="headerlink" href="#time-difference-using-timedelta" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start:&quot;</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="timezone-handling-with-zoneinfo">
+<h3><span class="section-number">10.1.8. </span>8. Timezone Handling with zoneinfo<a class="headerlink" href="#timezone-handling-with-zoneinfo" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">ny_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">))</span>
+<span class="n">tokyo_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New York:&quot;</span><span class="p">,</span> <span class="n">ny_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tokyo:&quot;</span><span class="p">,</span> <span class="n">tokyo_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="iso-format-conversion">
+<h3><span class="section-number">10.1.9. </span>9. ISO Format Conversion<a class="headerlink" href="#iso-format-conversion" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="practical-example-scheduling-logic">
+<h3><span class="section-number">10.1.10. </span>10. Practical Example: Scheduling Logic<a class="headerlink" href="#practical-example-scheduling-logic" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">meeting_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">meeting_time</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meeting scheduled&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meeting overdue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-strftime">
+<h2><span class="section-number">10.2. </span>Python strftime()<a class="headerlink" href="#python-strftime" title="Link to this heading">¶</a></h2>
+<section id="what-is-strftime">
+<h3><span class="section-number">10.2.1. </span>1. What is strftime()<a class="headerlink" href="#what-is-strftime" title="Link to this heading">¶</a></h3>
+<p>strftime() converts a datetime object into a formatted string based on specified format codes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">formatted</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>  <span class="c1"># e.g., 2025-11-24</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-date-formatting">
+<h3><span class="section-number">10.2.2. </span>2. Basic Date Formatting<a class="headerlink" href="#basic-date-formatting" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">))</span>  <span class="c1"># Day/Month/Year</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m-</span><span class="si">%d</span><span class="s2">-%Y&quot;</span><span class="p">))</span>  <span class="c1"># Month-Day-Year</span>
+</pre></div>
+</div>
+</section>
+<section id="time-formatting">
+<h3><span class="section-number">10.2.3. </span>3. Time Formatting<a class="headerlink" href="#time-formatting" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">))</span>  <span class="c1"># 24-hour format</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I:%M %p&quot;</span><span class="p">))</span>  <span class="c1"># 12-hour format with AM/PM</span>
+</pre></div>
+</div>
+</section>
+<section id="including-day-and-month-names">
+<h3><span class="section-number">10.2.4. </span>4. Including Day and Month Names<a class="headerlink" href="#including-day-and-month-names" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">))</span>  <span class="c1"># Full weekday name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">&quot;</span><span class="p">))</span>  <span class="c1"># Short weekday name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B&quot;</span><span class="p">))</span>  <span class="c1"># Full month name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">))</span>  <span class="c1"># Short month name</span>
+</pre></div>
+</div>
+</section>
+<section id="combining-date-and-time">
+<h3><span class="section-number">10.2.5. </span>5. Combining Date and Time<a class="headerlink" href="#combining-date-and-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="using-strftime-for-file-naming">
+<h3><span class="section-number">10.2.6. </span>6. Using strftime() for File Naming<a class="headerlink" href="#using-strftime-for-file-naming" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;backup_&quot;</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">_%H%M%S&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.zip&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="iso-8601-format-using-strftime">
+<h3><span class="section-number">10.2.7. </span>7. ISO 8601 Format Using strftime<a class="headerlink" href="#iso-8601-format-using-strftime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">iso_format</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iso_format</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-human-readable-format">
+<h3><span class="section-number">10.2.8. </span>8. Custom Human-Readable Format<a class="headerlink" href="#custom-human-readable-format" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Today is %A, </span><span class="si">%d</span><span class="s2"> %B %Y at %I:%M %p&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="formatting-specific-datetime-object">
+<h3><span class="section-number">10.2.9. </span>9. Formatting Specific datetime Object<a class="headerlink" href="#formatting-specific-datetime-object" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">custom_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">custom_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A, </span><span class="si">%d</span><span class="s2"> %B %Y - %H:%M&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-use-case-log-timestamp">
+<h3><span class="section-number">10.2.10. </span>10. Enterprise Use Case: Log Timestamp<a class="headerlink" href="#enterprise-use-case-log-timestamp" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;Server started&quot;</span><span class="p">)</span>
+<span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;User authenticated&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-strptime">
+<h2><span class="section-number">10.3. </span>Python strptime()<a class="headerlink" href="#python-strptime" title="Link to this heading">¶</a></h2>
+<section id="what-is-strptime">
+<h3><span class="section-number">10.3.1. </span>1. What is strptime()<a class="headerlink" href="#what-is-strptime" title="Link to this heading">¶</a></h3>
+<p>strptime() converts a date/time string into a datetime object using a specified format pattern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2025-11-24&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-basic-date-format">
+<h3><span class="section-number">10.3.2. </span>2. Parsing Basic Date Format<a class="headerlink" href="#parsing-basic-date-format" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;24/11/2025&quot;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-date-and-time-together">
+<h3><span class="section-number">10.3.3. </span>3. Parsing Date and Time Together<a class="headerlink" href="#parsing-date-and-time-together" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">datetime_string</span> <span class="o">=</span> <span class="s2">&quot;2025-11-24 18:45:30&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">datetime_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-with-month-and-day-names">
+<h3><span class="section-number">10.3.4. </span>4. Parsing with Month and Day Names<a class="headerlink" href="#parsing-with-month-and-day-names" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;Monday, November 24 2025&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%A, %B </span><span class="si">%d</span><span class="s2"> %Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-12-hour-clock-format">
+<h3><span class="section-number">10.3.5. </span>5. Parsing 12-Hour Clock Format<a class="headerlink" href="#parsing-12-hour-clock-format" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">time_string</span> <span class="o">=</span> <span class="s2">&quot;07:30 PM&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_string</span><span class="p">,</span> <span class="s2">&quot;%I:%M %p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="using-strptime-for-file-data-processing">
+<h3><span class="section-number">10.3.6. </span>6. Using strptime() for File Data Processing<a class="headerlink" href="#using-strptime-for-file-data-processing" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_entry</span> <span class="o">=</span> <span class="s2">&quot;2025-11-24 10:15:00 - Server Started&quot;</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">log_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; - &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="handling-incorrect-format-errors">
+<h3><span class="section-number">10.3.7. </span>7. Handling Incorrect Format Errors<a class="headerlink" href="#handling-incorrect-format-errors" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;24-11-2025&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parsing failed:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="converting-user-input-safely">
+<h3><span class="section-number">10.3.8. </span>8. Converting User Input Safely<a class="headerlink" href="#converting-user-input-safely" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;15-06-2025&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">parsed_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">user_input</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valid date:&quot;</span><span class="p">,</span> <span class="n">parsed_date</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid date format&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="combining-strptime-and-strftime">
+<h3><span class="section-number">10.3.9. </span>9. Combining strptime() and strftime()<a class="headerlink" href="#combining-strptime-and-strftime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">raw</span> <span class="o">=</span> <span class="s2">&quot;2025/11/24&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">formatted</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>  <span class="c1"># 24-11-2025</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-use-case-api-timestamp-parsing">
+<h3><span class="section-number">10.3.10. </span>10. Enterprise Use Case: API Timestamp Parsing<a class="headerlink" href="#enterprise-use-case-api-timestamp-parsing" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">api_timestamp</span> <span class="o">=</span> <span class="s2">&quot;2025-11-24T14:35:59&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">api_timestamp</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parsed API Timestamp:&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-get-current-date-and-time-in-python">
+<h2><span class="section-number">10.4. </span>How to Get Current Date and Time in Python<a class="headerlink" href="#how-to-get-current-date-and-time-in-python" title="Link to this heading">¶</a></h2>
+<section id="using-datetime-now-most-common-method">
+<h3><span class="section-number">10.4.1. </span>1. Using datetime.now() (Most Common Method)<a class="headerlink" href="#using-datetime-now-most-common-method" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_datetime</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-only-current-date">
+<h3><span class="section-number">10.4.2. </span>2. Get Only Current Date<a class="headerlink" href="#get-only-current-date" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-only-current-time">
+<h3><span class="section-number">10.4.3. </span>3. Get Only Current Time<a class="headerlink" href="#get-only-current-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="formatted-current-date-and-time">
+<h3><span class="section-number">10.4.4. </span>4. Formatted Current Date and Time<a class="headerlink" href="#formatted-current-date-and-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">formatted</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-time-module">
+<h3><span class="section-number">10.4.5. </span>5. Using time Module<a class="headerlink" href="#using-time-module" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">current_timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_timestamp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-unix-timestamp">
+<h3><span class="section-number">10.4.6. </span>6. Using UNIX Timestamp<a class="headerlink" href="#using-unix-timestamp" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="current-utc-date-and-time">
+<h3><span class="section-number">10.4.7. </span>7. Current UTC Date and Time<a class="headerlink" href="#current-utc-date-and-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">utc_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">utc_now</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="current-date-and-time-with-timezone">
+<h3><span class="section-number">10.4.8. </span>8. Current Date and Time with Timezone<a class="headerlink" href="#current-date-and-time-with-timezone" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">local_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">local_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="human-friendly-display">
+<h3><span class="section-number">10.4.9. </span>9. Human-Friendly Display<a class="headerlink" href="#human-friendly-display" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Today is %A, </span><span class="si">%d</span><span class="s2"> %B %Y - %I:%M %p&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-logging-example">
+<h3><span class="section-number">10.4.10. </span>10. Enterprise Logging Example<a class="headerlink" href="#enterprise-logging-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_event</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_event</span><span class="p">(</span><span class="s2">&quot;Server Started&quot;</span><span class="p">)</span>
+<span class="n">log_event</span><span class="p">(</span><span class="s2">&quot;User Login Successful&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-get-current-time">
+<h2><span class="section-number">10.5. </span>Python Get Current Time<a class="headerlink" href="#python-get-current-time" title="Link to this heading">¶</a></h2>
+<section id="using-datetime-now-time-standard-method">
+<h3><span class="section-number">10.5.1. </span>1. Using datetime.now().time() (Standard Method)<a class="headerlink" href="#using-datetime-now-time-standard-method" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-strftime-for-formatted-time">
+<h3><span class="section-number">10.5.2. </span>2. Using strftime() for Formatted Time<a class="headerlink" href="#using-strftime-for-formatted-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">formatted_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hour-format-with-am-pm">
+<h3><span class="section-number">10.5.3. </span>3. 12-Hour Format with AM/PM<a class="headerlink" href="#hour-format-with-am-pm" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">time_12_hour</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I:%M %p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_12_hour</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-time-module-system-clock">
+<h3><span class="section-number">10.5.4. </span>4. Using the time Module (System Clock)<a class="headerlink" href="#using-the-time-module-system-clock" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-only-hour-minute-second">
+<h3><span class="section-number">10.5.5. </span>5. Get Only Hour, Minute, Second<a class="headerlink" href="#get-only-hour-minute-second" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hour:&quot;</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minute:&quot;</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second:&quot;</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-current-utc-time">
+<h3><span class="section-number">10.5.6. </span>6. Get Current UTC Time<a class="headerlink" href="#get-current-utc-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">utc_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">utc_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="timezone-aware-current-time">
+<h3><span class="section-number">10.5.7. </span>7. Timezone-Aware Current Time<a class="headerlink" href="#timezone-aware-current-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">tokyo_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokyo_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="current-time-with-microseconds">
+<h3><span class="section-number">10.5.8. </span>8. Current Time with Microseconds<a class="headerlink" href="#current-time-with-microseconds" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="unix-time-epoch-seconds">
+<h3><span class="section-number">10.5.9. </span>9. UNIX Time (Epoch Seconds)<a class="headerlink" href="#unix-time-epoch-seconds" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">epoch_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">epoch_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-logging-example-time-only-logger">
+<h3><span class="section-number">10.5.10. </span>10. Enterprise Logging Example (Time-Only Logger)<a class="headerlink" href="#enterprise-logging-example-time-only-logger" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_event</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">current_time</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_event</span><span class="p">(</span><span class="s2">&quot;Service initialized&quot;</span><span class="p">)</span>
+<span class="n">log_event</span><span class="p">(</span><span class="s2">&quot;Task executed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-timestamp-to-datetime-and-vice-versa">
+<h2><span class="section-number">10.6. </span>Python Timestamp to datetime and Vice-Versa<a class="headerlink" href="#python-timestamp-to-datetime-and-vice-versa" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-timestamp">
+<h3><span class="section-number">10.6.1. </span>1. What is a Timestamp<a class="headerlink" href="#what-is-a-timestamp" title="Link to this heading">¶</a></h3>
+<p>A timestamp represents time as the number of seconds since January 1, 1970 (Unix Epoch):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>  <span class="c1"># e.g. 1732452305.4829</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-timestamp-datetime-local-time">
+<h3><span class="section-number">10.6.2. </span>2. Convert Timestamp → datetime (Local Time)<a class="headerlink" href="#convert-timestamp-datetime-local-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1732452305</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-timestamp-utc-datetime">
+<h3><span class="section-number">10.6.3. </span>3. Convert Timestamp → UTC datetime<a class="headerlink" href="#convert-timestamp-utc-datetime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1732452305</span>
+<span class="n">utc_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">utc_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-datetime-timestamp">
+<h3><span class="section-number">10.6.4. </span>4. Convert datetime → Timestamp<a class="headerlink" href="#convert-datetime-timestamp" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="timestamp-conversion-with-formatting">
+<h3><span class="section-number">10.6.5. </span>5. Timestamp Conversion with Formatting<a class="headerlink" href="#timestamp-conversion-with-formatting" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1732452305</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="using-time-module-for-conversion">
+<h3><span class="section-number">10.6.6. </span>6. Using time Module for Conversion<a class="headerlink" href="#using-time-module-for-conversion" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1732452305</span>
+<span class="n">readable</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">readable</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-utc-timestamp-to-local-timezone">
+<h3><span class="section-number">10.6.7. </span>7. Convert UTC Timestamp to Local Timezone<a class="headerlink" href="#convert-utc-timestamp-to-local-timezone" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="mi">1732452305</span>
+
+<span class="n">utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">))</span>
+<span class="n">local</span> <span class="o">=</span> <span class="n">utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Kolkata&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTC:&quot;</span><span class="p">,</span> <span class="n">utc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local:&quot;</span><span class="p">,</span> <span class="n">local</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-datetime-string-timestamp">
+<h3><span class="section-number">10.6.8. </span>8. Convert datetime String → Timestamp<a class="headerlink" href="#convert-datetime-string-timestamp" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2025-11-24 14:30:00&quot;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="millisecond-timestamp-handling">
+<h3><span class="section-number">10.6.9. </span>9. Millisecond Timestamp Handling<a class="headerlink" href="#millisecond-timestamp-handling" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">ms_timestamp</span> <span class="o">=</span> <span class="mi">1732452305482</span>  <span class="c1"># milliseconds</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ms_timestamp</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-example-database-time-normalization">
+<h3><span class="section-number">10.6.10. </span>10. Enterprise Example: Database Time Normalization<a class="headerlink" href="#enterprise-example-database-time-normalization" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_timestamp</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">input_value</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">normalize_timestamp</span><span class="p">(</span><span class="mi">1732452305</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normalize_timestamp</span><span class="p">(</span><span class="s2">&quot;2025-11-24 14:30:00&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-time-module">
+<h2><span class="section-number">10.7. </span>Python time Module<a class="headerlink" href="#python-time-module" title="Link to this heading">¶</a></h2>
+<section id="what-is-the-time-module">
+<h3><span class="section-number">10.7.1. </span>1. What is the time Module<a class="headerlink" href="#what-is-the-time-module" title="Link to this heading">¶</a></h3>
+<p>The time module provides low-level time-related functions for:</p>
+<ul class="simple">
+<li><p>Timestamps</p></li>
+<li><p>Delays</p></li>
+<li><p>Performance measurement</p></li>
+<li><p>System clock interactions</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="get-current-time-as-readable-string">
+<h3><span class="section-number">10.7.2. </span>2. Get Current Time as Readable String<a class="headerlink" href="#get-current-time-as-readable-string" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-current-time-components">
+<h3><span class="section-number">10.7.3. </span>3. Get Current Time Components<a class="headerlink" href="#get-current-time-components" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hour:&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_hour</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minute:&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_min</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second:&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_sec</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-delay-execution">
+<h3><span class="section-number">10.7.4. </span>4. Sleep / Delay Execution<a class="headerlink" href="#sleep-delay-execution" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End after 2 seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="measure-execution-time-performance-timing">
+<h3><span class="section-number">10.7.5. </span>5. Measure Execution Time (Performance Timing)<a class="headerlink" href="#measure-execution-time-performance-timing" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution Time:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="high-precision-timer-with-perf-counter">
+<h3><span class="section-number">10.7.6. </span>6. High-Precision Timer with perf_counter()<a class="headerlink" href="#high-precision-timer-with-perf-counter" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precise Time:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="formatting-time-with-strftime">
+<h3><span class="section-number">10.7.7. </span>7. Formatting Time with strftime()<a class="headerlink" href="#formatting-time-with-strftime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">formatted</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parsing-time-with-strptime">
+<h3><span class="section-number">10.7.8. </span>8. Parsing Time with strptime()<a class="headerlink" href="#parsing-time-with-strptime" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;24-11-2025 10:30:00&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-timestamp-to-readable-time">
+<h3><span class="section-number">10.7.9. </span>9. Convert Timestamp to Readable Time<a class="headerlink" href="#convert-timestamp-to-readable-time" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">readable</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">readable</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-use-case-rate-limiting-logic">
+<h3><span class="section-number">10.7.10. </span>10. Enterprise Use Case: Rate Limiting Logic<a class="headerlink" href="#enterprise-use-case-rate-limiting-logic" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">last_request</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">can_execute</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">last_request</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current</span> <span class="o">-</span> <span class="n">last_request</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">last_request</span> <span class="o">=</span> <span class="n">current</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">can_execute</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-sleep">
+<h2><span class="section-number">10.8. </span>Python sleep()<a class="headerlink" href="#python-sleep" title="Link to this heading">¶</a></h2>
+<section id="what-is-sleep">
+<h3><span class="section-number">10.8.1. </span>1. What is sleep()<a class="headerlink" href="#what-is-sleep" title="Link to this heading">¶</a></h3>
+<p>sleep() is a function from the time module that pauses program execution for a specified number of seconds:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resumed after 2 seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-delay-in-seconds">
+<h3><span class="section-number">10.8.2. </span>2. Basic Delay in Seconds<a class="headerlink" href="#basic-delay-in-seconds" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executed after 5 seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-with-float-values-sub-second-precision">
+<h3><span class="section-number">10.8.3. </span>3. Sleep with Float Values (Sub-second Precision)<a class="headerlink" href="#sleep-with-float-values-sub-second-precision" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executed after 0.5 seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-sleep-in-loops">
+<h3><span class="section-number">10.8.4. </span>4. Using sleep() in Loops<a class="headerlink" href="#using-sleep-in-loops" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-for-countdown-timer">
+<h3><span class="section-number">10.8.5. </span>5. Sleep for Countdown Timer<a class="headerlink" href="#sleep-for-countdown-timer" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Countdown:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Go!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-in-retry-mechanism">
+<h3><span class="section-number">10.8.6. </span>6. Sleep in Retry Mechanism<a class="headerlink" href="#sleep-in-retry-mechanism" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">retry_operation</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempt&quot;</span><span class="p">,</span> <span class="n">attempt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">retry_operation</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-in-api-rate-limiting">
+<h3><span class="section-number">10.8.7. </span>7. Sleep in API Rate Limiting<a class="headerlink" href="#sleep-in-api-rate-limiting" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">api_request</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request sent&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">api_request</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-for-background-task-simulation">
+<h3><span class="section-number">10.8.8. </span>8. Sleep for Background Task Simulation<a class="headerlink" href="#sleep-for-background-task-simulation" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task started...&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task completed.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="non-blocking-alternative-asyncio-sleep">
+<h3><span class="section-number">10.8.9. </span>9. Non-blocking Alternative (asyncio.sleep)<a class="headerlink" href="#non-blocking-alternative-asyncio-sleep" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">task</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Waiting...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">task</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-use-case-controlled-batch-processing">
+<h3><span class="section-number">10.8.10. </span>10. Enterprise Use Case: Controlled Batch Processing<a class="headerlink" href="#enterprise-use-case-controlled-batch-processing" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_batches</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing batch </span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">process_batches</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch09_python_advanced_topics.html" class="btn btn-neutral float-left" title="9. Chapter 9: Python Advanced Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch11_additional_topics.html" class="btn btn-neutral float-right" title="11. Chapter 11: Additional Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

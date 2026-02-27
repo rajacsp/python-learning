@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. Chapter 11: Additional Topics &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="10. Chapter 10: Python Date and Time" href="ch10_python_date_and_time.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Chapter 11: Additional Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#precedence-and-associativity-of-operators-in-python">11.1. Precedence and Associativity of Operators in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-operator-precedence">11.1.1. 1. What is Operator Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-operator-associativity">11.1.2. 2. What is Operator Associativity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-parentheses-to-override-precedence">11.1.3. 3. Using Parentheses to Override Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic-operator-precedence">11.1.4. 4. Arithmetic Operator Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-and-logical-precedence">11.1.5. 5. Comparison and Logical Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-operator-hierarchy">11.1.6. 6. Logical Operator Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-precedence">11.1.7. 7. Assignment Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exponentiation-associativity-right-to-left">11.1.8. 8. Exponentiation Associativity (Right to Left)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bitwise-operator-precedence">11.1.9. 9. Bitwise Operator Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complex-expression-evaluation-example">11.1.10. 10. Complex Expression Evaluation Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-keywords-and-identifiers">11.2. Python Keywords and Identifiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-python-keywords">11.2.1. 1. What are Python Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-of-python-keywords-core-examples">11.2.2. 2. List of Python Keywords (Core Examples)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-identifiers">11.2.3. 3. What are Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules-for-identifiers">11.2.4. 4. Rules for Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#case-sensitivity-in-identifiers">11.2.5. 5. Case Sensitivity in Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invalid-identifier-examples">11.2.6. 6. Invalid Identifier Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#naming-conventions-pep-8-standard">11.2.7. 7. Naming Conventions (PEP 8 Standard)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difference-between-keywords-and-identifiers">11.2.8. 8. Difference Between Keywords and Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-if-a-word-is-a-keyword">11.2.9. 9. Checking if a Word is a Keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-naming-example">11.2.10. 10. Real-World Naming Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-asserts">11.3. Python Asserts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-an-assertion">11.3.1. 1. What is an Assertion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-assertion-syntax">11.3.2. 2. Basic Assertion Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assertion-with-custom-messages">11.3.3. 3. Assertion with Custom Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assertion-failure-example">11.3.4. 4. Assertion Failure Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-assertions-in-functions">11.3.5. 5. Using Assertions in Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assertions-for-invariant-checks">11.3.6. 6. Assertions for Invariant Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assertions-vs-exception-handling">11.3.7. 7. Assertions vs Exception Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-assertions-in-production">11.3.8. 8. Disabling Assertions in Production</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-assertion-with-complex-logic">11.3.9. 9. Advanced Assertion with Complex Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-use-case-defensive-programming">11.3.10. 10. Enterprise Use Case: Defensive Programming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-json">11.4. Python JSON</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-json">11.4.1. 1. What is JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-the-json-module">11.4.2. 2. Importing the JSON Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-python-object-json-string-json-dumps">11.4.3. 3. Convert Python Object → JSON String (json.dumps)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-json-string-python-object-json-loads">11.4.4. 4. Convert JSON String → Python Object (json.loads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-json-to-a-file-json-dump">11.4.5. 5. Writing JSON to a File (json.dump)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-json-from-a-file-json-load">11.4.6. 6. Reading JSON from a File (json.load)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pretty-printing-json">11.4.7. 7. Pretty Printing JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-complex-data-types">11.4.8. 8. Handling Complex Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-json-keys">11.4.9. 9. Sorting JSON Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-example-api-response-handling">11.4.10. 10. Enterprise Example: API Response Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-pip">11.5. Python pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-pip">11.5.1. 1. What is pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-a-package">11.5.2. 2. Installing a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrading-a-package">11.5.3. 3. Upgrading a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstalling-a-package">11.5.4. 4. Uninstalling a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-installed-packages">11.5.5. 5. Listing Installed Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-package-information">11.5.6. 6. Viewing Package Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-specific-package-version">11.5.7. 7. Installing Specific Package Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-requirements-txt">11.5.8. 8. Using requirements.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freezing-dependencies">11.5.9. 9. Freezing Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-deployment-example">11.5.10. 10. Enterprise Deployment Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-args-and-kwargs">11.6. Python *args and **kwargs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-args-and-kwargs">11.6.1. 1. What are *args and **kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-args-variable-positional-arguments">11.6.2. 2. Using *args (Variable Positional Arguments)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-over-args">11.6.3. 3. Iterating Over *args</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-kwargs-variable-keyword-arguments">11.6.4. 4. Using **kwargs (Variable Keyword Arguments)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-args-and-kwargs">11.6.5. 5. Combining *args and **kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#order-of-parameters">11.6.6. 6. Order of Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unpacking-arguments-with-and">11.6.7. 7. Unpacking Arguments with * and **</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forwarding-arguments-to-another-function">11.6.8. 8. Forwarding Arguments to Another Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-api-handler-example">11.6.9. 9. Dynamic API Handler Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-grade-example">11.6.10. 10. Enterprise-Grade Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11. </span>Chapter 11: Additional Topics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch11_additional_topics.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-11-additional-topics">
+<span id="ch11"></span><h1><span class="section-number">11. </span>Chapter 11: Additional Topics<a class="headerlink" href="#chapter-11-additional-topics" title="Link to this heading">¶</a></h1>
+<section id="precedence-and-associativity-of-operators-in-python">
+<h2><span class="section-number">11.1. </span>Precedence and Associativity of Operators in Python<a class="headerlink" href="#precedence-and-associativity-of-operators-in-python" title="Link to this heading">¶</a></h2>
+<section id="what-is-operator-precedence">
+<h3><span class="section-number">11.1.1. </span>1. What is Operator Precedence<a class="headerlink" href="#what-is-operator-precedence" title="Link to this heading">¶</a></h3>
+<p>Operator precedence determines the order in which operators are evaluated in an expression.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 20, not 30</span>
+</pre></div>
+</div>
+<p>Multiplication (*) has higher precedence than addition (+).</p>
+</section>
+<section id="what-is-operator-associativity">
+<h3><span class="section-number">11.1.2. </span>2. What is Operator Associativity<a class="headerlink" href="#what-is-operator-associativity" title="Link to this heading">¶</a></h3>
+<p>Associativity determines the direction of evaluation when operators have the same precedence.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 5.0</span>
+</pre></div>
+</div>
+<p>Division is left-to-right associative: (100 / 10) / 2</p>
+</section>
+<section id="using-parentheses-to-override-precedence">
+<h3><span class="section-number">11.1.3. </span>3. Using Parentheses to Override Precedence<a class="headerlink" href="#using-parentheses-to-override-precedence" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 30</span>
+</pre></div>
+</div>
+<p>Parentheses explicitly control evaluation order.</p>
+</section>
+<section id="arithmetic-operator-precedence">
+<h3><span class="section-number">11.1.4. </span>4. Arithmetic Operator Precedence<a class="headerlink" href="#arithmetic-operator-precedence" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 9</span>
+</pre></div>
+</div>
+<p>Evaluation order: * → + → -</p>
+</section>
+<section id="comparison-and-logical-precedence">
+<h3><span class="section-number">11.1.5. </span>5. Comparison and Logical Precedence<a class="headerlink" href="#comparison-and-logical-precedence" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Order: Comparison (&gt;) → Logical AND (and)</p>
+</section>
+<section id="logical-operator-hierarchy">
+<h3><span class="section-number">11.1.6. </span>6. Logical Operator Hierarchy<a class="headerlink" href="#logical-operator-hierarchy" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Order: not → and → or</p>
+</section>
+<section id="assignment-precedence">
+<h3><span class="section-number">11.1.7. </span>7. Assignment Precedence<a class="headerlink" href="#assignment-precedence" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># 15 15</span>
+</pre></div>
+</div>
+<p>Assignment (=) has lower precedence than arithmetic operators.</p>
+</section>
+<section id="exponentiation-associativity-right-to-left">
+<h3><span class="section-number">11.1.8. </span>8. Exponentiation Associativity (Right to Left)<a class="headerlink" href="#exponentiation-associativity-right-to-left" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 512</span>
+</pre></div>
+</div>
+<p>Evaluated as: 2 ** (3 ** 2) = 2 ** 9</p>
+</section>
+<section id="bitwise-operator-precedence">
+<h3><span class="section-number">11.1.9. </span>9. Bitwise Operator Precedence<a class="headerlink" href="#bitwise-operator-precedence" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">&amp;</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Bitwise operations follow strict precedence for predictable results.</p>
+</section>
+<section id="complex-expression-evaluation-example">
+<h3><span class="section-number">11.1.10. </span>10. Complex Expression Evaluation Example<a class="headerlink" href="#complex-expression-evaluation-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="ow">and</span> <span class="ow">not</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Step-by-step: Exponentiation → Multiplication → Addition → Comparison → Logical NOT → AND</p>
+</section>
+</section>
+<section id="python-keywords-and-identifiers">
+<h2><span class="section-number">11.2. </span>Python Keywords and Identifiers<a class="headerlink" href="#python-keywords-and-identifiers" title="Link to this heading">¶</a></h2>
+<section id="what-are-python-keywords">
+<h3><span class="section-number">11.2.1. </span>1. What are Python Keywords<a class="headerlink" href="#what-are-python-keywords" title="Link to this heading">¶</a></h3>
+<p>Keywords are reserved words in Python with predefined meanings that cannot be used as variable or function names.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These words define Python’s syntax and control structures.</p>
+</section>
+<section id="list-of-python-keywords-core-examples">
+<h3><span class="section-number">11.2.2. </span>2. List of Python Keywords (Core Examples)<a class="headerlink" href="#list-of-python-keywords-core-examples" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Common keywords:</p>
+<ul class="simple">
+<li><p>Control Flow: if, elif, else, for, while, break, continue</p></li>
+<li><p>Function &amp; Class: def, return, class, lambda</p></li>
+<li><p>Exception Handling: try, except, finally, raise</p></li>
+<li><p>Logical: and, or, not, is, in</p></li>
+</ul>
+</section>
+<section id="what-are-identifiers">
+<h3><span class="section-number">11.2.3. </span>3. What are Identifiers<a class="headerlink" href="#what-are-identifiers" title="Link to this heading">¶</a></h3>
+<p>Identifiers are names used to identify variables, functions, classes, modules, or objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_sum</span><span class="p">():</span>
+    <span class="k">pass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Here, total, calculate_sum, and User are identifiers.</p>
+</section>
+<section id="rules-for-identifiers">
+<h3><span class="section-number">11.2.4. </span>4. Rules for Identifiers<a class="headerlink" href="#rules-for-identifiers" title="Link to this heading">¶</a></h3>
+<p>An identifier must:</p>
+<ul class="simple">
+<li><p>Start with a letter (a-z, A-Z) or underscore _</p></li>
+<li><p>Not start with a digit</p></li>
+<li><p>Contain letters, digits, or underscores only</p></li>
+<li><p>Not be a Python keyword</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">valid_name</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">_invalid</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1"># 1value = 30  # Invalid</span>
+</pre></div>
+</div>
+</section>
+<section id="case-sensitivity-in-identifiers">
+<h3><span class="section-number">11.2.5. </span>5. Case Sensitivity in Identifiers<a class="headerlink" href="#case-sensitivity-in-identifiers" title="Link to this heading">¶</a></h3>
+<p>Python identifiers are case-sensitive.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>  <span class="c1"># 20</span>
+</pre></div>
+</div>
+<p>value and Value are treated as two distinct identifiers.</p>
+</section>
+<section id="invalid-identifier-examples">
+<h3><span class="section-number">11.2.6. </span>6. Invalid Identifier Examples<a class="headerlink" href="#invalid-identifier-examples" title="Link to this heading">¶</a></h3>
+<p>Python enforces strict syntax rules for naming.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># data = 100      # Starts with digit (Invalid)</span>
+<span class="c1"># class = 10       # Keyword (Invalid)</span>
+<span class="c1"># my-name = 5      # Special character (Invalid)</span>
+</pre></div>
+</div>
+</section>
+<section id="naming-conventions-pep-8-standard">
+<h3><span class="section-number">11.2.7. </span>7. Naming Conventions (PEP 8 Standard)<a class="headerlink" href="#naming-conventions-pep-8-standard" title="Link to this heading">¶</a></h3>
+<p>Standard practices:</p>
+<ul class="simple">
+<li><p>Variables &amp; functions → snake_case</p></li>
+<li><p>Classes → PascalCase</p></li>
+<li><p>Constants → UPPER_CASE</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable</span>
+<span class="n">total_price</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># Function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_total</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UserAccount</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="difference-between-keywords-and-identifiers">
+<h3><span class="section-number">11.2.8. </span>8. Difference Between Keywords and Identifiers<a class="headerlink" href="#difference-between-keywords-and-identifiers" title="Link to this heading">¶</a></h3>
+<p>Keywords are reserved words in Python, while identifiers are user-defined names.</p>
+<ul class="simple">
+<li><p>Keywords: if, class, return</p></li>
+<li><p>Identifiers: count, UserData, my_function</p></li>
+</ul>
+</section>
+<section id="checking-if-a-word-is-a-keyword">
+<h3><span class="section-number">11.2.9. </span>9. Checking if a Word is a Keyword<a class="headerlink" href="#checking-if-a-word-is-a-keyword" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">))</span>      <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">))</span>   <span class="c1"># False</span>
+</pre></div>
+</div>
+<p>Useful for compilers, linters, and code validators.</p>
+</section>
+<section id="real-world-naming-example">
+<h3><span class="section-number">11.2.10. </span>10. Real-World Naming Example<a class="headerlink" href="#real-world-naming-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OrderProcessor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.18</span>
+        <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">tax_rate</span>
+
+<span class="n">processor</span> <span class="o">=</span> <span class="n">OrderProcessor</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">processor</span><span class="o">.</span><span class="n">calculate_tax</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Demonstrates professionalism and readability using proper identifiers.</p>
+</section>
+</section>
+<section id="python-asserts">
+<h2><span class="section-number">11.3. </span>Python Asserts<a class="headerlink" href="#python-asserts" title="Link to this heading">¶</a></h2>
+<section id="what-is-an-assertion">
+<h3><span class="section-number">11.3.1. </span>1. What is an Assertion<a class="headerlink" href="#what-is-an-assertion" title="Link to this heading">¶</a></h3>
+<p>An assertion is a debugging aid that tests a condition and raises an error if the condition evaluates to False.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>If the condition fails, Python raises an AssertionError.</p>
+</section>
+<section id="basic-assertion-syntax">
+<h3><span class="section-number">11.3.2. </span>2. Basic Assertion Syntax<a class="headerlink" href="#basic-assertion-syntax" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">condition</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="k">assert</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span>
+</pre></div>
+</div>
+<p>Program continues only if the condition is true.</p>
+</section>
+<section id="assertion-with-custom-messages">
+<h3><span class="section-number">11.3.3. </span>3. Assertion with Custom Messages<a class="headerlink" href="#assertion-with-custom-messages" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="k">assert</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;Score must be at least 50 to pass&quot;</span>
+</pre></div>
+</div>
+<p>Provides clear contextual error information.</p>
+</section>
+<section id="assertion-failure-example">
+<h3><span class="section-number">11.3.4. </span>4. Assertion Failure Example<a class="headerlink" href="#assertion-failure-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="k">assert</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Value must be positive&quot;</span>
+<span class="c1"># AssertionError: Value must be positive</span>
+</pre></div>
+</div>
+<p>Useful during validation and debugging phases.</p>
+</section>
+<section id="using-assertions-in-functions">
+<h3><span class="section-number">11.3.5. </span>5. Using Assertions in Functions<a class="headerlink" href="#using-assertions-in-functions" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_square</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;Input must be an integer&quot;</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ensures correct parameter usage.</p>
+</section>
+<section id="assertions-for-invariant-checks">
+<h3><span class="section-number">11.3.6. </span>6. Assertions for Invariant Checks<a class="headerlink" href="#assertions-for-invariant-checks" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="n">balance</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">balance</span><span class="p">,</span> <span class="s2">&quot;Insufficient balance&quot;</span>
+    <span class="k">return</span> <span class="n">balance</span> <span class="o">-</span> <span class="n">amount</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Guarantees logical consistency during execution.</p>
+</section>
+<section id="assertions-vs-exception-handling">
+<h3><span class="section-number">11.3.7. </span>7. Assertions vs Exception Handling<a class="headerlink" href="#assertions-vs-exception-handling" title="Link to this heading">¶</a></h3>
+<p>Assertions are debugging aids for internal logic, while exceptions handle user input validation.</p>
+<ul class="simple">
+<li><p>Assertions: Can be disabled, for internal logic</p></li>
+<li><p>Exceptions: Always active, for user input validation</p></li>
+</ul>
+</section>
+<section id="disabling-assertions-in-production">
+<h3><span class="section-number">11.3.8. </span>8. Disabling Assertions in Production<a class="headerlink" href="#disabling-assertions-in-production" title="Link to this heading">¶</a></h3>
+<p>Assertions can be disabled by running Python with optimization flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-O<span class="w"> </span>script.py
+</pre></div>
+</div>
+<p>This removes all assert statements from execution.</p>
+</section>
+<section id="advanced-assertion-with-complex-logic">
+<h3><span class="section-number">11.3.9. </span>9. Advanced Assertion with Complex Logic<a class="headerlink" href="#advanced-assertion-with-complex-logic" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Data cannot be empty&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">process_data</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Combines multiple conditions in one assertion.</p>
+</section>
+<section id="enterprise-use-case-defensive-programming">
+<h3><span class="section-number">11.3.10. </span>10. Enterprise Use Case: Defensive Programming<a class="headerlink" href="#enterprise-use-case-defensive-programming" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="s2">&quot;id&quot;</span> <span class="ow">in</span> <span class="n">order</span><span class="p">,</span> <span class="s2">&quot;Order must contain ID&quot;</span>
+    <span class="k">assert</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;amount&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Order amount must be positive&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;Order Processed&quot;</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ensures internal system contracts remain valid.</p>
+</section>
+</section>
+<section id="python-json">
+<h2><span class="section-number">11.4. </span>Python JSON<a class="headerlink" href="#python-json" title="Link to this heading">¶</a></h2>
+<section id="what-is-json">
+<h3><span class="section-number">11.4.1. </span>1. What is JSON<a class="headerlink" href="#what-is-json" title="Link to this heading">¶</a></h3>
+<p>JSON (JavaScript Object Notation) is a lightweight data-interchange format used for storing and exchanging structured data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Python, JSON is handled using the built-in json module.</p>
+</section>
+<section id="importing-the-json-module">
+<h3><span class="section-number">11.4.2. </span>2. Importing the JSON Module<a class="headerlink" href="#importing-the-json-module" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</pre></div>
+</div>
+<p>Provides methods to convert between Python objects and JSON format.</p>
+</section>
+<section id="convert-python-object-json-string-json-dumps">
+<h3><span class="section-number">11.4.3. </span>3. Convert Python Object → JSON String (json.dumps)<a class="headerlink" href="#convert-python-object-json-string-json-dumps" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Toronto&quot;</span><span class="p">}</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Serializes Python objects into a JSON-formatted string.</p>
+</section>
+<section id="convert-json-string-python-object-json-loads">
+<h3><span class="section-number">11.4.4. </span>4. Convert JSON String → Python Object (json.loads)<a class="headerlink" href="#convert-json-string-python-object-json-loads" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_text</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 25}&#39;</span>
+<span class="n">python_obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">python_obj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">python_obj</span><span class="p">))</span>  <span class="c1"># dict</span>
+</pre></div>
+</div>
+<p>Deserializes JSON string into Python data structures.</p>
+</section>
+<section id="writing-json-to-a-file-json-dump">
+<h3><span class="section-number">11.4.5. </span>5. Writing JSON to a File (json.dump)<a class="headerlink" href="#writing-json-to-a-file-json-dump" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Laptop&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+    <span class="s2">&quot;in_stock&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;product.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stores structured data persistently.</p>
+</section>
+<section id="reading-json-from-a-file-json-load">
+<h3><span class="section-number">11.4.6. </span>6. Reading JSON from a File (json.load)<a class="headerlink" href="#reading-json-from-a-file-json-load" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;product.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Loads JSON data into Python objects.</p>
+</section>
+<section id="pretty-printing-json">
+<h3><span class="section-number">11.4.7. </span>7. Pretty Printing JSON<a class="headerlink" href="#pretty-printing-json" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;AI&quot;</span><span class="p">,</span> <span class="s2">&quot;ML&quot;</span><span class="p">]}</span>
+<span class="n">pretty_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pretty_json</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Improves readability for logs and debugging.</p>
+</section>
+<section id="handling-complex-data-types">
+<h3><span class="section-number">11.4.8. </span>8. Handling Complex Data Types<a class="headerlink" href="#handling-complex-data-types" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;login&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())}</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Non-serializable objects must be converted manually.</p>
+</section>
+<section id="sorting-json-keys">
+<h3><span class="section-number">11.4.9. </span>9. Sorting JSON Keys<a class="headerlink" href="#sorting-json-keys" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">sorted_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_json</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Useful for consistent API responses and hashing.</p>
+</section>
+<section id="enterprise-example-api-response-handling">
+<h3><span class="section-number">11.4.10. </span>10. Enterprise Example: API Response Handling<a class="headerlink" href="#enterprise-example-api-response-handling" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_api_response</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">),</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;payload&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kc">None</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="s1">&#39;{&quot;status&quot;: &quot;success&quot;, &quot;payload&quot;: {&quot;id&quot;: 101}}&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parse_api_response</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Standard pattern for microservices and REST APIs.</p>
+</section>
+</section>
+<section id="python-pip">
+<h2><span class="section-number">11.5. </span>Python pip<a class="headerlink" href="#python-pip" title="Link to this heading">¶</a></h2>
+<section id="what-is-pip">
+<h3><span class="section-number">11.5.1. </span>1. What is pip<a class="headerlink" href="#what-is-pip" title="Link to this heading">¶</a></h3>
+<p>pip is Python’s official package manager used to install, upgrade, and manage external libraries and dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>It connects to the Python Package Index (PyPI) to fetch and install packages.</p>
+</section>
+<section id="installing-a-package">
+<h3><span class="section-number">11.5.2. </span>2. Installing a Package<a class="headerlink" href="#installing-a-package" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Downloads and installs the requests package and its dependencies into the environment.</p>
+</section>
+<section id="upgrading-a-package">
+<h3><span class="section-number">11.5.3. </span>3. Upgrading a Package<a class="headerlink" href="#upgrading-a-package" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Ensures the latest stable version of a package is installed.</p>
+</section>
+<section id="uninstalling-a-package">
+<h3><span class="section-number">11.5.4. </span>4. Uninstalling a Package<a class="headerlink" href="#uninstalling-a-package" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>uninstall<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Removes the package and related files cleanly.</p>
+</section>
+<section id="listing-installed-packages">
+<h3><span class="section-number">11.5.5. </span>5. Listing Installed Packages<a class="headerlink" href="#listing-installed-packages" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Displays all currently installed Python packages in the environment.</p>
+</section>
+<section id="viewing-package-information">
+<h3><span class="section-number">11.5.6. </span>6. Viewing Package Information<a class="headerlink" href="#viewing-package-information" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Provides metadata such as version, location, dependencies, and author details.</p>
+</section>
+<section id="installing-specific-package-version">
+<h3><span class="section-number">11.5.7. </span>7. Installing Specific Package Version<a class="headerlink" href="#installing-specific-package-version" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.24.0
+</pre></div>
+</div>
+<p>Locks installation to an exact version for reproducibility.</p>
+</section>
+<section id="using-requirements-txt">
+<h3><span class="section-number">11.5.8. </span>8. Using requirements.txt<a class="headerlink" href="#using-requirements-txt" title="Link to this heading">¶</a></h3>
+<p>Example requirements.txt:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>flask==2.2.3
+requests&gt;=2.25
+numpy
+</pre></div>
+</div>
+<p>Essential for dependency management in team environments.</p>
+</section>
+<section id="freezing-dependencies">
+<h3><span class="section-number">11.5.9. </span>9. Freezing Dependencies<a class="headerlink" href="#freezing-dependencies" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Exports exact installed package versions for deployment or CI/CD pipelines.</p>
+</section>
+<section id="enterprise-deployment-example">
+<h3><span class="section-number">11.5.10. </span>10. Enterprise Deployment Example<a class="headerlink" href="#enterprise-deployment-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Create virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># Step 2: Activate environment</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">   </span><span class="c1"># macOS/Linux</span>
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">      </span><span class="c1"># Windows</span>
+
+<span class="c1"># Step 3: Install dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>This ensures isolated, repeatable, production-grade deployments.</p>
+</section>
+</section>
+<section id="python-args-and-kwargs">
+<h2><span class="section-number">11.6. </span>Python <a href="#id1"><span class="problematic" id="id2">*</span></a>args and <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<a class="headerlink" href="#python-args-and-kwargs" title="Link to this heading">¶</a></h2>
+<section id="what-are-args-and-kwargs">
+<h3><span class="section-number">11.6.1. </span>1. What are <a href="#id5"><span class="problematic" id="id6">*</span></a>args and <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs<a class="headerlink" href="#what-are-args-and-kwargs" title="Link to this heading">¶</a></h3>
+<p><a href="#id9"><span class="problematic" id="id10">*</span></a>args and <a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs allow a function to accept a variable number of arguments.</p>
+<ul class="simple">
+<li><p><a href="#id13"><span class="problematic" id="id14">*</span></a>args → Variable positional arguments</p></li>
+<li><p><a href="#id15"><span class="problematic" id="id16">**</span></a>kwargs → Variable keyword arguments (key-value pairs)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">demo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Enables highly flexible function signatures.</p>
+</section>
+<section id="using-args-variable-positional-arguments">
+<h3><span class="section-number">11.6.2. </span>2. Using <a href="#id17"><span class="problematic" id="id18">*</span></a>args (Variable Positional Arguments)<a class="headerlink" href="#using-args-variable-positional-arguments" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># 10</span>
+</pre></div>
+</div>
+<p>All positional arguments are captured as a tuple.</p>
+</section>
+<section id="iterating-over-args">
+<h3><span class="section-number">11.6.3. </span>3. Iterating Over <a href="#id19"><span class="problematic" id="id20">*</span></a>args<a class="headerlink" href="#iterating-over-args" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_values</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">display_values</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;AI&quot;</span><span class="p">,</span> <span class="s2">&quot;ML&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ideal for functions handling unknown input sizes.</p>
+</section>
+<section id="using-kwargs-variable-keyword-arguments">
+<h3><span class="section-number">11.6.4. </span>4. Using <a href="#id21"><span class="problematic" id="id22">**</span></a>kwargs (Variable Keyword Arguments)<a class="headerlink" href="#using-kwargs-variable-keyword-arguments" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_profile</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">display_profile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;Toronto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All keyword arguments are captured as a dictionary.</p>
+</section>
+<section id="combining-args-and-kwargs">
+<h3><span class="section-number">11.6.5. </span>5. Combining <a href="#id23"><span class="problematic" id="id24">*</span></a>args and <a href="#id25"><span class="problematic" id="id26">**</span></a>kwargs<a class="headerlink" href="#combining-args-and-kwargs" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Positional:&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keyword:&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">process_data</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s2">&quot;CSP&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;Active&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Supports highly dynamic functions.</p>
+</section>
+<section id="order-of-parameters">
+<h3><span class="section-number">11.6.6. </span>6. Order of Parameters<a class="headerlink" href="#order-of-parameters" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">example</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Correct function signature order: Normal parameters → <a href="#id27"><span class="problematic" id="id28">*</span></a>args → Default parameters → <a href="#id29"><span class="problematic" id="id30">**</span></a>kwargs</p>
+</section>
+<section id="unpacking-arguments-with-and">
+<h3><span class="section-number">11.6.7. </span>7. Unpacking Arguments with * and **<a class="headerlink" href="#unpacking-arguments-with-and" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&quot;</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">greet</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="n">greet</span><span class="p">(</span><span class="o">**</span><span class="n">info</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Used for data-driven function execution.</p>
+</section>
+<section id="forwarding-arguments-to-another-function">
+<h3><span class="section-number">11.6.8. </span>8. Forwarding Arguments to Another Function<a class="headerlink" href="#forwarding-arguments-to-another-function" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">calculate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Common in decorators and middleware.</p>
+</section>
+<section id="dynamic-api-handler-example">
+<h3><span class="section-number">11.6.9. </span>9. Dynamic API Handler Example<a class="headerlink" href="#dynamic-api-handler-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">api_handler</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling </span><span class="si">{</span><span class="n">endpoint</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Params:&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Options:&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">api_handler</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s2">&quot;asc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Used in REST clients and flexible service routers.</p>
+</section>
+<section id="enterprise-grade-example">
+<h3><span class="section-number">11.6.10. </span>10. Enterprise-Grade Example<a class="headerlink" href="#enterprise-grade-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_event</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event: </span><span class="si">{</span><span class="n">event_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Details:&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Metadata:&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">log_event</span><span class="p">(</span><span class="s2">&quot;LOGIN&quot;</span><span class="p">,</span> <span class="s2">&quot;UserID:101&quot;</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ideal for dynamic logging, analytics, and telemetry systems.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch10_python_date_and_time.html" class="btn btn-neutral float-left" title="10. Chapter 10: Python Date and Time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

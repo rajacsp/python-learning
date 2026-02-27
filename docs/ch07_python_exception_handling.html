@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. Chapter 7: Python Exception Handling &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Chapter 8: Python Object &amp; Class" href="ch08_python_object_and_class.html" />
+    <link rel="prev" title="6. Chapter 6: Python Files" href="ch06_python_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Chapter 7: Python Exception Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-exceptions">7.1. Python Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-an-exception">7.1.1. 1. What is an Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-try-except-block">7.1.2. 2. Basic try…except Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-multiple-exceptions">7.1.3. 3. Handling Multiple Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-else-with-try-except">7.1.4. 4. Using else with try…except</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-finally-block">7.1.5. 5. Using finally Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catching-all-exceptions-generic-exception">7.1.6. 6. Catching All Exceptions (Generic Exception)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raising-custom-exceptions">7.1.7. 7. Raising Custom Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-custom-exception-classes">7.1.8. 8. Creating Custom Exception Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-assertions-assert">7.1.9. 9. Using Assertions (assert)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practice-structured-exception-handling">7.1.10. 10. Best Practice: Structured Exception Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-exception-handling">7.2. Python Exception Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose-of-exception-handling">7.2.1. 1. Purpose of Exception Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-try-except-structure">7.2.2. 2. Basic try…except Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">7.2.3. 3. Handling Multiple Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-try-except-else">7.2.4. 4. Using try…except…else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-try-except-finally">7.2.5. 5. Using try…except…finally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-exception-handling">7.2.6. 6. Nested Exception Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catching-generic-exceptions">7.2.7. 7. Catching Generic Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#re-raising-exceptions">7.2.8. 8. Re-raising Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-exception-handling-strategy">7.2.9. 9. Custom Exception Handling Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#production-grade-exception-handling-pattern">7.2.10. 10. Production-Grade Exception Handling Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-custom-exceptions">7.3. Python Custom Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-use-custom-exceptions">7.3.1. 1. Why Use Custom Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-custom-exception-example">7.3.2. 2. Basic Custom Exception Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extending-exception-with-custom-message">7.3.3. 3. Extending Exception with Custom Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catching-custom-exceptions">7.3.4. 4. Catching Custom Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-hierarchy-of-custom-exceptions">7.3.5. 5. Creating Hierarchy of Custom Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-exception-with-additional-attributes">7.3.6. 6. Custom Exception with Additional Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-custom-exceptions-in-functions">7.3.7. 7. Using Custom Exceptions in Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-exception-with-logging">7.3.8. 8. Custom Exception with Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaining-custom-exceptions">7.3.9. 9. Chaining Custom Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practice-naming-and-design-pattern">7.3.10. 10. Best Practice: Naming and Design Pattern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7. </span>Chapter 7: Python Exception Handling</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch07_python_exception_handling.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-7-python-exception-handling">
+<span id="ch07"></span><h1><span class="section-number">7. </span>Chapter 7: Python Exception Handling<a class="headerlink" href="#chapter-7-python-exception-handling" title="Link to this heading">¶</a></h1>
+<section id="python-exceptions">
+<h2><span class="section-number">7.1. </span>Python Exceptions<a class="headerlink" href="#python-exceptions" title="Link to this heading">¶</a></h2>
+<section id="what-is-an-exception">
+<h3><span class="section-number">7.1.1. </span>1. What is an Exception<a class="headerlink" href="#what-is-an-exception" title="Link to this heading">¶</a></h3>
+<p>An exception is an error that occurs during program execution and disrupts normal program flow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Raises ZeroDivisionError</span>
+</pre></div>
+</div>
+<p>Without handling, the program terminates immediately.</p>
+</section>
+<section id="basic-try-except-block">
+<h3><span class="section-number">7.1.2. </span>2. Basic try…except Block<a class="headerlink" href="#basic-try-except-block" title="Link to this heading">¶</a></h3>
+<p>The try block contains risky code; except handles the error gracefully:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="handling-multiple-exceptions">
+<h3><span class="section-number">7.1.3. </span>3. Handling Multiple Exceptions<a class="headerlink" href="#handling-multiple-exceptions" title="Link to this heading">¶</a></h3>
+<p>Different exception types can be handled separately:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid conversion&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-else-with-try-except">
+<h3><span class="section-number">7.1.4. </span>4. Using else with try…except<a class="headerlink" href="#using-else-with-try-except" title="Link to this heading">¶</a></h3>
+<p>The else block executes only if no exception is raised:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion failed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion successful:&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-finally-block">
+<h3><span class="section-number">7.1.5. </span>5. Using finally Block<a class="headerlink" href="#using-finally-block" title="Link to this heading">¶</a></h3>
+<p>finally always executes, whether an exception occurs or not:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution completed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="catching-all-exceptions-generic-exception">
+<h3><span class="section-number">7.1.6. </span>6. Catching All Exceptions (Generic Exception)<a class="headerlink" href="#catching-all-exceptions-generic-exception" title="Link to this heading">¶</a></h3>
+<p>Catches any exception; useful for logging but should be used cautiously:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">risky_operation</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error occurred:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="raising-custom-exceptions">
+<h3><span class="section-number">7.1.7. </span>7. Raising Custom Exceptions<a class="headerlink" href="#raising-custom-exceptions" title="Link to this heading">¶</a></h3>
+<p>The raise keyword triggers an exception manually:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Age cannot be negative&quot;</span><span class="p">)</span>
+
+<span class="n">validate_age</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-custom-exception-classes">
+<h3><span class="section-number">7.1.8. </span>8. Creating Custom Exception Classes<a class="headerlink" href="#creating-custom-exception-classes" title="Link to this heading">¶</a></h3>
+<p>Custom exceptions improve clarity in domain-specific logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NegativeNumberError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeNumberError</span><span class="p">(</span><span class="s2">&quot;Negative numbers are not allowed&quot;</span><span class="p">)</span>
+
+<span class="n">check_number</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-assertions-assert">
+<h3><span class="section-number">7.1.9. </span>9. Using Assertions (assert)<a class="headerlink" href="#using-assertions-assert" title="Link to this heading">¶</a></h3>
+<p>Assertions are used for debugging and validation during development:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="k">assert</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;User must be at least 18 years old&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practice-structured-exception-handling">
+<h3><span class="section-number">7.1.10. </span>10. Best Practice: Structured Exception Handling<a class="headerlink" href="#best-practice-structured-exception-handling" title="Link to this heading">¶</a></h3>
+<p>Encapsulating exception logic improves reliability and user experience:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Division by zero error&quot;</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Invalid input type&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-exception-handling">
+<h2><span class="section-number">7.2. </span>Python Exception Handling<a class="headerlink" href="#python-exception-handling" title="Link to this heading">¶</a></h2>
+<section id="purpose-of-exception-handling">
+<h3><span class="section-number">7.2.1. </span>1. Purpose of Exception Handling<a class="headerlink" href="#purpose-of-exception-handling" title="Link to this heading">¶</a></h3>
+<p>Exception handling prevents abrupt program termination and allows controlled recovery from runtime errors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Handled division by zero safely&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ensures stable application behavior.</p>
+</section>
+<section id="basic-try-except-structure">
+<h3><span class="section-number">7.2.2. </span>2. Basic try…except Structure<a class="headerlink" href="#basic-try-except-structure" title="Link to this heading">¶</a></h3>
+<p>Separates risky code from error-handling logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid number format&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">7.2.3. </span>3. Handling Multiple Exceptions<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Different exception types can be managed independently:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion error&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-try-except-else">
+<h3><span class="section-number">7.2.4. </span>4. Using try…except…else<a class="headerlink" href="#using-try-except-else" title="Link to this heading">¶</a></h3>
+<p>else executes only if no exception occurs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;50&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion failed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion successful:&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-try-except-finally">
+<h3><span class="section-number">7.2.5. </span>5. Using try…except…finally<a class="headerlink" href="#using-try-except-finally" title="Link to this heading">¶</a></h3>
+<p>finally always runs, making it ideal for resource cleanup:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup operations executed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="nested-exception-handling">
+<h3><span class="section-number">7.2.6. </span>6. Nested Exception Handling<a class="headerlink" href="#nested-exception-handling" title="Link to this heading">¶</a></h3>
+<p>Allows granular control over layered risky operations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner exception handled&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer exception handler&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="catching-generic-exceptions">
+<h3><span class="section-number">7.2.7. </span>7. Catching Generic Exceptions<a class="headerlink" href="#catching-generic-exceptions" title="Link to this heading">¶</a></h3>
+<p>Catches all exceptions; useful for logging but should be used carefully:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">risky_operation</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="re-raising-exceptions">
+<h3><span class="section-number">7.2.8. </span>8. Re-raising Exceptions<a class="headerlink" href="#re-raising-exceptions" title="Link to this heading">¶</a></h3>
+<p>Preserves the original traceback while adding contextual handling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logging error before re-raising&quot;</span><span class="p">)</span>
+    <span class="k">raise</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-exception-handling-strategy">
+<h3><span class="section-number">7.2.9. </span>9. Custom Exception Handling Strategy<a class="headerlink" href="#custom-exception-handling-strategy" title="Link to this heading">¶</a></h3>
+<p>Allows domain-specific error control:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InvalidAgeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InvalidAgeError</span><span class="p">(</span><span class="s2">&quot;Age must be 18 or above&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">validate_age</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">InvalidAgeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="production-grade-exception-handling-pattern">
+<h3><span class="section-number">7.2.10. </span>10. Production-Grade Exception Handling Pattern<a class="headerlink" href="#production-grade-exception-handling-pattern" title="Link to this heading">¶</a></h3>
+<p>Combines graceful handling, error reporting, and guaranteed execution logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation attempted&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-custom-exceptions">
+<h2><span class="section-number">7.3. </span>Python Custom Exceptions<a class="headerlink" href="#python-custom-exceptions" title="Link to this heading">¶</a></h2>
+<section id="why-use-custom-exceptions">
+<h3><span class="section-number">7.3.1. </span>1. Why Use Custom Exceptions<a class="headerlink" href="#why-use-custom-exceptions" title="Link to this heading">¶</a></h3>
+<p>Custom exceptions improve clarity, maintainability, and semantic accuracy by representing domain-specific error conditions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InvalidInputError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Defines a new exception type tailored to your application logic.</p>
+</section>
+<section id="basic-custom-exception-example">
+<h3><span class="section-number">7.3.2. </span>2. Basic Custom Exception Example<a class="headerlink" href="#basic-custom-exception-example" title="Link to this heading">¶</a></h3>
+<p>Raises a user-defined exception with a meaningful message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NegativeValueError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_value</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeValueError</span><span class="p">(</span><span class="s2">&quot;Negative values are not allowed&quot;</span><span class="p">)</span>
+
+<span class="n">process_value</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="extending-exception-with-custom-message">
+<h3><span class="section-number">7.3.3. </span>3. Extending Exception with Custom Message<a class="headerlink" href="#extending-exception-with-custom-message" title="Link to this heading">¶</a></h3>
+<p>Adds dynamic context to error messages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AgeLimitError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Age </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> is below allowed limit&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">AgeLimitError</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+
+<span class="n">validate_age</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="catching-custom-exceptions">
+<h3><span class="section-number">7.3.4. </span>4. Catching Custom Exceptions<a class="headerlink" href="#catching-custom-exceptions" title="Link to this heading">¶</a></h3>
+<p>Handled like any built-in exception:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Invalid credentials&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">AuthenticationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Login failed:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-hierarchy-of-custom-exceptions">
+<h3><span class="section-number">7.3.5. </span>5. Creating Hierarchy of Custom Exceptions<a class="headerlink" href="#creating-hierarchy-of-custom-exceptions" title="Link to this heading">¶</a></h3>
+<p>Facilitates organized error taxonomy and layered handling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ApplicationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DatabaseError</span><span class="p">(</span><span class="n">ApplicationError</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NetworkError</span><span class="p">(</span><span class="n">ApplicationError</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-exception-with-additional-attributes">
+<h3><span class="section-number">7.3.6. </span>6. Custom Exception with Additional Attributes<a class="headerlink" href="#custom-exception-with-additional-attributes" title="Link to this heading">¶</a></h3>
+<p>Carries structured metadata for better diagnostics:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TransactionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">raise</span> <span class="n">TransactionError</span><span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="s2">&quot;Unauthorized action&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-custom-exceptions-in-functions">
+<h3><span class="section-number">7.3.7. </span>7. Using Custom Exceptions in Functions<a class="headerlink" href="#using-custom-exceptions-in-functions" title="Link to this heading">¶</a></h3>
+<p>Enforces logical validation constraints:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FileMissingError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">FileMissingError</span><span class="p">(</span><span class="s2">&quot;Only JSON configuration files supported&quot;</span><span class="p">)</span>
+
+<span class="n">load_config</span><span class="p">(</span><span class="s2">&quot;config.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-exception-with-logging">
+<h3><span class="section-number">7.3.8. </span>8. Custom Exception with Logging<a class="headerlink" href="#custom-exception-with-logging" title="Link to this heading">¶</a></h3>
+<p>Useful for application-level logging and audit trails:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataValidationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">DataValidationError</span><span class="p">(</span><span class="s2">&quot;Invalid CSV column format&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">DataValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation Error Logged:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="chaining-custom-exceptions">
+<h3><span class="section-number">7.3.9. </span>9. Chaining Custom Exceptions<a class="headerlink" href="#chaining-custom-exceptions" title="Link to this heading">¶</a></h3>
+<p>Preserves original error context using exception chaining:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InitialError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DerivedError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InitialError</span><span class="p">(</span><span class="s2">&quot;Initial failure&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">InitialError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DerivedError</span><span class="p">(</span><span class="s2">&quot;Follow-up failure&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+<span class="k">except</span> <span class="n">DerivedError</span> <span class="k">as</span> <span class="n">final_error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">final_error</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practice-naming-and-design-pattern">
+<h3><span class="section-number">7.3.10. </span>10. Best Practice: Naming and Design Pattern<a class="headerlink" href="#best-practice-naming-and-design-pattern" title="Link to this heading">¶</a></h3>
+<p>Follow naming conventions:</p>
+<ul class="simple">
+<li><p>Use meaningful names</p></li>
+<li><p>Inherit from Exception</p></li>
+<li><p>Include descriptive docstrings</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InvalidOrderStateError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when an order is in an invalid processing state&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_order</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;confirmed&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InvalidOrderStateError</span><span class="p">(</span><span class="s2">&quot;Order must be confirmed before processing&quot;</span><span class="p">)</span>
+
+<span class="n">process_order</span><span class="p">(</span><span class="s2">&quot;draft&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch06_python_files.html" class="btn btn-neutral float-left" title="6. Chapter 6: Python Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch08_python_object_and_class.html" class="btn btn-neutral float-right" title="8. Chapter 8: Python Object &amp; Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Chapter 5: Python Functions &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Chapter 6: Python Files" href="ch06_python_files.html" />
+    <link rel="prev" title="4. Chapter 4: Python Data Types" href="ch04_python_data_types.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Chapter 5: Python Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-functions">5.1. Python Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-basic-function">5.1.1. 1. Defining a Basic Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-with-parameters">5.1.2. 2. Function with Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-with-return-value">5.1.3. 3. Function with Return Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-parameters">5.1.4. 4. Default Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyword-arguments">5.1.5. 5. Keyword Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-length-arguments-args">5.1.6. 6. *Variable-Length Arguments (args)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyword-variable-length-arguments-kwargs">5.1.7. 7. **Keyword Variable-Length Arguments (kwargs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-with-both-args-and-kwargs">5.1.8. 8. Function with Both *args and kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-anonymous-functions">5.1.9. 9. Lambda (Anonymous) Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-functions">5.1.10. 10. Recursive Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-function-arguments">5.2. Python Function Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#positional-arguments">5.2.1. 1. Positional Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">5.2.2. 2. Keyword Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-arguments">5.2.3. 3. Default Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#required-arguments">5.2.4. 4. Required Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-length-positional-arguments-args">5.2.5. 5. *Variable-Length Positional Arguments (args)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-length-keyword-arguments-kwargs">5.2.6. 6. **Variable-Length Keyword Arguments (kwargs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-normal-args-and-kwargs">5.2.7. 7. Combining Normal, *args, and kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#positional-only-arguments-python-3-8">5.2.8. 8. Positional-Only Arguments (Python 3.8+)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyword-only-arguments">5.2.9. 9. Keyword-Only Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#argument-unpacking">5.2.10. 10. Argument Unpacking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-variable-scope">5.3. Python Variable Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#local-scope">5.3.1. 1. Local Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-scope">5.3.2. 2. Global Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-vs-global-variable-conflict">5.3.3. 3. Local vs Global Variable Conflict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-global-keyword">5.3.4. 4. Using the global Keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enclosing-scope-nested-functions">5.3.5. 5. Enclosing Scope (Nested Functions)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-nonlocal-keyword">5.3.6. 6. Using the nonlocal Keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#legb-rule-scope-resolution-order">5.3.7. 7. LEGB Rule (Scope Resolution Order)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-scope">5.3.8. 8. Built-in Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-inside-loops">5.3.9. 9. Scope Inside Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-example-of-scope-management">5.3.10. 10. Practical Example of Scope Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-global-keyword">5.4. Python Global Keyword</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-use-of-global-variables">5.4.1. 1. Basic Use of Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-global-variable-without-global-error-case">5.4.2. 2. Modifying Global Variable Without global (Error Case)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-global-to-modify-global-variables">5.4.3. 3. Using global to Modify Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-variable-across-multiple-functions">5.4.4. 4. Global Variable Across Multiple Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-keyword-inside-nested-functions">5.4.5. 5. Global Keyword Inside Nested Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difference-between-global-and-nonlocal">5.4.6. 6. Difference Between global and nonlocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tracking-state-using-global-variables">5.4.7. 7. Tracking State Using Global Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-variable-with-conditional-logic">5.4.8. 8. Global Variable with Conditional Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avoiding-global-abuse-best-practice-warning">5.4.9. 9. Avoiding Global Abuse (Best Practice Warning)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practice-encapsulation-instead-of-global">5.4.10. 10. Best Practice: Encapsulation Instead of Global</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-recursion">5.5. Python Recursion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-recursive-function">5.5.1. 1. Basic Recursive Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#base-case-and-recursive-case">5.5.2. 2. Base Case and Recursive Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-sum-of-numbers">5.5.3. 3. Recursive Sum of Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-fibonacci-series">5.5.4. 4. Recursive Fibonacci Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursion-vs-iteration-comparison">5.5.5. 5. Recursion vs Iteration Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-traversal-of-list">5.5.6. 6. Recursive Traversal of List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-string-reversal">5.5.7. 7. Recursive String Reversal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursion-limit-error">5.5.8. 8. Recursion Limit Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-recursion-depth">5.5.9. 9. Checking Recursion Depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimizing-recursion-with-memoization">5.5.10. 10. Optimizing Recursion with Memoization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-modules">5.6. Python Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-module">5.6.1. 1. What is a Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-a-module">5.6.2. 2. Importing a Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-specific-functions-from-a-module">5.6.3. 3. Importing Specific Functions from a Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renaming-a-module-using-as">5.6.4. 4. Renaming a Module using as</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-and-using-a-custom-module">5.6.5. 5. Creating and Using a Custom Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-name-in-modules">5.6.6. 6. Using __name__ in Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-modules-example">5.6.7. 7. Built-in Modules Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exploring-module-content-with-dir">5.6.8. 8. Exploring Module Content with dir()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-help-for-module-documentation">5.6.9. 9. Using help() for Module Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-search-path-sys-path">5.6.10. 10. Module Search Path (sys.path)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-package">5.7. Python Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-package">5.7.1. 1. What is a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-basic-package">5.7.2. 2. Creating a Basic Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-from-a-package">5.7.3. 3. Importing from a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-init-py-for-initialization">5.7.4. 4. Using init.py for Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sub-packages-structure">5.7.5. 5. Sub-packages Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relative-imports-inside-a-package">5.7.6. 6. Relative Imports Inside a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#absolute-imports-in-packages">5.7.7. 7. Absolute Imports in Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-external-packages-with-pip">5.7.8. 8. Installing External Packages with pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-installed-packages">5.7.9. 9. Viewing Installed Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packaging-a-custom-project-setup-file">5.7.10. 10. Packaging a Custom Project (Setup File)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-main-function">5.8. Python Main Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose-of-the-main-function">5.8.1. 1. Purpose of the Main Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-if-name-main">5.8.2. 2. Using if __name__ == “__main__”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-name-works">5.8.3. 3. Why __name__ Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-function-with-parameters">5.8.4. 4. Main Function with Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-function-for-program-flow-control">5.8.5. 5. Main Function for Program Flow Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-main-with-command-line-arguments">5.8.6. 6. Using Main with Command-Line Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#separating-business-logic-from-entry-point">5.8.7. 7. Separating Business Logic from Entry Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-function-in-large-applications">5.8.8. 8. Main Function in Large Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-function-with-error-handling">5.8.9. 9. Main Function with Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#production-ready-main-template">5.8.10. 10. Production-Ready Main Template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Chapter 5: Python Functions</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch05_python_functions.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-5-python-functions">
+<span id="ch05"></span><h1><span class="section-number">5. </span>Chapter 5: Python Functions<a class="headerlink" href="#chapter-5-python-functions" title="Link to this heading">¶</a></h1>
+<section id="python-functions">
+<h2><span class="section-number">5.1. </span>Python Functions<a class="headerlink" href="#python-functions" title="Link to this heading">¶</a></h2>
+<section id="defining-a-basic-function">
+<h3><span class="section-number">5.1.1. </span>1. Defining a Basic Function<a class="headerlink" href="#defining-a-basic-function" title="Link to this heading">¶</a></h3>
+<p>A function is defined using the def keyword followed by the function name and parentheses:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, Python!&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="function-with-parameters">
+<h3><span class="section-number">5.1.2. </span>2. Function with Parameters<a class="headerlink" href="#function-with-parameters" title="Link to this heading">¶</a></h3>
+<p>Parameters allow functions to accept external input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet_user</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="function-with-return-value">
+<h3><span class="section-number">5.1.3. </span>3. Function with Return Value<a class="headerlink" href="#function-with-return-value" title="Link to this heading">¶</a></h3>
+<p>The return statement sends a value back to the caller:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># Output: 8</span>
+</pre></div>
+</div>
+</section>
+<section id="default-parameters">
+<h3><span class="section-number">5.1.4. </span>4. Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading">¶</a></h3>
+<p>Default values are used when no argument is provided:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Guest&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="keyword-arguments">
+<h3><span class="section-number">5.1.5. </span>5. Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">¶</a></h3>
+<p>Arguments can be passed by name for clarity:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">student_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">student_info</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="variable-length-arguments-args">
+<h3><span class="section-number">5.1.6. </span>6. <a href="#id1"><span class="problematic" id="id2">*</span></a>Variable-Length Arguments (args)<a class="headerlink" href="#variable-length-arguments-args" title="Link to this heading">¶</a></h3>
+<p>Allows passing multiple positional arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># Output: 10</span>
+</pre></div>
+</div>
+</section>
+<section id="keyword-variable-length-arguments-kwargs">
+<h3><span class="section-number">5.1.7. </span>7. <a href="#id3"><span class="problematic" id="id4">**</span></a>Keyword Variable-Length Arguments (kwargs)<a class="headerlink" href="#keyword-variable-length-arguments-kwargs" title="Link to this heading">¶</a></h3>
+<p>Accepts arbitrary keyword arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_profile</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">display_profile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Engineer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="function-with-both-args-and-kwargs">
+<h3><span class="section-number">5.1.8. </span>8. Function with Both <a href="#id5"><span class="problematic" id="id6">*</span></a>args and kwargs<a class="headerlink" href="#function-with-both-args-and-kwargs" title="Link to this heading">¶</a></h3>
+<p>Supports flexible function signatures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">complete_profile</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Positional:&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keyword:&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">complete_profile</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;Advanced&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2025</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-anonymous-functions">
+<h3><span class="section-number">5.1.9. </span>9. Lambda (Anonymous) Functions<a class="headerlink" href="#lambda-anonymous-functions" title="Link to this heading">¶</a></h3>
+<p>Used for short, inline function definitions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 25</span>
+</pre></div>
+</div>
+</section>
+<section id="recursive-functions">
+<h3><span class="section-number">5.1.10. </span>10. Recursive Functions<a class="headerlink" href="#recursive-functions" title="Link to this heading">¶</a></h3>
+<p>A function calling itself to solve repetitive problems:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 120</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-function-arguments">
+<h2><span class="section-number">5.2. </span>Python Function Arguments<a class="headerlink" href="#python-function-arguments" title="Link to this heading">¶</a></h2>
+<section id="positional-arguments">
+<h3><span class="section-number">5.2.1. </span>1. Positional Arguments<a class="headerlink" href="#positional-arguments" title="Link to this heading">¶</a></h3>
+<p>Arguments are passed in the order defined by the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">display_info</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">5.2.2. </span>2. Keyword Arguments<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p>Arguments are passed using parameter names, improving readability and flexibility:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">display_info</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="default-arguments">
+<h3><span class="section-number">5.2.3. </span>3. Default Arguments<a class="headerlink" href="#default-arguments" title="Link to this heading">¶</a></h3>
+<p>Default values are used when arguments are not supplied:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Guest&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="required-arguments">
+<h3><span class="section-number">5.2.4. </span>4. Required Arguments<a class="headerlink" href="#required-arguments" title="Link to this heading">¶</a></h3>
+<p>Arguments without defaults must be provided:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">login</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+<span class="c1"># login(&quot;admin&quot;)  # Raises TypeError</span>
+</pre></div>
+</div>
+</section>
+<section id="variable-length-positional-arguments-args">
+<h3><span class="section-number">5.2.5. </span>5. <a href="#id8"><span class="problematic" id="id9">*</span></a>Variable-Length Positional Arguments (args)<a class="headerlink" href="#variable-length-positional-arguments-args" title="Link to this heading">¶</a></h3>
+<p><a href="#id10"><span class="problematic" id="id11">*</span></a>args collects extra positional arguments into a tuple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_sum</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>      <span class="c1"># 6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="c1"># 35</span>
+</pre></div>
+</div>
+</section>
+<section id="variable-length-keyword-arguments-kwargs">
+<h3><span class="section-number">5.2.6. </span>6. <a href="#id12"><span class="problematic" id="id13">**</span></a>Variable-Length Keyword Arguments (kwargs)<a class="headerlink" href="#variable-length-keyword-arguments-kwargs" title="Link to this heading">¶</a></h3>
+<p><a href="#id14"><span class="problematic" id="id15">**</span></a>kwargs collects extra keyword arguments into a dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">user_profile</span><span class="p">(</span><span class="o">**</span><span class="n">details</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">details</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">user_profile</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Developer&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;Senior&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="combining-normal-args-and-kwargs">
+<h3><span class="section-number">5.2.7. </span>7. Combining Normal, <a href="#id16"><span class="problematic" id="id17">*</span></a>args, and kwargs<a class="headerlink" href="#combining-normal-args-and-kwargs" title="Link to this heading">¶</a></h3>
+<p>Order of parameters must follow: normal → <a href="#id18"><span class="problematic" id="id19">*</span></a>args → kwargs</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">full_profile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">skills</span><span class="p">,</span> <span class="o">**</span><span class="n">info</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skills:&quot;</span><span class="p">,</span> <span class="n">skills</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Details:&quot;</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+
+<span class="n">full_profile</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;ML&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Toronto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="positional-only-arguments-python-3-8">
+<h3><span class="section-number">5.2.8. </span>8. Positional-Only Arguments (Python 3.8+)<a class="headerlink" href="#positional-only-arguments-python-3-8" title="Link to this heading">¶</a></h3>
+<p>Parameters before / must be positional-only:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1"># divide(a=10, b=2)  # Raises TypeError</span>
+</pre></div>
+</div>
+</section>
+<section id="keyword-only-arguments">
+<h3><span class="section-number">5.2.9. </span>9. Keyword-Only Arguments<a class="headerlink" href="#keyword-only-arguments" title="Link to this heading">¶</a></h3>
+<p>Parameters after * must be specified as keyword arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;light&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">configure</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="argument-unpacking">
+<h3><span class="section-number">5.2.10. </span>10. Argument Unpacking<a class="headerlink" href="#argument-unpacking" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>and ** can unpack tuples/lists and dictionaries directly into function arguments:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">))</span>  <span class="c1"># Output: 24</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span>   <span class="c1"># Output: 6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-variable-scope">
+<h2><span class="section-number">5.3. </span>Python Variable Scope<a class="headerlink" href="#python-variable-scope" title="Link to this heading">¶</a></h2>
+<section id="local-scope">
+<h3><span class="section-number">5.3.1. </span>1. Local Scope<a class="headerlink" href="#local-scope" title="Link to this heading">¶</a></h3>
+<p>Local variables exist only within the function where they are declared:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_value</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Local variable</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">show_value</span><span class="p">()</span>
+<span class="c1"># print(x)  # NameError: x is not defined</span>
+</pre></div>
+</div>
+</section>
+<section id="global-scope">
+<h3><span class="section-number">5.3.2. </span>2. Global Scope<a class="headerlink" href="#global-scope" title="Link to this heading">¶</a></h3>
+<p>Global variables are accessible throughout the module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Global variable</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="local-vs-global-variable-conflict">
+<h3><span class="section-number">5.3.3. </span>3. Local vs Global Variable Conflict<a class="headerlink" href="#local-vs-global-variable-conflict" title="Link to this heading">¶</a></h3>
+<p>Local variables override global variables within function scope:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Local variable shadows global</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside function:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">update</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outside function:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-global-keyword">
+<h3><span class="section-number">5.3.4. </span>4. Using the global Keyword<a class="headerlink" href="#using-the-global-keyword" title="Link to this heading">¶</a></h3>
+<p>The global keyword allows modification of global variables inside functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">count</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
+</pre></div>
+</div>
+</section>
+<section id="enclosing-scope-nested-functions">
+<h3><span class="section-number">5.3.5. </span>5. Enclosing Scope (Nested Functions)<a class="headerlink" href="#enclosing-scope-nested-functions" title="Link to this heading">¶</a></h3>
+<p>Nested functions can access variables from their enclosing scope:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Accessing enclosing variable</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-nonlocal-keyword">
+<h3><span class="section-number">5.3.6. </span>6. Using the nonlocal Keyword<a class="headerlink" href="#using-the-nonlocal-keyword" title="Link to this heading">¶</a></h3>
+<p>nonlocal allows modification of variables from the enclosing (but not global) scope:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">count</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="legb-rule-scope-resolution-order">
+<h3><span class="section-number">5.3.7. </span>7. LEGB Rule (Scope Resolution Order)<a class="headerlink" href="#legb-rule-scope-resolution-order" title="Link to this heading">¶</a></h3>
+<p>Python resolves variables using the LEGB rule:</p>
+<ul class="simple">
+<li><p>Local</p></li>
+<li><p>Enclosing</p></li>
+<li><p>Global</p></li>
+<li><p>Built-in</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Global&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Enclosing&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Local&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="built-in-scope">
+<h3><span class="section-number">5.3.8. </span>8. Built-in Scope<a class="headerlink" href="#built-in-scope" title="Link to this heading">¶</a></h3>
+<p>Built-in functions and exceptions reside in the built-in scope:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>  <span class="c1"># Built-in function</span>
+</pre></div>
+</div>
+</section>
+<section id="scope-inside-loops">
+<h3><span class="section-number">5.3.9. </span>9. Scope Inside Loops<a class="headerlink" href="#scope-inside-loops" title="Link to this heading">¶</a></h3>
+<p>Unlike some languages, Python loop variables are not block-scoped:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">loop_var</span> <span class="o">=</span> <span class="n">i</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">loop_var</span><span class="p">)</span>  <span class="c1"># Accessible outside loop</span>
+</pre></div>
+</div>
+</section>
+<section id="practical-example-of-scope-management">
+<h3><span class="section-number">5.3.10. </span>10. Practical Example of Scope Management<a class="headerlink" href="#practical-example-of-scope-management" title="Link to this heading">¶</a></h3>
+<p>Demonstrates coordinated use of local, enclosing, and global scopes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">50</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">total</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mi">10</span>
+
+    <span class="n">adjust</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate</span><span class="p">())</span>  <span class="c1"># Output: 60</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>        <span class="c1"># Output: 100</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-global-keyword">
+<h2><span class="section-number">5.4. </span>Python Global Keyword<a class="headerlink" href="#python-global-keyword" title="Link to this heading">¶</a></h2>
+<section id="basic-use-of-global-variables">
+<h3><span class="section-number">5.4.1. </span>1. Basic Use of Global Variables<a class="headerlink" href="#basic-use-of-global-variables" title="Link to this heading">¶</a></h3>
+<p>Global variables are declared outside functions and are readable within functions by default:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">()</span>  <span class="c1"># Output: 10</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-global-variable-without-global-error-case">
+<h3><span class="section-number">5.4.2. </span>2. Modifying Global Variable Without global (Error Case)<a class="headerlink" href="#modifying-global-variable-without-global-error-case" title="Link to this heading">¶</a></h3>
+<p>Assigning to a variable inside a function makes it local unless explicitly declared global:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># UnboundLocalError</span>
+</pre></div>
+</div>
+</section>
+<section id="using-global-to-modify-global-variables">
+<h3><span class="section-number">5.4.3. </span>3. Using global to Modify Global Variables<a class="headerlink" href="#using-global-to-modify-global-variables" title="Link to this heading">¶</a></h3>
+<p>The global keyword allows direct modification of a global variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
+</pre></div>
+</div>
+</section>
+<section id="global-variable-across-multiple-functions">
+<h3><span class="section-number">5.4.4. </span>4. Global Variable Across Multiple Functions<a class="headerlink" href="#global-variable-across-multiple-functions" title="Link to this heading">¶</a></h3>
+<p>A global variable can be shared and updated across multiple functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;inactive&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">status</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_status</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+<span class="n">activate</span><span class="p">()</span>
+<span class="n">show_status</span><span class="p">()</span>  <span class="c1"># Output: active</span>
+</pre></div>
+</div>
+</section>
+<section id="global-keyword-inside-nested-functions">
+<h3><span class="section-number">5.4.5. </span>5. Global Keyword Inside Nested Functions<a class="headerlink" href="#global-keyword-inside-nested-functions" title="Link to this heading">¶</a></h3>
+<p>global always refers to the module-level scope, even when used inside nested functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">200</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output: 200</span>
+</pre></div>
+</div>
+</section>
+<section id="difference-between-global-and-nonlocal">
+<h3><span class="section-number">5.4.6. </span>6. Difference Between global and nonlocal<a class="headerlink" href="#difference-between-global-and-nonlocal" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>global → Refers to module-level variable</p></li>
+<li><p>nonlocal → Refers to nearest enclosing function scope</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">99</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer x:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global x:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tracking-state-using-global-variables">
+<h3><span class="section-number">5.4.7. </span>7. Tracking State Using Global Variables<a class="headerlink" href="#tracking-state-using-global-variables" title="Link to this heading">¶</a></h3>
+<p>Used for maintaining application-wide counters or shared state:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">requests</span>
+    <span class="n">requests</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">handle_request</span><span class="p">()</span>
+<span class="n">handle_request</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">requests</span><span class="p">)</span>  <span class="c1"># Output: 2</span>
+</pre></div>
+</div>
+</section>
+<section id="global-variable-with-conditional-logic">
+<h3><span class="section-number">5.4.8. </span>8. Global Variable with Conditional Logic<a class="headerlink" href="#global-variable-with-conditional-logic" title="Link to this heading">¶</a></h3>
+<p>Global variables often manage configuration state:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;light&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">toggle_mode</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">mode</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;light&quot;</span><span class="p">:</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;light&quot;</span>
+
+<span class="n">toggle_mode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>  <span class="c1"># Output: dark</span>
+</pre></div>
+</div>
+</section>
+<section id="avoiding-global-abuse-best-practice-warning">
+<h3><span class="section-number">5.4.9. </span>9. Avoiding Global Abuse (Best Practice Warning)<a class="headerlink" href="#avoiding-global-abuse-best-practice-warning" title="Link to this heading">¶</a></h3>
+<p>Mutable objects can be modified without global, reducing global keyword dependency:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_config</span><span class="p">(</span><span class="n">new_theme</span><span class="p">):</span>
+    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_theme</span>  <span class="c1"># No global keyword needed</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practice-encapsulation-instead-of-global">
+<h3><span class="section-number">5.4.10. </span>10. Best Practice: Encapsulation Instead of Global<a class="headerlink" href="#best-practice-encapsulation-instead-of-global" title="Link to this heading">¶</a></h3>
+<p>Encapsulation is preferred over global variables in production systems for maintainability and testability:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-recursion">
+<h2><span class="section-number">5.5. </span>Python Recursion<a class="headerlink" href="#python-recursion" title="Link to this heading">¶</a></h2>
+<section id="basic-recursive-function">
+<h3><span class="section-number">5.5.1. </span>1. Basic Recursive Function<a class="headerlink" href="#basic-recursive-function" title="Link to this heading">¶</a></h3>
+<p>A recursive function calls itself to solve a smaller instance of the same problem:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">print_numbers</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="base-case-and-recursive-case">
+<h3><span class="section-number">5.5.2. </span>2. Base Case and Recursive Case<a class="headerlink" href="#base-case-and-recursive-case" title="Link to this heading">¶</a></h3>
+<p>Every recursive function must define a base case to prevent infinite calls:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># Base case</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Recursive case</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 120</span>
+</pre></div>
+</div>
+</section>
+<section id="recursive-sum-of-numbers">
+<h3><span class="section-number">5.5.3. </span>3. Recursive Sum of Numbers<a class="headerlink" href="#recursive-sum-of-numbers" title="Link to this heading">¶</a></h3>
+<p>Demonstrates problem decomposition through recursion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_n</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 15</span>
+</pre></div>
+</div>
+</section>
+<section id="recursive-fibonacci-series">
+<h3><span class="section-number">5.5.4. </span>4. Recursive Fibonacci Series<a class="headerlink" href="#recursive-fibonacci-series" title="Link to this heading">¶</a></h3>
+<p>Classic example of overlapping subproblems in recursion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>  <span class="c1"># Output: 8</span>
+</pre></div>
+</div>
+</section>
+<section id="recursion-vs-iteration-comparison">
+<h3><span class="section-number">5.5.5. </span>5. Recursion vs Iteration Comparison<a class="headerlink" href="#recursion-vs-iteration-comparison" title="Link to this heading">¶</a></h3>
+<p>Iteration often provides better performance and memory efficiency than deep recursion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial_iterative</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 120</span>
+</pre></div>
+</div>
+</section>
+<section id="recursive-traversal-of-list">
+<h3><span class="section-number">5.5.6. </span>6. Recursive Traversal of List<a class="headerlink" href="#recursive-traversal-of-list" title="Link to this heading">¶</a></h3>
+<p>Recursion is useful for navigating hierarchical or nested data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_list</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">lst</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">print_list</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">print_list</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="recursive-string-reversal">
+<h3><span class="section-number">5.5.7. </span>7. Recursive String Reversal<a class="headerlink" href="#recursive-string-reversal" title="Link to this heading">¶</a></h3>
+<p>Illustrates recursive manipulation of sequences:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse_string</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">text</span>
+    <span class="k">return</span> <span class="n">reverse_string</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">reverse_string</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>  <span class="c1"># Output: nohtyP</span>
+</pre></div>
+</div>
+</section>
+<section id="recursion-limit-error">
+<h3><span class="section-number">5.5.8. </span>8. Recursion Limit Error<a class="headerlink" href="#recursion-limit-error" title="Link to this heading">¶</a></h3>
+<p>Python enforces a recursion limit to prevent stack overflow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">infinite_recursion</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">infinite_recursion</span><span class="p">()</span>
+
+<span class="c1"># infinite_recursion()  # Raises RecursionError</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-recursion-depth">
+<h3><span class="section-number">5.5.9. </span>9. Checking Recursion Depth<a class="headerlink" href="#checking-recursion-depth" title="Link to this heading">¶</a></h3>
+<p>System recursion limits can be queried and adjusted cautiously:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">())</span>  <span class="c1"># Default ~1000</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizing-recursion-with-memoization">
+<h3><span class="section-number">5.5.10. </span>10. Optimizing Recursion with Memoization<a class="headerlink" href="#optimizing-recursion-with-memoization" title="Link to this heading">¶</a></h3>
+<p>Memoization dramatically improves performance by caching results:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>  <span class="c1"># Optimized recursion</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-modules">
+<h2><span class="section-number">5.6. </span>Python Modules<a class="headerlink" href="#python-modules" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-module">
+<h3><span class="section-number">5.6.1. </span>1. What is a Module<a class="headerlink" href="#what-is-a-module" title="Link to this heading">¶</a></h3>
+<p>A module is a file containing Python code (functions, variables, classes) that can be imported and reused in other programs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># file: math_utils.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</section>
+<section id="importing-a-module">
+<h3><span class="section-number">5.6.2. </span>2. Importing a Module<a class="headerlink" href="#importing-a-module" title="Link to this heading">¶</a></h3>
+<p>The import keyword loads the entire module and accesses its content using dot notation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>  <span class="c1"># Output: 5.0</span>
+</pre></div>
+</div>
+</section>
+<section id="importing-specific-functions-from-a-module">
+<h3><span class="section-number">5.6.3. </span>3. Importing Specific Functions from a Module<a class="headerlink" href="#importing-specific-functions-from-a-module" title="Link to this heading">¶</a></h3>
+<p>Imports only selected items, reducing namespace clutter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="nb">pow</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>     <span class="c1"># Output: 4.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>    <span class="c1"># Output: 8.0</span>
+</pre></div>
+</div>
+</section>
+<section id="renaming-a-module-using-as">
+<h3><span class="section-number">5.6.4. </span>4. Renaming a Module using as<a class="headerlink" href="#renaming-a-module-using-as" title="Link to this heading">¶</a></h3>
+<p>Useful for improving readability or avoiding name conflicts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">m</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>     <span class="c1"># Output: 3.141592653589793</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-and-using-a-custom-module">
+<h3><span class="section-number">5.6.5. </span>5. Creating and Using a Custom Module<a class="headerlink" href="#creating-and-using-a-custom-module" title="Link to this heading">¶</a></h3>
+<p>Custom modules help organize reusable logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># file: calculator.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="c1"># main.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">calculator</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculator</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 20</span>
+</pre></div>
+</div>
+</section>
+<section id="using-name-in-modules">
+<h3><span class="section-number">5.6.6. </span>6. Using __name__ in Modules<a class="headerlink" href="#using-name-in-modules" title="Link to this heading">¶</a></h3>
+<p>Ensures code runs only when the file is executed directly, not when imported:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># file: demo.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main function executed&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="built-in-modules-example">
+<h3><span class="section-number">5.6.7. </span>7. Built-in Modules Example<a class="headerlink" href="#built-in-modules-example" title="Link to this heading">¶</a></h3>
+<p>Python provides rich built-in modules like os, sys, math, datetime, and random:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="exploring-module-content-with-dir">
+<h3><span class="section-number">5.6.8. </span>8. Exploring Module Content with dir()<a class="headerlink" href="#exploring-module-content-with-dir" title="Link to this heading">¶</a></h3>
+<p>Lists all available attributes and methods inside a module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="using-help-for-module-documentation">
+<h3><span class="section-number">5.6.9. </span>9. Using help() for Module Documentation<a class="headerlink" href="#using-help-for-module-documentation" title="Link to this heading">¶</a></h3>
+<p>Displays detailed documentation of a module and its components:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="module-search-path-sys-path">
+<h3><span class="section-number">5.6.10. </span>10. Module Search Path (sys.path)<a class="headerlink" href="#module-search-path-sys-path" title="Link to this heading">¶</a></h3>
+<p>Shows directories Python searches to locate modules, including:</p>
+<ul class="simple">
+<li><p>Current directory</p></li>
+<li><p>Standard library path</p></li>
+<li><p>Site-packages</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-package">
+<h2><span class="section-number">5.7. </span>Python Package<a class="headerlink" href="#python-package" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-package">
+<h3><span class="section-number">5.7.1. </span>1. What is a Package<a class="headerlink" href="#what-is-a-package" title="Link to this heading">¶</a></h3>
+<p>A package is a collection of Python modules organized in a directory hierarchy, enabling structured and scalable code organization:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_package</span><span class="o">/</span>
+<span class="err">│──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│──</span> <span class="n">module1</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│──</span> <span class="n">module2</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>The presence of __init__.py indicates that the directory is a Python package.</p>
+</section>
+<section id="creating-a-basic-package">
+<h3><span class="section-number">5.7.2. </span>2. Creating a Basic Package<a class="headerlink" href="#creating-a-basic-package" title="Link to this heading">¶</a></h3>
+<p>Packages allow logical grouping of related modules:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_package/module1.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello from module1&quot;</span>
+
+<span class="c1"># main.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">my_package.module1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_package</span><span class="o">.</span><span class="n">module1</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="importing-from-a-package">
+<h3><span class="section-number">5.7.3. </span>3. Importing from a Package<a class="headerlink" href="#importing-from-a-package" title="Link to this heading">¶</a></h3>
+<p>Enables direct access to specific functions or classes within a package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">my_package.module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="using-init-py-for-initialization">
+<h3><span class="section-number">5.7.4. </span>4. Using init.py for Initialization<a class="headerlink" href="#using-init-py-for-initialization" title="Link to this heading">¶</a></h3>
+<p>__init__.py controls what gets exposed when the package is imported:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_package/__init__.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span>
+</pre></div>
+</div>
+</section>
+<section id="sub-packages-structure">
+<h3><span class="section-number">5.7.5. </span>5. Sub-packages Structure<a class="headerlink" href="#sub-packages-structure" title="Link to this heading">¶</a></h3>
+<p>Packages can contain nested sub-packages for large systems:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_package</span><span class="o">/</span>
+<span class="err">│──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│──</span> <span class="n">analytics</span><span class="o">/</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">stats</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="relative-imports-inside-a-package">
+<h3><span class="section-number">5.7.6. </span>6. Relative Imports Inside a Package<a class="headerlink" href="#relative-imports-inside-a-package" title="Link to this heading">¶</a></h3>
+<p>Relative imports use:</p>
+<ul class="simple">
+<li><p>. current package</p></li>
+<li></li>
+</ul>
+<p>Ensures internal module cohesion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">my_package.analytics.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_mean</span>
+</pre></div>
+</div>
+</section>
+<section id="absolute-imports-in-packages">
+<h3><span class="section-number">5.7.7. </span>7. Absolute Imports in Packages<a class="headerlink" href="#absolute-imports-in-packages" title="Link to this heading">¶</a></h3>
+<p>Preferred in production for clarity and maintainability:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">my_package.analytics.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_mean</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-external-packages-with-pip">
+<h3><span class="section-number">5.7.8. </span>8. Installing External Packages with pip<a class="headerlink" href="#installing-external-packages-with-pip" title="Link to this heading">¶</a></h3>
+<p>External packages extend Python’s functionality:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.example.com&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="viewing-installed-packages">
+<h3><span class="section-number">5.7.9. </span>9. Viewing Installed Packages<a class="headerlink" href="#viewing-installed-packages" title="Link to this heading">¶</a></h3>
+<p>Displays all packages installed in the Python environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+</section>
+<section id="packaging-a-custom-project-setup-file">
+<h3><span class="section-number">5.7.10. </span>10. Packaging a Custom Project (Setup File)<a class="headerlink" href="#packaging-a-custom-project-setup-file" title="Link to this heading">¶</a></h3>
+<p>This enables distribution and installation of your package via PyPI or internal repositories:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mypackage&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-main-function">
+<h2><span class="section-number">5.8. </span>Python Main Function<a class="headerlink" href="#python-main-function" title="Link to this heading">¶</a></h2>
+<section id="purpose-of-the-main-function">
+<h3><span class="section-number">5.8.1. </span>1. Purpose of the Main Function<a class="headerlink" href="#purpose-of-the-main-function" title="Link to this heading">¶</a></h3>
+<p>In Python, the “main function” is a conventional entry point that controls program execution flow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program started&quot;</span><span class="p">)</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This provides a clear structure and separation of execution logic.</p>
+</section>
+<section id="using-if-name-main">
+<h3><span class="section-number">5.8.2. </span>2. Using if __name__ == “__main__”<a class="headerlink" href="#using-if-name-main" title="Link to this heading">¶</a></h3>
+<p>This ensures the main logic runs only when the file is executed directly, not when imported:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main function executed&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="why-name-works">
+<h3><span class="section-number">5.8.3. </span>3. Why __name__ Works<a class="headerlink" href="#why-name-works" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>When run directly → __main__</p></li>
+<li><p>When imported → module name</p></li>
+</ul>
+<p>This enables safe reusability of scripts as modules:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="main-function-with-parameters">
+<h3><span class="section-number">5.8.4. </span>4. Main Function with Parameters<a class="headerlink" href="#main-function-with-parameters" title="Link to this heading">¶</a></h3>
+<p>The main function can accept arguments like any other function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Welcome, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="main-function-for-program-flow-control">
+<h3><span class="section-number">5.8.5. </span>5. Main Function for Program Flow Control<a class="headerlink" href="#main-function-for-program-flow-control" title="Link to this heading">¶</a></h3>
+<p>The main function orchestrates program execution in a clean, readable order:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing data...&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initializing system...&quot;</span><span class="p">)</span>
+    <span class="n">process_data</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="using-main-with-command-line-arguments">
+<h3><span class="section-number">5.8.6. </span>6. Using Main with Command-Line Arguments<a class="headerlink" href="#using-main-with-command-line-arguments" title="Link to this heading">¶</a></h3>
+<p>Allows integration with command-line tools and automation workflows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arguments received:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="separating-business-logic-from-entry-point">
+<h3><span class="section-number">5.8.7. </span>7. Separating Business Logic from Entry Point<a class="headerlink" href="#separating-business-logic-from-entry-point" title="Link to this heading">¶</a></h3>
+<p>Improves modularity and testability:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_total</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_total</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="main-function-in-large-applications">
+<h3><span class="section-number">5.8.8. </span>8. Main Function in Large Applications<a class="headerlink" href="#main-function-in-large-applications" title="Link to this heading">¶</a></h3>
+<p>Supports structured application life-cycle management:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System initialized&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Application running&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System shutdown&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">initialize</span><span class="p">()</span>
+    <span class="n">run</span><span class="p">()</span>
+    <span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="main-function-with-error-handling">
+<h3><span class="section-number">5.8.9. </span>9. Main Function with Error Handling<a class="headerlink" href="#main-function-with-error-handling" title="Link to this heading">¶</a></h3>
+<p>Encapsulates exception handling at the entry level:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executing task...&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error occurred:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="production-ready-main-template">
+<h3><span class="section-number">5.8.10. </span>10. Production-Ready Main Template<a class="headerlink" href="#production-ready-main-template" title="Link to this heading">¶</a></h3>
+<p>Standard best practice for scalable, maintainable Python applications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Application entry point&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Application started&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch04_python_data_types.html" class="btn btn-neutral float-left" title="4. Chapter 4: Python Data Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch06_python_files.html" class="btn btn-neutral float-right" title="6. Chapter 6: Python Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

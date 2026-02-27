@@ -1,0 +1,1449 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Chapter 9: Python Advanced Topics &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Chapter 10: Python Date and Time" href="ch10_python_date_and_time.html" />
+    <link rel="prev" title="8. Chapter 8: Python Object &amp; Class" href="ch08_python_object_and_class.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Chapter 9: Python Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-comprehension">9.1. List Comprehension</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-list-comprehension">9.1.1. Basic List Comprehension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-filtering">9.1.2. Conditional Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-list-comprehensions">9.1.3. Nested List Comprehensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-comprehension-with-function-calls">9.1.4. List Comprehension with Function Calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-conditions">9.1.5. Multiple Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-else-expressions">9.1.6. If-Else Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-pattern-flattening-lists">9.1.7. Advanced Pattern: Flattening Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-cleaning-pipeline-example">9.1.8. Data Cleaning Pipeline Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-with-zip">9.1.9. Combining with zip()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionary-creation-via-list-comprehension">9.1.10. Dictionary Creation via List Comprehension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-lambda-anonymous-function">9.2. Python Lambda / Anonymous Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-lambda-function">9.2.1. 1. What is a Lambda Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-with-multiple-arguments">9.2.2. 2. Lambda with Multiple Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-without-assignment-inline-usage">9.2.3. 3. Lambda Without Assignment (Inline Usage)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-with-map">9.2.4. 4. Lambda with map()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-with-filter">9.2.5. 5. Lambda with filter()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-with-reduce">9.2.6. 6. Lambda with reduce()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-for-sorting-key">9.2.7. 7. Lambda for Sorting Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-in-list-comprehension-context">9.2.8. 8. Lambda in List Comprehension Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-vs-normal-function">9.2.9. 9. Lambda vs Normal Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-lambda-example">9.2.10. 10. Real-World Lambda Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-iterators">9.3. Python Iterators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-an-iterator">9.3.1. 1. What is an Iterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterable-vs-iterator">9.3.2. 2. Iterable vs Iterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-next-with-iterators">9.3.3. 3. Using next() with Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stopiteration-exception">9.3.4. 4. StopIteration Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterators-in-for-loops">9.3.5. 5. Iterators in for Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-custom-iterator-class">9.3.6. 6. Creating Custom Iterator Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#infinite-iterator-example">9.3.7. 7. Infinite Iterator Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterator-from-built-in-functions">9.3.8. 8. Iterator from Built-in Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-if-an-object-is-an-iterator">9.3.9. 9. Checking if an Object is an Iterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-iterator-example">9.3.10. 10. Real-World Iterator Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-generators">9.4. Python Generators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-generator">9.4.1. 1. What is a Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-vs-normal-function">9.4.2. 2. Generator vs Normal Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-over-a-generator">9.4.3. 3. Iterating Over a Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-state-preservation">9.4.4. 4. Generator State Preservation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-efficiency-of-generators">9.4.5. 5. Memory Efficiency of Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-expression">9.4.6. 6. Generator Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-generators-with-next">9.4.7. 7. Using Generators with next()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#infinite-generator">9.4.8. 8. Infinite Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-with-try-finally">9.4.9. 9. Generator with try…finally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-generator-example">9.4.10. 10. Real-World Generator Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-namespace-and-scope">9.5. Python Namespace and Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-namespace">9.5.1. 1. What is a Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-namespace">9.5.2. 2. Built-in Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-namespace">9.5.3. 3. Global Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-namespace">9.5.4. 4. Local Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-namespace-using-globals">9.5.5. 5. Accessing Namespace Using globals()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-namespace-using-locals">9.5.6. 6. Accessing Namespace Using locals()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#legb-rule-scope-resolution-order">9.5.7. 7. LEGB Rule (Scope Resolution Order)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enclosing-namespace">9.5.8. 8. Enclosing Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-enclosing-variables-with-nonlocal">9.5.9. 9. Modifying Enclosing Variables with nonlocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespace-lifecycle-demonstration">9.5.10. 10. Namespace Lifecycle Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-closures">9.6. Python Closures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-closure">9.6.1. 1. What is a Closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-closure-structure">9.6.2. 2. Basic Closure Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closure-retaining-state">9.6.3. 3. Closure Retaining State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nonlocal-in-closures">9.6.4. 4. nonlocal in Closures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closure-vs-global-variable">9.6.5. 5. Closure vs Global Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-closures-from-same-function">9.6.6. 6. Multiple Closures from Same Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspecting-closure-variables">9.6.7. 7. Inspecting Closure Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closures-as-function-factories">9.6.8. 8. Closures as Function Factories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closure-in-decorators-foundation-pattern">9.6.9. 9. Closure in Decorators (Foundation Pattern)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-closure-example">9.6.10. 10. Real-World Closure Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-decorators">9.7. Python Decorators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-decorator">9.7.1. 1. What is a Decorator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-without-syntax">9.7.2. 2. Decorator Without &#64; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-with-arguments">9.7.3. 3. Decorator with Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaining-multiple-decorators">9.7.4. 4. Chaining Multiple Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-with-return-value">9.7.5. 5. Decorator with Return Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-preserving-function-metadata">9.7.6. 6. Decorator Preserving Function Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-for-timing-execution">9.7.7. 7. Decorator for Timing Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decorator-with-parameters">9.7.8. 8. Decorator with Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-based-decorator">9.7.9. 9. Class-Based Decorator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-decorator-example">9.7.10. 10. Real-World Decorator Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-property-decorator">9.8. Python &#64;property Decorator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-property">9.8.1. 1. What is &#64;property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encapsulation-using-property">9.8.2. 2. Encapsulation Using &#64;property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-only-property">9.8.3. 3. Read-Only Property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-property-with-setter">9.8.4. 4. Using &#64;property with Setter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-with-deleter">9.8.5. 5. &#64;property with Deleter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computed-property-example">9.8.6. 6. Computed Property Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difference-property-vs-normal-method">9.8.7. 7. Difference: &#64;property vs Normal Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enforcing-data-integrity">9.8.8. 8. Enforcing Data Integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lazy-evaluation-with-property">9.8.9. 9. Lazy Evaluation with &#64;property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-style-implementation">9.8.10. 10. Enterprise-Style Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-regex">9.9. Python RegEx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-regex">9.9.1. 1. What is RegEx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-re-match">9.9.2. 2. Using re.match()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-re-search">9.9.3. 3. Using re.search()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-re-findall">9.9.4. 4. Using re.findall()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-re-sub-replace-text">9.9.5. 5. Using re.sub() (Replace Text)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-character-classes">9.9.6. 6. Using Character Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metacharacters-and-special-sequences">9.9.7. 7. Metacharacters and Special Sequences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-quantifiers">9.9.8. 8. Using Quantifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grouping-with-parentheses">9.9.9. 9. Grouping with Parentheses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-regex-example">9.9.10. 10. Real-World RegEx Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>Chapter 9: Python Advanced Topics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch09_python_advanced_topics.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-9-python-advanced-topics">
+<span id="ch09"></span><h1><span class="section-number">9. </span>Chapter 9: Python Advanced Topics<a class="headerlink" href="#chapter-9-python-advanced-topics" title="Link to this heading">¶</a></h1>
+<section id="list-comprehension">
+<h2><span class="section-number">9.1. </span>List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">¶</a></h2>
+<p>Python List Comprehension is a high-performance, declarative construct for generating lists through compact expressions. It replaces verbose iterative patterns with expressive, memory-efficient, and semantically rich syntax.</p>
+<section id="basic-list-comprehension">
+<h3><span class="section-number">9.1.1. </span>Basic List Comprehension<a class="headerlink" href="#basic-list-comprehension" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="c1"># Equivalent to:</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-filtering">
+<h3><span class="section-number">9.1.2. </span>Conditional Filtering<a class="headerlink" href="#conditional-filtering" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="nested-list-comprehensions">
+<h3><span class="section-number">9.1.3. </span>Nested List Comprehensions<a class="headerlink" href="#nested-list-comprehensions" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="list-comprehension-with-function-calls">
+<h3><span class="section-number">9.1.4. </span>List Comprehension with Function Calls<a class="headerlink" href="#list-comprehension-with-function-calls" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-conditions">
+<h3><span class="section-number">9.1.5. </span>Multiple Conditions<a class="headerlink" href="#multiple-conditions" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="if-else-expressions">
+<h3><span class="section-number">9.1.6. </span>If-Else Expressions<a class="headerlink" href="#if-else-expressions" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;even&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;odd&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="advanced-pattern-flattening-lists">
+<h3><span class="section-number">9.1.7. </span>Advanced Pattern: Flattening Lists<a class="headerlink" href="#advanced-pattern-flattening-lists" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nested</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">nested</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="data-cleaning-pipeline-example">
+<h3><span class="section-number">9.1.8. </span>Data Cleaning Pipeline Example<a class="headerlink" href="#data-cleaning-pipeline-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;  apple &quot;</span><span class="p">,</span> <span class="s2">&quot; Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry &quot;</span><span class="p">]</span>
+<span class="n">cleaned</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="combining-with-zip">
+<h3><span class="section-number">9.1.9. </span>Combining with zip()<a class="headerlink" href="#combining-with-zip" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])]</span>
+</pre></div>
+</div>
+</section>
+<section id="dictionary-creation-via-list-comprehension">
+<h3><span class="section-number">9.1.10. </span>Dictionary Creation via List Comprehension<a class="headerlink" href="#dictionary-creation-via-list-comprehension" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-lambda-anonymous-function">
+<h2><span class="section-number">9.2. </span>Python Lambda / Anonymous Function<a class="headerlink" href="#python-lambda-anonymous-function" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-lambda-function">
+<h3><span class="section-number">9.2.1. </span>1. What is a Lambda Function<a class="headerlink" href="#what-is-a-lambda-function" title="Link to this heading">¶</a></h3>
+<p>A lambda function is a small anonymous function defined using the lambda keyword:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 25</span>
+</pre></div>
+</div>
+<p>Lambda functions are used for concise, one-line operations.</p>
+</section>
+<section id="lambda-with-multiple-arguments">
+<h3><span class="section-number">9.2.2. </span>2. Lambda with Multiple Arguments<a class="headerlink" href="#lambda-with-multiple-arguments" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 15</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-without-assignment-inline-usage">
+<h3><span class="section-number">9.2.3. </span>3. Lambda Without Assignment (Inline Usage)<a class="headerlink" href="#lambda-without-assignment-inline-usage" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 20</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-with-map">
+<h3><span class="section-number">9.2.4. </span>4. Lambda with map()<a class="headerlink" href="#lambda-with-map" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">squares</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1"># Output: [1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-with-filter">
+<h3><span class="section-number">9.2.5. </span>5. Lambda with filter()<a class="headerlink" href="#lambda-with-filter" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>  <span class="c1"># Output: [2, 4, 6]</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-with-reduce">
+<h3><span class="section-number">9.2.6. </span>6. Lambda with reduce()<a class="headerlink" href="#lambda-with-reduce" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># Output: 10</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-for-sorting-key">
+<h3><span class="section-number">9.2.7. </span>7. Lambda for Sorting Key<a class="headerlink" href="#lambda-for-sorting-key" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">students</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">72</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">90</span><span class="p">)]</span>
+
+<span class="n">students</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-in-list-comprehension-context">
+<h3><span class="section-number">9.2.8. </span>8. Lambda in List Comprehension Context<a class="headerlink" href="#lambda-in-list-comprehension-context" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multipliers</span> <span class="o">=</span> <span class="p">[(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">multipliers</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-vs-normal-function">
+<h3><span class="section-number">9.2.9. </span>9. Lambda vs Normal Function<a class="headerlink" href="#lambda-vs-normal-function" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">square_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">square_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">square_func</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>     <span class="c1"># 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square_lambda</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>   <span class="c1"># 16</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-lambda-example">
+<h3><span class="section-number">9.2.10. </span>10. Real-World Lambda Example<a class="headerlink" href="#real-world-lambda-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">7000</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">highest_paid</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">employees</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">emp</span><span class="p">:</span> <span class="n">emp</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">highest_paid</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-iterators">
+<h2><span class="section-number">9.3. </span>Python Iterators<a class="headerlink" href="#python-iterators" title="Link to this heading">¶</a></h2>
+<section id="what-is-an-iterator">
+<h3><span class="section-number">9.3.1. </span>1. What is an Iterator<a class="headerlink" href="#what-is-an-iterator" title="Link to this heading">¶</a></h3>
+<p>An iterator is an object that allows traversal through all elements of a collection, one element at a time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">))</span>  <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">))</span>  <span class="c1"># 2</span>
+</pre></div>
+</div>
+<p>An iterator follows two core methods: __iter__() and __next__().</p>
+</section>
+<section id="iterable-vs-iterator">
+<h3><span class="section-number">9.3.2. </span>2. Iterable vs Iterator<a class="headerlink" href="#iterable-vs-iterator" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>     <span class="c1"># Iterable converted to iterator</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span>  <span class="c1"># Iterable</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Iterable → Can be looped over</p></li>
+<li><p>Iterator → Produces values one-by-one</p></li>
+</ul>
+</section>
+<section id="using-next-with-iterators">
+<h3><span class="section-number">9.3.3. </span>3. Using next() with Iterators<a class="headerlink" href="#using-next-with-iterators" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">]</span>
+<span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="stopiteration-exception">
+<h3><span class="section-number">9.3.4. </span>4. StopIteration Exception<a class="headerlink" href="#stopiteration-exception" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>
+<span class="c1"># print(next(it))  # Raises StopIteration</span>
+</pre></div>
+</div>
+</section>
+<section id="iterators-in-for-loops">
+<h3><span class="section-number">9.3.5. </span>5. Iterators in for Loops<a class="headerlink" href="#iterators-in-for-loops" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-custom-iterator-class">
+<h3><span class="section-number">9.3.6. </span>6. Creating Custom Iterator Class<a class="headerlink" href="#creating-custom-iterator-class" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CountUp</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
+        <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">CountUp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="infinite-iterator-example">
+<h3><span class="section-number">9.3.7. </span>7. Infinite Iterator Example<a class="headerlink" href="#infinite-iterator-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InfiniteNumbers</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span>
+</pre></div>
+</div>
+</section>
+<section id="iterator-from-built-in-functions">
+<h3><span class="section-number">9.3.8. </span>8. Iterator from Built-in Functions<a class="headerlink" href="#iterator-from-built-in-functions" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+
+<span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">))</span>  <span class="c1"># [&#39;P&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;o&#39;, &#39;n&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-if-an-object-is-an-iterator">
+<h3><span class="section-number">9.3.9. </span>9. Checking if an Object is an Iterator<a class="headerlink" href="#checking-if-an-object-is-an-iterator" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">))</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-iterator-example">
+<h3><span class="section-number">9.3.10. </span>10. Real-World Iterator Example<a class="headerlink" href="#real-world-iterator-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FileLineReader</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">FileLineReader</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-generators">
+<h2><span class="section-number">9.4. </span>Python Generators<a class="headerlink" href="#python-generators" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-generator">
+<h3><span class="section-number">9.4.1. </span>1. What is a Generator<a class="headerlink" href="#what-is-a-generator" title="Link to this heading">¶</a></h3>
+<p>A generator is a special type of function that returns an iterator and yields values one at a time using the yield keyword:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simple_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="mi">1</span>
+    <span class="k">yield</span> <span class="mi">2</span>
+    <span class="k">yield</span> <span class="mi">3</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">simple_generator</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># 2</span>
+</pre></div>
+</div>
+<p>Generators produce values lazily, improving memory efficiency.</p>
+</section>
+<section id="generator-vs-normal-function">
+<h3><span class="section-number">9.4.2. </span>2. Generator vs Normal Function<a class="headerlink" href="#generator-vs-normal-function" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normal_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="mi">20</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generator_function</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="mi">10</span>
+    <span class="k">yield</span> <span class="mi">20</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">normal_function</span><span class="p">())</span>          <span class="c1"># 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">generator_function</span><span class="p">()))</span> <span class="c1"># [10, 20]</span>
+</pre></div>
+</div>
+</section>
+<section id="iterating-over-a-generator">
+<h3><span class="section-number">9.4.3. </span>3. Iterating Over a Generator<a class="headerlink" href="#iterating-over-a-generator" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_up</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">count_up</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-state-preservation">
+<h3><span class="section-number">9.4.4. </span>4. Generator State Preservation<a class="headerlink" href="#generator-state-preservation" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resume&quot;</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="mi">2</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">demo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="memory-efficiency-of-generators">
+<h3><span class="section-number">9.4.5. </span>5. Memory Efficiency of Generators<a class="headerlink" href="#memory-efficiency-of-generators" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">large_numbers</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">large_numbers</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-expression">
+<h3><span class="section-number">9.4.6. </span>6. Generator Expression<a class="headerlink" href="#generator-expression" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">squares</span><span class="p">))</span>  <span class="c1"># [0, 1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</section>
+<section id="using-generators-with-next">
+<h3><span class="section-number">9.4.7. </span>7. Using Generators with next()<a class="headerlink" href="#using-generators-with-next" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">alpha_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s2">&quot;A&quot;</span>
+    <span class="k">yield</span> <span class="s2">&quot;B&quot;</span>
+    <span class="k">yield</span> <span class="s2">&quot;C&quot;</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">alpha_generator</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="infinite-generator">
+<h3><span class="section-number">9.4.8. </span>8. Infinite Generator<a class="headerlink" href="#infinite-generator" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">infinite_counter</span><span class="p">():</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">num</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">infinite_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-with-try-finally">
+<h3><span class="section-number">9.4.9. </span>9. Generator with try…finally<a class="headerlink" href="#generator-with-try-finally" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resource_handler</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="s2">&quot;Using resource&quot;</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resource released&quot;</span><span class="p">)</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">resource_handler</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-generator-example">
+<h3><span class="section-number">9.4.10. </span>10. Real-World Generator Example<a class="headerlink" href="#real-world-generator-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_large_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_large_file</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-namespace-and-scope">
+<h2><span class="section-number">9.5. </span>Python Namespace and Scope<a class="headerlink" href="#python-namespace-and-scope" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-namespace">
+<h3><span class="section-number">9.5.1. </span>1. What is a Namespace<a class="headerlink" href="#what-is-a-namespace" title="Link to this heading">¶</a></h3>
+<p>A namespace is a container that holds identifiers (variables, functions, objects) and maps them to their corresponding values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Here, a resides in a namespace and points to the value 10.</p>
+<p>Types of namespaces:</p>
+<ul class="simple">
+<li><p>Built-in namespace</p></li>
+<li><p>Global namespace</p></li>
+<li><p>Local namespace</p></li>
+</ul>
+</section>
+<section id="built-in-namespace">
+<h3><span class="section-number">9.5.2. </span>2. Built-in Namespace<a class="headerlink" href="#built-in-namespace" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>These functions belong to the built-in namespace and are always available.</p>
+</section>
+<section id="global-namespace">
+<h3><span class="section-number">9.5.3. </span>3. Global Namespace<a class="headerlink" href="#global-namespace" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Global variable</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Global variables are accessible throughout the module.</p>
+</section>
+<section id="local-namespace">
+<h3><span class="section-number">9.5.4. </span>4. Local Namespace<a class="headerlink" href="#local-namespace" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Local variable</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">calculate</span><span class="p">()</span>
+<span class="c1"># print(y)  # NameError</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-namespace-using-globals">
+<h3><span class="section-number">9.5.5. </span>5. Accessing Namespace Using globals()<a class="headerlink" href="#accessing-namespace-using-globals" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>  <span class="c1"># Output: 100</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-namespace-using-locals">
+<h3><span class="section-number">9.5.6. </span>6. Accessing Namespace Using locals()<a class="headerlink" href="#accessing-namespace-using-locals" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+
+<span class="n">demo</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="legb-rule-scope-resolution-order">
+<h3><span class="section-number">9.5.7. </span>7. LEGB Rule (Scope Resolution Order)<a class="headerlink" href="#legb-rule-scope-resolution-order" title="Link to this heading">¶</a></h3>
+<p>Python resolves variable names in the following order:</p>
+<ul class="simple">
+<li><p>Local</p></li>
+<li><p>Enclosing</p></li>
+<li><p>Global</p></li>
+<li><p>Built-in</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Global&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Enclosing&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Local&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="enclosing-namespace">
+<h3><span class="section-number">9.5.8. </span>8. Enclosing Namespace<a class="headerlink" href="#enclosing-namespace" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-enclosing-variables-with-nonlocal">
+<h3><span class="section-number">9.5.9. </span>9. Modifying Enclosing Variables with nonlocal<a class="headerlink" href="#modifying-enclosing-variables-with-nonlocal" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">value</span>
+        <span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">increment</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="namespace-lifecycle-demonstration">
+<h3><span class="section-number">9.5.10. </span>10. Namespace Lifecycle Demonstration<a class="headerlink" href="#namespace-lifecycle-demonstration" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Global&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Local&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outside:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-closures">
+<h2><span class="section-number">9.6. </span>Python Closures<a class="headerlink" href="#python-closures" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-closure">
+<h3><span class="section-number">9.6.1. </span>1. What is a Closure<a class="headerlink" href="#what-is-a-closure" title="Link to this heading">¶</a></h3>
+<p>A closure is a function that remembers and has access to variables from its enclosing scope even after the outer function has finished execution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">message</span>
+
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="n">func</span> <span class="o">=</span> <span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>  <span class="c1"># Output: Hello</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-closure-structure">
+<h3><span class="section-number">9.6.2. </span>2. Basic Closure Structure<a class="headerlink" href="#basic-closure-structure" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiplier</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">multiply</span>
+
+<span class="n">times2</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">times2</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 10</span>
+</pre></div>
+</div>
+</section>
+<section id="closure-retaining-state">
+<h3><span class="section-number">9.6.3. </span>3. Closure Retaining State<a class="headerlink" href="#closure-retaining-state" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">count</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="n">increment</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">())</span>  <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">())</span>  <span class="c1"># 2</span>
+</pre></div>
+</div>
+</section>
+<section id="nonlocal-in-closures">
+<h3><span class="section-number">9.6.4. </span>4. nonlocal in Closures<a class="headerlink" href="#nonlocal-in-closures" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">):</span>
+    <span class="n">exponent</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">exponent</span>
+        <span class="n">exponent</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
+
+    <span class="k">return</span> <span class="n">calculate</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="closure-vs-global-variable">
+<h3><span class="section-number">9.6.5. </span>5. Closure vs Global Variable<a class="headerlink" href="#closure-vs-global-variable" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">using_closure</span><span class="p">():</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">factor</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">using_closure</span><span class="p">()(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-closures-from-same-function">
+<h3><span class="section-number">9.6.6. </span>6. Multiple Closures from Same Function<a class="headerlink" href="#multiple-closures-from-same-function" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_adder</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adder</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">adder</span>
+
+<span class="n">add5</span> <span class="o">=</span> <span class="n">make_adder</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">add10</span> <span class="o">=</span> <span class="n">make_adder</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add5</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># 8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add10</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># 13</span>
+</pre></div>
+</div>
+</section>
+<section id="inspecting-closure-variables">
+<h3><span class="section-number">9.6.7. </span>7. Inspecting Closure Variables<a class="headerlink" href="#inspecting-closure-variables" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">42</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="n">func</span> <span class="o">=</span> <span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">)</span>  <span class="c1"># 42</span>
+</pre></div>
+</div>
+</section>
+<section id="closures-as-function-factories">
+<h3><span class="section-number">9.6.8. </span>8. Closures as Function Factories<a class="headerlink" href="#closures-as-function-factories" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logger</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">log</span>
+
+<span class="n">info_logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">(</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+<span class="n">error_logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
+
+<span class="n">info_logger</span><span class="p">(</span><span class="s2">&quot;System started&quot;</span><span class="p">)</span>
+<span class="n">error_logger</span><span class="p">(</span><span class="s2">&quot;System failed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="closure-in-decorators-foundation-pattern">
+<h3><span class="section-number">9.6.9. </span>9. Closure in Decorators (Foundation Pattern)<a class="headerlink" href="#closure-in-decorators-foundation-pattern" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before execution&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-closure-example">
+<h3><span class="section-number">9.6.10. </span>10. Real-World Closure Example<a class="headerlink" href="#real-world-closure-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threshold_checker</span><span class="p">(</span><span class="n">threshold</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+    <span class="k">return</span> <span class="n">check</span>
+
+<span class="n">high_temp</span> <span class="o">=</span> <span class="n">threshold_checker</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">high_temp</span><span class="p">(</span><span class="mi">35</span><span class="p">))</span>  <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_temp</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-decorators">
+<h2><span class="section-number">9.7. </span>Python Decorators<a class="headerlink" href="#python-decorators" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-decorator">
+<h3><span class="section-number">9.7.1. </span>1. What is a Decorator<a class="headerlink" href="#what-is-a-decorator" title="Link to this heading">¶</a></h3>
+<p>A decorator is a function that modifies the behavior of another function without changing its source code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before function execution&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After function execution&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@my_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+<span class="n">say_hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-without-syntax">
+<h3><span class="section-number">9.7.2. </span>2. Decorator Without &#64; Syntax<a class="headerlink" href="#decorator-without-syntax" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span> <span class="o">=</span> <span class="n">my_decorator</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="n">greet</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-with-arguments">
+<h3><span class="section-number">9.7.3. </span>3. Decorator with Arguments<a class="headerlink" href="#decorator-with-arguments" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arguments:&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@log_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="chaining-multiple-decorators">
+<h3><span class="section-number">9.7.4. </span>4. Chaining Multiple Decorators<a class="headerlink" href="#chaining-multiple-decorators" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bold</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;/b&gt;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">italic</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;i&gt;&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;/i&gt;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@bold</span>
+<span class="nd">@italic</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-with-return-value">
+<h3><span class="section-number">9.7.5. </span>5. Decorator with Return Value<a class="headerlink" href="#decorator-with-return-value" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uppercase</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@uppercase</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;hello world&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-preserving-function-metadata">
+<h3><span class="section-number">9.7.6. </span>6. Decorator Preserving Function Metadata<a class="headerlink" href="#decorator-preserving-function-metadata" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-for-timing-execution">
+<h3><span class="section-number">9.7.7. </span>7. Decorator for Timing Execution<a class="headerlink" href="#decorator-for-timing-execution" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution Time:&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@timer</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="n">process</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-with-parameters">
+<h3><span class="section-number">9.7.8. </span>8. Decorator with Parameters<a class="headerlink" href="#decorator-with-parameters" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+<span class="nd">@repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="class-based-decorator">
+<h3><span class="section-number">9.7.9. </span>9. Class-Based Decorator<a class="headerlink" href="#class-based-decorator" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calling function...&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nd">@Logger</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing data&quot;</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-decorator-example">
+<h3><span class="section-number">9.7.10. </span>10. Real-World Decorator Example<a class="headerlink" href="#real-world-decorator-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">require_login</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;authenticated&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;Access Denied&quot;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@require_login</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_profile</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Welcome </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;authenticated&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view_profile</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-property-decorator">
+<h2><span class="section-number">9.8. </span>Python &#64;property Decorator<a class="headerlink" href="#python-property-decorator" title="Link to this heading">¶</a></h2>
+<section id="what-is-property">
+<h3><span class="section-number">9.8.1. </span>1. What is &#64;property<a class="headerlink" href="#what-is-property" title="Link to this heading">¶</a></h3>
+<p>The &#64;property decorator allows a method to be accessed like an attribute while still providing controlled logic behind the scenes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># Alice</span>
+</pre></div>
+</div>
+</section>
+<section id="encapsulation-using-property">
+<h3><span class="section-number">9.8.2. </span>2. Encapsulation Using &#64;property<a class="headerlink" href="#encapsulation-using-property" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_price</span> <span class="o">=</span> <span class="n">price</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_price</span>
+
+<span class="n">item</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="read-only-property">
+<h3><span class="section-number">9.8.3. </span>3. Read-Only Property<a class="headerlink" href="#read-only-property" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-property-with-setter">
+<h3><span class="section-number">9.8.4. </span>4. Using &#64;property with Setter<a class="headerlink" href="#using-property-with-setter" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span> <span class="o">=</span> <span class="n">salary</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">salary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span>
+
+    <span class="nd">@salary</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">salary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Salary cannot be negative&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">e</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="property-with-deleter">
+<h3><span class="section-number">9.8.5. </span>5. &#64;property with Deleter<a class="headerlink" href="#property-with-deleter" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+
+    <span class="nd">@balance</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+
+<span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">acc</span><span class="o">.</span><span class="n">balance</span>
+</pre></div>
+</div>
+</section>
+<section id="computed-property-example">
+<h3><span class="section-number">9.8.6. </span>6. Computed Property Example<a class="headerlink" href="#computed-property-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+
+<span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>  <span class="c1"># 50</span>
+</pre></div>
+</div>
+</section>
+<section id="difference-property-vs-normal-method">
+<h3><span class="section-number">9.8.7. </span>7. Difference: &#64;property vs Normal Method<a class="headerlink" href="#difference-property-vs-normal-method" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span>  <span class="c1"># Method call</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>        <span class="c1"># Property access</span>
+</pre></div>
+</div>
+</section>
+<section id="enforcing-data-integrity">
+<h3><span class="section-number">9.8.8. </span>8. Enforcing Data Integrity<a class="headerlink" href="#enforcing-data-integrity" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Temperature</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">celsius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_celsius</span> <span class="o">=</span> <span class="n">celsius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">celsius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_celsius</span>
+
+    <span class="nd">@celsius</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">celsius</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">273.15</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temperature below absolute zero&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_celsius</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+</section>
+<section id="lazy-evaluation-with-property">
+<h3><span class="section-number">9.8.9. </span>9. Lazy Evaluation with &#64;property<a class="headerlink" href="#lazy-evaluation-with-property" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataLoader</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading data...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loader</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loader</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="enterprise-style-implementation">
+<h3><span class="section-number">9.8.10. </span>10. Enterprise-Style Implementation<a class="headerlink" href="#enterprise-style-implementation" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+
+    <span class="nd">@balance</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Balance cannot be negative&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">amount</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">balance</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-regex">
+<h2><span class="section-number">9.9. </span>Python RegEx<a class="headerlink" href="#python-regex" title="Link to this heading">¶</a></h2>
+<section id="what-is-regex">
+<h3><span class="section-number">9.9.1. </span>1. What is RegEx<a class="headerlink" href="#what-is-regex" title="Link to this heading">¶</a></h3>
+<p>Regular Expressions (RegEx) provide a powerful way to search, match, and manipulate text patterns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python is powerful&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Python</span>
+</pre></div>
+</div>
+</section>
+<section id="using-re-match">
+<h3><span class="section-number">9.9.2. </span>2. Using re.match()<a class="headerlink" href="#using-re-match" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python Programming&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Python</span>
+</pre></div>
+</div>
+<p>match() checks for a pattern at the start of the string only.</p>
+</section>
+<section id="using-re-search">
+<h3><span class="section-number">9.9.3. </span>3. Using re.search()<a class="headerlink" href="#using-re-search" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Learn Python Programming&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Python</span>
+</pre></div>
+</div>
+<p>search() scans the entire string for the first match.</p>
+</section>
+<section id="using-re-findall">
+<h3><span class="section-number">9.9.4. </span>4. Using re.findall()<a class="headerlink" href="#using-re-findall" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The rain in Spain&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;ai&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>  <span class="c1"># [&#39;ai&#39;, &#39;ai&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="using-re-sub-replace-text">
+<h3><span class="section-number">9.9.5. </span>5. Using re.sub() (Replace Text)<a class="headerlink" href="#using-re-sub-replace-text" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I love Java&quot;</span>
+<span class="n">new_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>  <span class="c1"># I love Python</span>
+</pre></div>
+</div>
+</section>
+<section id="using-character-classes">
+<h3><span class="section-number">9.9.6. </span>6. Using Character Classes<a class="headerlink" href="#using-character-classes" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;abc123&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;[a-z]&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</pre></div>
+</div>
+<p>Common patterns:</p>
+<ul class="simple">
+<li><p>[a-z] → lowercase letters</p></li>
+<li><p>[A-Z] → uppercase letters</p></li>
+<li><p>[0-9] → digits</p></li>
+</ul>
+</section>
+<section id="metacharacters-and-special-sequences">
+<h3><span class="section-number">9.9.7. </span>7. Metacharacters and Special Sequences<a class="headerlink" href="#metacharacters-and-special-sequences" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Email: test123@gmail.com&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w+@\w+\.\w+&quot;</span>
+
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Common sequences:</p>
+<ul class="simple">
+<li><p>d → digit</p></li>
+<li><p>w → alphanumeric</p></li>
+<li><p>s → whitespace</p></li>
+</ul>
+</section>
+<section id="using-quantifiers">
+<h3><span class="section-number">9.9.8. </span>8. Using Quantifiers<a class="headerlink" href="#using-quantifiers" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Helloooo&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;o+&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>  <span class="c1"># [&#39;oooo&#39;]</span>
+</pre></div>
+</div>
+<p>Quantifiers:</p>
+<ul class="simple">
+<li><p>* → 0 or more</p></li>
+<li><p>+ → 1 or more</p></li>
+<li><p>? → 0 or 1</p></li>
+<li><p>{n} → exact count</p></li>
+</ul>
+</section>
+<section id="grouping-with-parentheses">
+<h3><span class="section-number">9.9.9. </span>9. Grouping with Parentheses<a class="headerlink" href="#grouping-with-parentheses" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(John) (Doe)&quot;</span>
+
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">())</span>  <span class="c1"># (&#39;John&#39;, &#39;Doe&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-regex-example">
+<h3><span class="section-number">9.9.10. </span>10. Real-World RegEx Example<a class="headerlink" href="#real-world-regex-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_phone</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\+?\d{10,13}$&quot;</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">phone</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">validate_phone</span><span class="p">(</span><span class="s2">&quot;+911234567890&quot;</span><span class="p">))</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">validate_phone</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">))</span>          <span class="c1"># False</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch08_python_object_and_class.html" class="btn btn-neutral float-left" title="8. Chapter 8: Python Object &amp; Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch10_python_date_and_time.html" class="btn btn-neutral float-right" title="10. Chapter 10: Python Date and Time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Chapter 6: Python Files &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Chapter 7: Python Exception Handling" href="ch07_python_exception_handling.html" />
+    <link rel="prev" title="5. Chapter 5: Python Functions" href="ch05_python_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Chapter 6: Python Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-directory-and-files-management">6.1. Python Directory and Files Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-current-working-directory">6.1.1. 1. Getting Current Working Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-working-directory">6.1.2. 2. Changing the Working Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-files-and-directories">6.1.3. 3. Listing Files and Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-directory">6.1.4. 4. Creating a Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-file-or-directory-existence">6.1.5. 5. Checking File or Directory Existence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-and-writing-to-a-file">6.1.6. 6. Creating and Writing to a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-from-a-file">6.1.7. 7. Reading from a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renaming-and-deleting-files">6.1.8. 8. Renaming and Deleting Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-and-moving-files">6.1.9. 9. Copying and Moving Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modern-file-handling-with-pathlib">6.1.10. 10. Modern File Handling with pathlib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-csv-read-and-write-csv-files">6.2. Python CSV: Read and Write CSV files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-csv-file">6.2.1. 1. What is a CSV File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-file-using-csv-reader">6.2.2. 2. Reading a CSV File Using csv.reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skipping-header-row">6.2.3. 3. Skipping Header Row</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-as-dictionary-csv-dictreader">6.2.4. 4. Reading CSV as Dictionary (csv.DictReader)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-to-a-csv-file-using-csv-writer">6.2.5. 5. Writing to a CSV File Using csv.writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-multiple-rows-at-once">6.2.6. 6. Writing Multiple Rows at Once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-dictionaries-using-csv-dictwriter">6.2.7. 7. Writing Dictionaries Using csv.DictWriter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-delimiters-and-quoting">6.2.8. 8. Custom Delimiters and Quoting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appending-data-to-an-existing-csv">6.2.9. 9. Appending Data to an Existing CSV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-using-pandas-advanced">6.2.10. 10. Reading CSV Using pandas (Advanced)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-csv-files-in-python">6.3. Reading CSV files in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-csv-reading-with-csv-reader">6.3.1. 1. Basic CSV Reading with csv.reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.3.2. 2. Skipping Header Row</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-as-dictionary-dictreader">6.3.3. 3. Reading CSV as Dictionary (DictReader)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-specific-columns">6.3.4. 4. Accessing Specific Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-with-custom-delimiter">6.3.5. 5. Reading CSV with Custom Delimiter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-large-csv-files-efficiently">6.3.6. 6. Reading Large CSV Files Efficiently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-csv-data-types">6.3.7. 7. Converting CSV Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-with-error-handling">6.3.8. 8. Reading CSV with Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-into-a-list">6.3.9. 9. Reading CSV into a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-csv-using-pandas-structured-approach">6.3.10. 10. Reading CSV Using pandas (Structured Approach)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-csv-files-in-python">6.4. Writing CSV files in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-csv-writing-with-csv-writer">6.4.1. 1. Basic CSV Writing with csv.writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.4.2. 2. Writing Multiple Rows at Once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-csv-with-custom-delimiter">6.4.3. 3. Writing CSV with Custom Delimiter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-csv-with-quoting">6.4.4. 4. Writing CSV with Quoting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appending-data-to-existing-csv">6.4.5. 5. Appending Data to Existing CSV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-dictionaries-with-dictwriter">6.4.6. 6. Writing Dictionaries with DictWriter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validating-data-before-writing">6.4.7. 7. Validating Data Before Writing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-csv-with-utf-8-encoding">6.4.8. 8. Writing CSV with UTF-8 Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-csv-from-list-of-dictionaries">6.4.9. 9. Generating CSV from List of Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-csv-using-pandas-advanced-workflow">6.4.10. 10. Writing CSV Using pandas (Advanced Workflow)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch08_python_object_and_class.html">8. Chapter 8: Python Object &amp; Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Chapter 6: Python Files</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch06_python_files.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-6-python-files">
+<span id="ch06"></span><h1><span class="section-number">6. </span>Chapter 6: Python Files<a class="headerlink" href="#chapter-6-python-files" title="Link to this heading">¶</a></h1>
+<section id="python-directory-and-files-management">
+<h2><span class="section-number">6.1. </span>Python Directory and Files Management<a class="headerlink" href="#python-directory-and-files-management" title="Link to this heading">¶</a></h2>
+<section id="getting-current-working-directory">
+<h3><span class="section-number">6.1.1. </span>1. Getting Current Working Directory<a class="headerlink" href="#getting-current-working-directory" title="Link to this heading">¶</a></h3>
+<p>Returns the directory from which the Python script is executed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-the-working-directory">
+<h3><span class="section-number">6.1.2. </span>2. Changing the Working Directory<a class="headerlink" href="#changing-the-working-directory" title="Link to this heading">¶</a></h3>
+<p>Changes the active working directory for file operations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:/Projects&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="listing-files-and-directories">
+<h3><span class="section-number">6.1.3. </span>3. Listing Files and Directories<a class="headerlink" href="#listing-files-and-directories" title="Link to this heading">¶</a></h3>
+<p>Returns all files and folders in the specified directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-a-directory">
+<h3><span class="section-number">6.1.4. </span>4. Creating a Directory<a class="headerlink" href="#creating-a-directory" title="Link to this heading">¶</a></h3>
+<p>mkdir() creates a single directory, makedirs() creates nested directories:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;parent/child/grandchild&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-file-or-directory-existence">
+<h3><span class="section-number">6.1.5. </span>5. Checking File or Directory Existence<a class="headerlink" href="#checking-file-or-directory-existence" title="Link to this heading">¶</a></h3>
+<p>Essential for safe file operations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">))</span>      <span class="c1"># True or False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">))</span>     <span class="c1"># Checks file</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">))</span>    <span class="c1"># Checks directory</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-and-writing-to-a-file">
+<h3><span class="section-number">6.1.6. </span>6. Creating and Writing to a File<a class="headerlink" href="#creating-and-writing-to-a-file" title="Link to this heading">¶</a></h3>
+<p>Creates the file if it does not exist and writes content:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, Python File System&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-from-a-file">
+<h3><span class="section-number">6.1.7. </span>7. Reading from a File<a class="headerlink" href="#reading-from-a-file" title="Link to this heading">¶</a></h3>
+<p>Reads the entire content of the file into a string:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="renaming-and-deleting-files">
+<h3><span class="section-number">6.1.8. </span>8. Renaming and Deleting Files<a class="headerlink" href="#renaming-and-deleting-files" title="Link to this heading">¶</a></h3>
+<p>Used to manage file lifecycle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;renamed.txt&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;renamed.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="copying-and-moving-files">
+<h3><span class="section-number">6.1.9. </span>9. Copying and Moving Files<a class="headerlink" href="#copying-and-moving-files" title="Link to this heading">¶</a></h3>
+<p>Provides advanced file handling capabilities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;source.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;backup.txt&quot;</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s2">&quot;backup.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;archive/backup.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="modern-file-handling-with-pathlib">
+<h3><span class="section-number">6.1.10. </span>10. Modern File Handling with pathlib<a class="headerlink" href="#modern-file-handling-with-pathlib" title="Link to this heading">¶</a></h3>
+<p>pathlib offers an object-oriented and cleaner approach for file and directory manipulation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">)</span>
+
+<span class="n">file_path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;Using pathlib module&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-csv-read-and-write-csv-files">
+<h2><span class="section-number">6.2. </span>Python CSV: Read and Write CSV files<a class="headerlink" href="#python-csv-read-and-write-csv-files" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-csv-file">
+<h3><span class="section-number">6.2.1. </span>1. What is a CSV File<a class="headerlink" href="#what-is-a-csv-file" title="Link to this heading">¶</a></h3>
+<p>A CSV (Comma-Separated Values) file stores tabular data in plain text, where each line represents a row and values are separated by commas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">city</span>
+<span class="n">Alice</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="n">New</span> <span class="n">York</span>
+<span class="n">Bob</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">London</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-a-csv-file-using-csv-reader">
+<h3><span class="section-number">6.2.2. </span>2. Reading a CSV File Using csv.reader<a class="headerlink" href="#reading-a-csv-file-using-csv-reader" title="Link to this heading">¶</a></h3>
+<p>Reads each row as a list of values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="skipping-header-row">
+<h3><span class="section-number">6.2.3. </span>3. Skipping Header Row<a class="headerlink" href="#skipping-header-row" title="Link to this heading">¶</a></h3>
+<p>Useful when the first row contains column names:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>  <span class="c1"># Skip header</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-as-dictionary-csv-dictreader">
+<h3><span class="section-number">6.2.4. </span>4. Reading CSV as Dictionary (csv.DictReader)<a class="headerlink" href="#reading-csv-as-dictionary-csv-dictreader" title="Link to this heading">¶</a></h3>
+<p>Each row is read as an ordered dictionary mapped to column headers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-to-a-csv-file-using-csv-writer">
+<h3><span class="section-number">6.2.5. </span>5. Writing to a CSV File Using csv.writer<a class="headerlink" href="#writing-to-a-csv-file-using-csv-writer" title="Link to this heading">¶</a></h3>
+<p>Creates and writes rows to a CSV file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-multiple-rows-at-once">
+<h3><span class="section-number">6.2.6. </span>6. Writing Multiple Rows at Once<a class="headerlink" href="#writing-multiple-rows-at-once" title="Link to this heading">¶</a></h3>
+<p>Efficient for bulk data writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Toronto&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Emma&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-dictionaries-using-csv-dictwriter">
+<h3><span class="section-number">6.2.7. </span>7. Writing Dictionaries Using csv.DictWriter<a class="headerlink" href="#writing-dictionaries-using-csv-dictwriter" title="Link to this heading">¶</a></h3>
+<p>Ensures structured column mapping:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;users.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">})</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Rome&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-delimiters-and-quoting">
+<h3><span class="section-number">6.2.8. </span>8. Custom Delimiters and Quoting<a class="headerlink" href="#custom-delimiters-and-quoting" title="Link to this heading">¶</a></h3>
+<p>CSV supports configurable delimiters for complex data formats:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;custom.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="appending-data-to-an-existing-csv">
+<h3><span class="section-number">6.2.9. </span>9. Appending Data to an Existing CSV<a class="headerlink" href="#appending-data-to-an-existing-csv" title="Link to this heading">¶</a></h3>
+<p>“a” mode appends data without overwriting existing rows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;users.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-using-pandas-advanced">
+<h3><span class="section-number">6.2.10. </span>10. Reading CSV Using pandas (Advanced)<a class="headerlink" href="#reading-csv-using-pandas-advanced" title="Link to this heading">¶</a></h3>
+<p>Pandas provides high-level, efficient CSV data manipulation for analytics and ML workflows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="reading-csv-files-in-python">
+<h2><span class="section-number">6.3. </span>Reading CSV files in Python<a class="headerlink" href="#reading-csv-files-in-python" title="Link to this heading">¶</a></h2>
+<section id="basic-csv-reading-with-csv-reader">
+<h3><span class="section-number">6.3.1. </span>1. Basic CSV Reading with csv.reader<a class="headerlink" href="#basic-csv-reading-with-csv-reader" title="Link to this heading">¶</a></h3>
+<p>Reads each row as a list of string values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">6.3.2. </span>2. Skipping Header Row<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Useful when the first row contains column names:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Header:&quot;</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-as-dictionary-dictreader">
+<h3><span class="section-number">6.3.3. </span>3. Reading CSV as Dictionary (DictReader)<a class="headerlink" href="#reading-csv-as-dictionary-dictreader" title="Link to this heading">¶</a></h3>
+<p>Each row is returned as an ordered dictionary mapped to column headers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-specific-columns">
+<h3><span class="section-number">6.3.4. </span>4. Accessing Specific Columns<a class="headerlink" href="#accessing-specific-columns" title="Link to this heading">¶</a></h3>
+<p>Enables column-based data processing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-with-custom-delimiter">
+<h3><span class="section-number">6.3.5. </span>5. Reading CSV with Custom Delimiter<a class="headerlink" href="#reading-csv-with-custom-delimiter" title="Link to this heading">¶</a></h3>
+<p>Handles CSV files that use non-standard separators:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data_pipe.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-large-csv-files-efficiently">
+<h3><span class="section-number">6.3.6. </span>6. Reading Large CSV Files Efficiently<a class="headerlink" href="#reading-large-csv-files-efficiently" title="Link to this heading">¶</a></h3>
+<p>Iterative reading avoids loading the entire file into memory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;large_data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">row</span>  <span class="c1"># Lazy iteration prevents memory overload</span>
+</pre></div>
+</div>
+</section>
+<section id="converting-csv-data-types">
+<h3><span class="section-number">6.3.7. </span>7. Converting CSV Data Types<a class="headerlink" href="#converting-csv-data-types" title="Link to this heading">¶</a></h3>
+<p>CSV values are strings by default and often require type casting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+        <span class="n">salary</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-with-error-handling">
+<h3><span class="section-number">6.3.8. </span>8. Reading CSV with Error Handling<a class="headerlink" href="#reading-csv-with-error-handling" title="Link to this heading">¶</a></h3>
+<p>Ensures robustness in production code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CSV file not found.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-into-a-list">
+<h3><span class="section-number">6.3.9. </span>9. Reading CSV into a List<a class="headerlink" href="#reading-csv-into-a-list" title="Link to this heading">¶</a></h3>
+<p>Loads the entire CSV into memory (use cautiously for large files):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-using-pandas-structured-approach">
+<h3><span class="section-number">6.3.10. </span>10. Reading CSV Using pandas (Structured Approach)<a class="headerlink" href="#reading-csv-using-pandas-structured-approach" title="Link to this heading">¶</a></h3>
+<p>Pandas offers a high-level interface for complex data analysis and transformations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="writing-csv-files-in-python">
+<h2><span class="section-number">6.4. </span>Writing CSV files in Python<a class="headerlink" href="#writing-csv-files-in-python" title="Link to this heading">¶</a></h2>
+<section id="basic-csv-writing-with-csv-writer">
+<h3><span class="section-number">6.4.1. </span>1. Basic CSV Writing with csv.writer<a class="headerlink" href="#basic-csv-writing-with-csv-writer" title="Link to this heading">¶</a></h3>
+<p>Creates a CSV file and writes rows as lists:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.4.2. </span>2. Writing Multiple Rows at Once<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Efficient approach for bulk row insertion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Emma&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-csv-with-custom-delimiter">
+<h3><span class="section-number">6.4.3. </span>3. Writing CSV with Custom Delimiter<a class="headerlink" href="#writing-csv-with-custom-delimiter" title="Link to this heading">¶</a></h3>
+<p>Allows CSV generation beyond comma-separated formatting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data_pipe.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-csv-with-quoting">
+<h3><span class="section-number">6.4.4. </span>4. Writing CSV with Quoting<a class="headerlink" href="#writing-csv-with-quoting" title="Link to this heading">¶</a></h3>
+<p>Ensures consistent quoting of all fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;quotes.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_ALL</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Software Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="appending-data-to-existing-csv">
+<h3><span class="section-number">6.4.5. </span>5. Appending Data to Existing CSV<a class="headerlink" href="#appending-data-to-existing-csv" title="Link to this heading">¶</a></h3>
+<p>Appends without overwriting existing data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;users.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-dictionaries-with-dictwriter">
+<h3><span class="section-number">6.4.6. </span>6. Writing Dictionaries with DictWriter<a class="headerlink" href="#writing-dictionaries-with-dictwriter" title="Link to this heading">¶</a></h3>
+<p>Maps keys directly to column headers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;users.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="validating-data-before-writing">
+<h3><span class="section-number">6.4.7. </span>7. Validating Data Before Writing<a class="headerlink" href="#validating-data-before-writing" title="Link to this heading">¶</a></h3>
+<p>Prevents invalid or incomplete data from being written:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Toronto&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;validated.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">validate_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-csv-with-utf-8-encoding">
+<h3><span class="section-number">6.4.8. </span>8. Writing CSV with UTF-8 Encoding<a class="headerlink" href="#writing-csv-with-utf-8-encoding" title="Link to this heading">¶</a></h3>
+<p>Ensures proper handling of international characters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;unicode.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;City&quot;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;José&quot;</span><span class="p">,</span> <span class="s2">&quot;München&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="generating-csv-from-list-of-dictionaries">
+<h3><span class="section-number">6.4.9. </span>9. Generating CSV from List of Dictionaries<a class="headerlink" href="#generating-csv-from-list-of-dictionaries" title="Link to this heading">¶</a></h3>
+<p>Ideal for exporting structured datasets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Rome&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;records.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-csv-using-pandas-advanced-workflow">
+<h3><span class="section-number">6.4.10. </span>10. Writing CSV Using pandas (Advanced Workflow)<a class="headerlink" href="#writing-csv-using-pandas-advanced-workflow" title="Link to this heading">¶</a></h3>
+<p>Pandas simplifies CSV creation in data-intensive applications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Paris&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch05_python_functions.html" class="btn btn-neutral float-left" title="5. Chapter 5: Python Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch07_python_exception_handling.html" class="btn btn-neutral float-right" title="7. Chapter 7: Python Exception Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

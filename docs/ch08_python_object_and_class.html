@@ -1,0 +1,1071 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. Chapter 8: Python Object &amp; Class &mdash; Python Learning 1.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/fix_rtd.css" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/documentation_options.js?v=da1d7f10"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Chapter 9: Python Advanced Topics" href="ch09_python_advanced_topics.html" />
+    <link rel="prev" title="7. Chapter 7: Python Exception Handling" href="ch07_python_exception_handling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Learning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_python_fundamentals.html">2. Chapter 2: Python Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_python_flow_control.html">3. Chapter 3: Python Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04_python_data_types.html">4. Chapter 4: Python Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05_python_functions.html">5. Chapter 5: Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_python_files.html">6. Chapter 6: Python Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch07_python_exception_handling.html">7. Chapter 7: Python Exception Handling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Chapter 8: Python Object &amp; Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-objects-and-classes">8.1. Python Objects and Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-class-and-an-object">8.1.1. 1. What is a Class and an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-class-with-attributes">8.1.2. 2. Defining a Class with Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructor-method-init">8.1.3. 3. Constructor Method (__init__)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instance-methods">8.1.4. 4. Instance Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-variables-vs-instance-variables">8.1.5. 5. Class Variables vs Instance Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-multiple-objects">8.1.6. 6. Creating Multiple Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-object-properties">8.1.7. 7. Modifying Object Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-object-properties-and-objects">8.1.8. 8. Deleting Object Properties and Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-object-functions">8.1.9. 9. Built-in Object Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-class-example">8.1.10. 10. Real-World Class Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-inheritance">8.2. Python Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-inheritance">8.2.1. 1. What is Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-inheritance">8.2.2. 2. Single Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-new-methods-in-child-class">8.2.3. 3. Adding New Methods in Child Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-overriding">8.2.4. 4. Method Overriding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-super-to-call-parent-methods">8.2.5. 5. Using super() to Call Parent Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multilevel-inheritance">8.2.6. 6. Multilevel Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-inheritance">8.2.7. 7. Multiple Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-resolution-order-mro">8.2.8. 8. Method Resolution Order (MRO)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructor-inheritance">8.2.9. 9. Constructor Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-inheritance-example">8.2.10. 10. Real-World Inheritance Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-multiple-inheritance">8.3. Python Multiple Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-multiple-inheritance">8.3.1. 1. What is Multiple Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-multiple-inheritance-structure">8.3.2. 2. Basic Multiple Inheritance Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overlapping-method-names">8.3.3. 3. Overlapping Method Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-method-resolution-order-mro">8.3.4. 4. Understanding Method Resolution Order (MRO)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calling-parent-methods-explicitly">8.3.5. 5. Calling Parent Methods Explicitly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-inheritance-with-constructors">8.3.6. 6. Multiple Inheritance with Constructors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cooperative-multiple-inheritance-using-super">8.3.7. 7. Cooperative Multiple Inheritance Using super()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diamond-problem-example">8.3.8. 8. Diamond Problem Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualizing-the-inheritance-hierarchy">8.3.9. 9. Visualizing the Inheritance Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-multiple-inheritance-example">8.3.10. 10. Real-World Multiple Inheritance Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#polymorphism-in-python">8.4. Polymorphism in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-polymorphism">8.4.1. 1. What is Polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-polymorphism">8.4.2. 2. Function Polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-polymorphism">8.4.3. 3. Built-in Polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-overriding-runtime-polymorphism">8.4.4. 4. Method Overriding (Runtime Polymorphism)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operator-overloading">8.4.5. 5. Operator Overloading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polymorphism-with-different-classes">8.4.6. 6. Polymorphism with Different Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duck-typing">8.4.7. 7. Duck Typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-overloading-via-default-arguments">8.4.8. 8. Method Overloading via Default Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-base-class-polymorphism">8.4.9. 9. Abstract Base Class Polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-polymorphism-example">8.4.10. 10. Real-World Polymorphism Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-operator-overloading">8.5. Python Operator Overloading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-operator-overloading">8.5.1. 1. What is Operator Overloading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-the-addition-operator">8.5.2. 2. Overloading the Addition Operator (+)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-the-subtraction-operator">8.5.3. 3. Overloading the Subtraction Operator (-)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-multiplication-operator">8.5.4. 4. Overloading Multiplication Operator (*)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-division-operator">8.5.5. 5. Overloading Division Operator (/)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-equality-operator">8.5.6. 6. Overloading Equality Operator (==)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-less-than-and-greater-than">8.5.7. 7. Overloading Less Than and Greater Than</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-in-place-operators">8.5.8. 8. Overloading In-place Operators (+=)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overloading-string-representation-str">8.5.9. 9. Overloading String Representation (str())</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensive-operator-overloading-example">8.5.10. 10. Comprehensive Operator Overloading Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch09_python_advanced_topics.html">9. Chapter 9: Python Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_python_date_and_time.html">10. Chapter 10: Python Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_additional_topics.html">11. Chapter 11: Additional Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>Chapter 8: Python Object &amp; Class</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/runawayhorse001/SphinxGithub/blob/master/doc/ch08_python_object_and_class.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chapter-8-python-object-class">
+<span id="ch08"></span><h1><span class="section-number">8. </span>Chapter 8: Python Object &amp; Class<a class="headerlink" href="#chapter-8-python-object-class" title="Link to this heading">¶</a></h1>
+<section id="python-objects-and-classes">
+<h2><span class="section-number">8.1. </span>Python Objects and Classes<a class="headerlink" href="#python-objects-and-classes" title="Link to this heading">¶</a></h2>
+<section id="what-is-a-class-and-an-object">
+<h3><span class="section-number">8.1.1. </span>1. What is a Class and an Object<a class="headerlink" href="#what-is-a-class-and-an-object" title="Link to this heading">¶</a></h3>
+<p>A class is a blueprint for creating objects. An object is an instance of a class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Classes define structure; objects represent real entities.</p>
+</section>
+<section id="defining-a-class-with-attributes">
+<h3><span class="section-number">8.1.2. </span>2. Defining a Class with Attributes<a class="headerlink" href="#defining-a-class-with-attributes" title="Link to this heading">¶</a></h3>
+<p>Attributes represent properties of the class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="constructor-method-init">
+<h3><span class="section-number">8.1.3. </span>3. Constructor Method (__init__)<a class="headerlink" href="#constructor-method-init" title="Link to this heading">¶</a></h3>
+<p>The constructor initializes object data at creation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="instance-methods">
+<h3><span class="section-number">8.1.4. </span>4. Instance Methods<a class="headerlink" href="#instance-methods" title="Link to this heading">¶</a></h3>
+<p>Instance methods operate on object data using self:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, my name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="class-variables-vs-instance-variables">
+<h3><span class="section-number">8.1.5. </span>5. Class Variables vs Instance Variables<a class="headerlink" href="#class-variables-vs-instance-variables" title="Link to this heading">¶</a></h3>
+<p>Class variables are shared, instance variables are unique per object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="p">:</span>
+    <span class="n">school</span> <span class="o">=</span> <span class="s2">&quot;Global Academy&quot;</span>  <span class="c1"># Class variable</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>        <span class="c1"># Instance variable</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">school</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">school</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-multiple-objects">
+<h3><span class="section-number">8.1.6. </span>6. Creating Multiple Objects<a class="headerlink" href="#creating-multiple-objects" title="Link to this heading">¶</a></h3>
+<p>Multiple objects can be created from the same class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Tesla&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">brand</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">brand</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-object-properties">
+<h3><span class="section-number">8.1.7. </span>7. Modifying Object Properties<a class="headerlink" href="#modifying-object-properties" title="Link to this heading">¶</a></h3>
+<p>Objects allow runtime modification of attributes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="n">emp</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>
+<span class="n">emp</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Michael&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="deleting-object-properties-and-objects">
+<h3><span class="section-number">8.1.8. </span>8. Deleting Object Properties and Objects<a class="headerlink" href="#deleting-object-properties-and-objects" title="Link to this heading">¶</a></h3>
+<p>Use del to remove attributes or the object itself:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+
+<span class="n">item</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span>
+<span class="c1"># del item  # Deletes the object entirely</span>
+</pre></div>
+</div>
+</section>
+<section id="built-in-object-functions">
+<h3><span class="section-number">8.1.9. </span>9. Built-in Object Functions<a class="headerlink" href="#built-in-object-functions" title="Link to this heading">¶</a></h3>
+<p>Common object-related built-ins:</p>
+<ul class="simple">
+<li><p>type()</p></li>
+<li><p>isinstance()</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">User</span><span class="p">))</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>              <span class="c1"># &lt;class &#39;__main__.User&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-class-example">
+<h3><span class="section-number">8.1.10. </span>10. Real-World Class Example<a class="headerlink" href="#real-world-class-example" title="Link to this heading">¶</a></h3>
+<p>Encapsulation of data and behavior into a single unit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">balance</span><span class="p">)</span>  <span class="c1"># Output: 1500</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-inheritance">
+<h2><span class="section-number">8.2. </span>Python Inheritance<a class="headerlink" href="#python-inheritance" title="Link to this heading">¶</a></h2>
+<section id="what-is-inheritance">
+<h3><span class="section-number">8.2.1. </span>1. What is Inheritance<a class="headerlink" href="#what-is-inheritance" title="Link to this heading">¶</a></h3>
+<p>Inheritance allows a class (child) to acquire properties and behaviors of another class (parent):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animal is eating&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">eat</span><span class="p">()</span>  <span class="c1"># Inherited method</span>
+</pre></div>
+</div>
+<p>Promotes code reusability and hierarchical design.</p>
+</section>
+<section id="single-inheritance">
+<h3><span class="section-number">8.2.2. </span>2. Single Inheritance<a class="headerlink" href="#single-inheritance" title="Link to this heading">¶</a></h3>
+<p>A child class inherits from one parent class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the parent class&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-new-methods-in-child-class">
+<h3><span class="section-number">8.2.3. </span>3. Adding New Methods in Child Class<a class="headerlink" href="#adding-new-methods-in-child-class" title="Link to this heading">¶</a></h3>
+<p>Child classes can extend functionality beyond the parent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Some sound&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog barks&quot;</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">sound</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="method-overriding">
+<h3><span class="section-number">8.2.4. </span>4. Method Overriding<a class="headerlink" href="#method-overriding" title="Link to this heading">¶</a></h3>
+<p>Child class can redefine parent methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animal makes sound&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog barks&quot;</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">sound</span><span class="p">()</span>  <span class="c1"># Dog barks</span>
+</pre></div>
+</div>
+</section>
+<section id="using-super-to-call-parent-methods">
+<h3><span class="section-number">8.2.5. </span>5. Using super() to Call Parent Methods<a class="headerlink" href="#using-super-to-call-parent-methods" title="Link to this heading">¶</a></h3>
+<p>super() invokes the parent class method within the child:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animal makes sound&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">sound</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog barks&quot;</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">sound</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="multilevel-inheritance">
+<h3><span class="section-number">8.2.6. </span>6. Multilevel Inheritance<a class="headerlink" href="#multilevel-inheritance" title="Link to this heading">¶</a></h3>
+<p>Inheritance chain stretches across multiple levels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Grandparent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grandparent feature&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="p">(</span><span class="n">Grandparent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">feature</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-inheritance">
+<h3><span class="section-number">8.2.7. </span>7. Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Link to this heading">¶</a></h3>
+<p>A child class inherits from multiple parent classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Father</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">skill</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Driving&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Mother</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">talent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cooking&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Father</span><span class="p">,</span> <span class="n">Mother</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">skill</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">talent</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="method-resolution-order-mro">
+<h3><span class="section-number">8.2.8. </span>8. Method Resolution Order (MRO)<a class="headerlink" href="#method-resolution-order-mro" title="Link to this heading">¶</a></h3>
+<p>MRO defines the order in which methods are resolved in inheritance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">mro</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="constructor-inheritance">
+<h3><span class="section-number">8.2.9. </span>9. Constructor Inheritance<a class="headerlink" href="#constructor-inheritance" title="Link to this heading">¶</a></h3>
+<p>Child constructors can call parent constructors using super():</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-inheritance-example">
+<h3><span class="section-number">8.2.10. </span>10. Real-World Inheritance Example<a class="headerlink" href="#real-world-inheritance-example" title="Link to this heading">¶</a></h3>
+<p>Demonstrates inheritance in an object-oriented system:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vehicle started&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Car is driving&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Bike</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ride</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bike is riding&quot;</span><span class="p">)</span>
+
+<span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">bike</span> <span class="o">=</span> <span class="n">Bike</span><span class="p">()</span>
+
+<span class="n">car</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">car</span><span class="o">.</span><span class="n">drive</span><span class="p">()</span>
+
+<span class="n">bike</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">bike</span><span class="o">.</span><span class="n">ride</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-multiple-inheritance">
+<h2><span class="section-number">8.3. </span>Python Multiple Inheritance<a class="headerlink" href="#python-multiple-inheritance" title="Link to this heading">¶</a></h2>
+<section id="what-is-multiple-inheritance">
+<h3><span class="section-number">8.3.1. </span>1. What is Multiple Inheritance<a class="headerlink" href="#what-is-multiple-inheritance" title="Link to this heading">¶</a></h3>
+<p>Multiple inheritance occurs when a class inherits from more than one parent class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Father</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">skill1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Driving&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Mother</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">skill2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cooking&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Father</span><span class="p">,</span> <span class="n">Mother</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">skill1</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">skill2</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The child class gains features from all parent classes.</p>
+</section>
+<section id="basic-multiple-inheritance-structure">
+<h3><span class="section-number">8.3.2. </span>2. Basic Multiple Inheritance Structure<a class="headerlink" href="#basic-multiple-inheritance-structure" title="Link to this heading">¶</a></h3>
+<p>The child class can access methods from both parents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Class A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Class B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">show_a</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">show_b</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="overlapping-method-names">
+<h3><span class="section-number">8.3.3. </span>3. Overlapping Method Names<a class="headerlink" href="#overlapping-method-names" title="Link to this heading">¶</a></h3>
+<p>Python follows Method Resolution Order (MRO) to determine which method to invoke:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="understanding-method-resolution-order-mro">
+<h3><span class="section-number">8.3.4. </span>4. Understanding Method Resolution Order (MRO)<a class="headerlink" href="#understanding-method-resolution-order-mro" title="Link to this heading">¶</a></h3>
+<p>MRO defines the order of class traversal: C → A → B → object</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">mro</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="calling-parent-methods-explicitly">
+<h3><span class="section-number">8.3.5. </span>5. Calling Parent Methods Explicitly<a class="headerlink" href="#calling-parent-methods-explicitly" title="Link to this heading">¶</a></h3>
+<p>Allows execution of logic from multiple parents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Process A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Process B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">B</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-inheritance-with-constructors">
+<h3><span class="section-number">8.3.6. </span>6. Multiple Inheritance with Constructors<a class="headerlink" href="#multiple-inheritance-with-constructors" title="Link to this heading">¶</a></h3>
+<p>Only the first parent’s constructor executes due to MRO:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Constructor A&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Constructor B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="cooperative-multiple-inheritance-using-super">
+<h3><span class="section-number">8.3.7. </span>7. Cooperative Multiple Inheritance Using super()<a class="headerlink" href="#cooperative-multiple-inheritance-using-super" title="Link to this heading">¶</a></h3>
+<p>Demonstrates cooperative method chaining through MRO:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A init&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B init&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C init&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="diamond-problem-example">
+<h3><span class="section-number">8.3.8. </span>8. Diamond Problem Example<a class="headerlink" href="#diamond-problem-example" title="Link to this heading">¶</a></h3>
+<p>Python resolves this ambiguity using MRO, avoiding duplicate calls:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Grandparent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from Grandparent&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Parent1</span><span class="p">(</span><span class="n">Grandparent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Parent2</span><span class="p">(</span><span class="n">Grandparent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Parent1</span><span class="p">,</span> <span class="n">Parent2</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="visualizing-the-inheritance-hierarchy">
+<h3><span class="section-number">8.3.9. </span>9. Visualizing the Inheritance Hierarchy<a class="headerlink" href="#visualizing-the-inheritance-hierarchy" title="Link to this heading">¶</a></h3>
+<p>Helps understand order of class resolution for debugging:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Z</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">W</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">mro</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-multiple-inheritance-example">
+<h3><span class="section-number">8.3.10. </span>10. Real-World Multiple Inheritance Example<a class="headerlink" href="#real-world-multiple-inheritance-example" title="Link to this heading">¶</a></h3>
+<p>Combines cross-cutting concerns such as logging and validation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logging data&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Validator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validating data&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">Logger</span><span class="p">,</span> <span class="n">Validator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executing service&quot;</span><span class="p">)</span>
+
+<span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">()</span>
+<span class="n">service</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="polymorphism-in-python">
+<h2><span class="section-number">8.4. </span>Polymorphism in Python<a class="headerlink" href="#polymorphism-in-python" title="Link to this heading">¶</a></h2>
+<section id="what-is-polymorphism">
+<h3><span class="section-number">8.4.1. </span>1. What is Polymorphism<a class="headerlink" href="#what-is-polymorphism" title="Link to this heading">¶</a></h3>
+<p>Polymorphism allows the same interface (method or operator) to behave differently based on the object or context:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>   <span class="c1"># String length</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>  <span class="c1"># List length</span>
+</pre></div>
+</div>
+<p>The same function works for multiple data types.</p>
+</section>
+<section id="function-polymorphism">
+<h3><span class="section-number">8.4.2. </span>2. Function Polymorphism<a class="headerlink" href="#function-polymorphism" title="Link to this heading">¶</a></h3>
+<p>A single function adapts behavior based on arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>        <span class="c1"># 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>     <span class="c1"># 9</span>
+</pre></div>
+</div>
+</section>
+<section id="built-in-polymorphism">
+<h3><span class="section-number">8.4.3. </span>3. Built-in Polymorphism<a class="headerlink" href="#built-in-polymorphism" title="Link to this heading">¶</a></h3>
+<p>The + operator behaves differently based on operand types:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>          <span class="c1"># Integer addition</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="s2">&quot;AI&quot;</span><span class="p">)</span> <span class="c1"># String concatenation</span>
+</pre></div>
+</div>
+</section>
+<section id="method-overriding-runtime-polymorphism">
+<h3><span class="section-number">8.4.4. </span>4. Method Overriding (Runtime Polymorphism)<a class="headerlink" href="#method-overriding-runtime-polymorphism" title="Link to this heading">¶</a></h3>
+<p>Child class alters the behavior of a parent method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animal sound&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog barks&quot;</span><span class="p">)</span>
+
+<span class="n">pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">pet</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="operator-overloading">
+<h3><span class="section-number">8.4.5. </span>5. Operator Overloading<a class="headerlink" href="#operator-overloading" title="Link to this heading">¶</a></h3>
+<p>Custom behavior for operators using magic methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">v3</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output: 30</span>
+</pre></div>
+</div>
+</section>
+<section id="polymorphism-with-different-classes">
+<h3><span class="section-number">8.4.6. </span>6. Polymorphism with Different Classes<a class="headerlink" href="#polymorphism-with-different-classes" title="Link to this heading">¶</a></h3>
+<p>Different objects responding to the same method call:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meow&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bark&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="n">animal</span><span class="o">.</span><span class="n">sound</span><span class="p">()</span>
+
+<span class="n">make_sound</span><span class="p">(</span><span class="n">Cat</span><span class="p">())</span>
+<span class="n">make_sound</span><span class="p">(</span><span class="n">Dog</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="duck-typing">
+<h3><span class="section-number">8.4.7. </span>7. Duck Typing<a class="headerlink" href="#duck-typing" title="Link to this heading">¶</a></h3>
+<p>Behavior is determined by method presence, not class type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Car moving&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Boat</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Boat sailing&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">vehicle</span><span class="p">):</span>
+    <span class="n">vehicle</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+
+<span class="n">start</span><span class="p">(</span><span class="n">Car</span><span class="p">())</span>
+<span class="n">start</span><span class="p">(</span><span class="n">Boat</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="method-overloading-via-default-arguments">
+<h3><span class="section-number">8.4.8. </span>8. Method Overloading via Default Arguments<a class="headerlink" href="#method-overloading-via-default-arguments" title="Link to this heading">¶</a></h3>
+<p>Python simulates overloading using default parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>     <span class="c1"># 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># 15</span>
+</pre></div>
+</div>
+</section>
+<section id="abstract-base-class-polymorphism">
+<h3><span class="section-number">8.4.9. </span>9. Abstract Base Class Polymorphism<a class="headerlink" href="#abstract-base-class-polymorphism" title="Link to this heading">¶</a></h3>
+<p>Ensures consistent interface across implementations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="n">shape</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="real-world-polymorphism-example">
+<h3><span class="section-number">8.4.10. </span>10. Real-World Polymorphism Example<a class="headerlink" href="#real-world-polymorphism-example" title="Link to this heading">¶</a></h3>
+<p>Multiple behaviors implemented under a unified interface:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Notification</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending notification&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Email</span><span class="p">(</span><span class="n">Notification</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending Email&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SMS</span><span class="p">(</span><span class="n">Notification</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending SMS&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">service</span><span class="p">):</span>
+    <span class="n">service</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+
+<span class="n">notify</span><span class="p">(</span><span class="n">Email</span><span class="p">())</span>
+<span class="n">notify</span><span class="p">(</span><span class="n">SMS</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-operator-overloading">
+<h2><span class="section-number">8.5. </span>Python Operator Overloading<a class="headerlink" href="#python-operator-overloading" title="Link to this heading">¶</a></h2>
+<section id="what-is-operator-overloading">
+<h3><span class="section-number">8.5.1. </span>1. What is Operator Overloading<a class="headerlink" href="#what-is-operator-overloading" title="Link to this heading">¶</a></h3>
+<p>Operator overloading allows custom classes to define how standard operators behave using special (dunder) methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Number</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">n1</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="p">)</span>  <span class="c1"># Output: 30</span>
+</pre></div>
+</div>
+<p>The + operator is redefined for the Number class.</p>
+</section>
+<section id="overloading-the-addition-operator">
+<h3><span class="section-number">8.5.2. </span>2. Overloading the Addition Operator (+)<a class="headerlink" href="#overloading-the-addition-operator" title="Link to this heading">¶</a></h3>
+<p>Implements vector addition logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">v3</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output: 12</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-the-subtraction-operator">
+<h3><span class="section-number">8.5.3. </span>3. Overloading the Subtraction Operator (-)<a class="headerlink" href="#overloading-the-subtraction-operator" title="Link to this heading">¶</a></h3>
+<p>Custom logic for subtraction:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Balance</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Balance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+
+<span class="n">b1</span> <span class="o">=</span> <span class="n">Balance</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">Balance</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>  <span class="c1"># Output: 60</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-multiplication-operator">
+<h3><span class="section-number">8.5.4. </span>4. Overloading Multiplication Operator (*)<a class="headerlink" href="#overloading-multiplication-operator" title="Link to this heading">¶</a></h3>
+<p>Defines how objects behave with <a href="#id1"><span class="problematic" id="id2">*</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Repeater</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">*</span> <span class="n">times</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Repeater</span><span class="p">(</span><span class="s2">&quot;AI &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Output: AI AI AI</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-division-operator">
+<h3><span class="section-number">8.5.5. </span>5. Overloading Division Operator (/)<a class="headerlink" href="#overloading-division-operator" title="Link to this heading">¶</a></h3>
+<p>Implements custom division logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">/</span> <span class="n">c2</span><span class="p">)</span>  <span class="c1"># Output: 25.0</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-equality-operator">
+<h3><span class="section-number">8.5.6. </span>6. Overloading Equality Operator (==)<a class="headerlink" href="#overloading-equality-operator" title="Link to this heading">¶</a></h3>
+<p>Controls object comparison behavior:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-less-than-and-greater-than">
+<h3><span class="section-number">8.5.7. </span>7. Overloading Less Than and Greater Than<a class="headerlink" href="#overloading-less-than-and-greater-than" title="Link to this heading">¶</a></h3>
+<p>Supports sorting and ranking operations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Score</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marks</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marks</span> <span class="o">=</span> <span class="n">marks</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">marks</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">marks</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">marks</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">marks</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">Score</span><span class="p">(</span><span class="mi">85</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Score</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-in-place-operators">
+<h3><span class="section-number">8.5.8. </span>8. Overloading In-place Operators (+=)<a class="headerlink" href="#overloading-in-place-operators" title="Link to this heading">¶</a></h3>
+<p>Modifies object in-place:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">+=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Output: 15</span>
+</pre></div>
+</div>
+</section>
+<section id="overloading-string-representation-str">
+<h3><span class="section-number">8.5.9. </span>9. Overloading String Representation (str())<a class="headerlink" href="#overloading-string-representation-str" title="Link to this heading">¶</a></h3>
+<p>Enhances readability of object display:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> costs $</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># Laptop costs $1200</span>
+</pre></div>
+</div>
+</section>
+<section id="comprehensive-operator-overloading-example">
+<h3><span class="section-number">8.5.10. </span>10. Comprehensive Operator Overloading Example<a class="headerlink" href="#comprehensive-operator-overloading-example" title="Link to this heading">¶</a></h3>
+<p>Fully custom arithmetic for a domain-specific class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexNumber</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">real</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ComplexNumber</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ComplexNumber</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">ComplexNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">ComplexNumber</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span><span class="p">)</span>  <span class="c1"># 13</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">-</span> <span class="n">c2</span><span class="p">)</span>  <span class="c1"># 7</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ch07_python_exception_handling.html" class="btn btn-neutral float-left" title="7. Chapter 7: Python Exception Handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ch09_python_advanced_topics.html" class="btn btn-neutral float-right" title="9. Chapter 9: Python Advanced Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Raja CSP Raman.
+      <span class="lastupdated">Last updated on Feb 27, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
